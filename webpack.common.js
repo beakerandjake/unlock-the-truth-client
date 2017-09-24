@@ -7,7 +7,8 @@ module.exports = {
     entry: {
         app: './src/app/app.module.js',
         vendor: [
-            'lodash'
+            'lodash',
+            'angular'
         ]
     },
     output: {
@@ -39,7 +40,18 @@ module.exports = {
             // BABEL JS
             test: /\.js$/,
             exclude: /node_modules/,
-            loader: 'babel-loader'
+            use: [{
+                    // Auto annotate angular components
+                    loader: 'ng-annotate-loader',
+                    options: {
+                        singleQuotes: true
+                    }
+                },
+                {
+                    // Transpile to es5
+                    loader: 'babel-loader'
+                }
+            ]
         }, {
             // STYLES
             test: /\.css$/,
