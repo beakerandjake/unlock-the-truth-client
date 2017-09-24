@@ -5,7 +5,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
     entry: {
-        app: './src/app/index.js',
+        app: './src/app/app.module.js',
         vendor: [
             'lodash'
         ]
