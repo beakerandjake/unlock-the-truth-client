@@ -1,15 +1,26 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-    entry: './src/app/index.js',
+    entry: {
+        app: './src/app/index.js'
+    },
     output: {
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist')
     },
+    // DEV ONLY
+    devtool: 'inline-source-map',
+    // DEV ONLY
+    devServer: {
+        contentBase: './dist',
+        },
     plugins: [
+        // Clean the dist folder 
         new CleanWebpackPlugin(['dist']),
+        // Generate the html file with the latest script tags. 
         new HtmlWebpackPlugin({
             title: "HTML"
         })
