@@ -30,6 +30,12 @@ module.exports = {
     ],
     module: {
         rules: [{
+            // LINTING
+            enforce: "pre",
+            test: /\.js$/,
+            exclude: /node_modules/,
+            loader: "eslint-loader",
+        }, {
             // BABEL JS
             test: /\.js$/,
             exclude: /node_modules/,
