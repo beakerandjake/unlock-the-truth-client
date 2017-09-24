@@ -1,12 +1,16 @@
 import angular from 'angular';
-import AppComponent from './app.component';
+import MainComponent from './app.component';
+import Components from './components/components.module';
+
 
 const moduleName = 'unlock-the-truth';
 
 //Declare our main module.
 angular
-    .module(moduleName, [])
-    .component('unlockTheTruth', AppComponent)
+    .module(moduleName, [
+        Components
+    ])
+    .component('unlockTheTruth', MainComponent)
     .config($locationProvider => {
         // Configure app to have pretty urls (no #)
         $locationProvider.html5Mode(true);
