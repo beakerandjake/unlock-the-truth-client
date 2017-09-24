@@ -5,7 +5,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = merge(common, {
     output: {
-        filename: '[name].[hash].js'
+        filename: '[name].[chunkhash].js'
     },
     // Use .map files for prod. 
     devtool: 'source-map',
