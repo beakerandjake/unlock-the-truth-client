@@ -5,24 +5,27 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
     entry: {
-        app: './src/app/index.js'
+        app: './src/app/index.js',
+        vendor: [
+            'lodash'
+        ]
     },
     output: {
-        filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist')
     },
-    // DEV ONLY
-    devtool: 'inline-source-map',
-    // DEV ONLY
-    devServer: {
-        contentBase: './dist',
-        },
     plugins: [
         // Clean the dist folder 
         new CleanWebpackPlugin(['dist']),
         // Generate the html file with the latest script tags. 
         new HtmlWebpackPlugin({
-            title: "HTML"
+            template: './src/index.html'
+        }),
+        new webpack.HashedModuleIdsPlugin(),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor'
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'runtime'
         })
     ],
     module: {
