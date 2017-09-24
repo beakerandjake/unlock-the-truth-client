@@ -69,6 +69,15 @@ module.exports = {
             // FONTS
             test: /\.(woff|woff2|eot|ttf|otf)$/,
             loader: 'file-loader'
+        }, {
+            // HTML
+            test: /\.(html)$/,
+            use: {
+                loader: 'html-loader',
+                options: {
+                    attrs: [':data-src']
+                }
+            }
         }]
     }
 };
