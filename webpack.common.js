@@ -30,6 +30,11 @@ module.exports = {
     ],
     module: {
         rules: [{
+            // BABEL JS
+            test: /\.js$/,
+            exclude: /node_modules/,
+            loader: 'babel-loader'
+        }, {
             // STYLES
             test: /\.css$/,
             use: [
