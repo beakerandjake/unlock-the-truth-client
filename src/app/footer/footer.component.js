@@ -1,8 +1,8 @@
 import template from './footer.html';
 
-const FooterComponent = {
+const footerComponent = {
   bindings: {},
   template
 };
 
-export default FooterComponent;
+export default footerComponent;
