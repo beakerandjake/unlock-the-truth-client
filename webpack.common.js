@@ -8,7 +8,8 @@ module.exports = {
         app: './src/app/app.module.js',
         vendor: [
             'lodash',
-            'angular'
+            'angular',
+            'bootstrap'
         ]
     },
     output: {
