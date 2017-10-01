@@ -6,16 +6,33 @@ class QuestionTrackController {
         this._questionTrackService = questionTrackService;
 
         // Properties
+        this.loading = false;
         this.model = {};
     }
 
     $onInit() {
+        this.loadQuestions();
+    }
+
+    // Query API for questions and store results.
+    loadQuestions() {
+        // Bail if currently busy
+        if (this.loading) {
+            return;
+        }
+
+        this.loading = true;
+
         this._questionTrackService.getQuestions()
             .then(result => {
-                console.log('Got a great result!', result);
+                this.model = result;
             })
             .catch(() => {
+                // Todo, transition to error page.
                 console.log('Error loading questions!');
+            })
+            .finally(() => {
+                this.loading = false;
             });
     }
 }

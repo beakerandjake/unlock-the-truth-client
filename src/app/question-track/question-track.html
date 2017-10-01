@@ -1,5 +1,11 @@
 <div class="row">
-    <div class="col-xs-12 text-center">
-        <h3>Loading...</h3>
+    <!-- Show spinner when loading questions -->
+    <div class="col-xs-12 text-center" ng-if="$ctrl.loading">
+        <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+    </div>
+
+    <!-- Show main content -->
+    <div class="col-xs-12 text-center" ng-if="!$ctrl.loading">
+        <pre>{{$ctrl|json}}</pre>
     </div>
 </div>
