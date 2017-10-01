@@ -8,6 +8,7 @@ import QuestionTrack from './question-track/question-track.module';
 
 // Global styles
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'font-awesome/css/font-awesome.min.css';
 
 const moduleName = 'unlock-the-truth';
 
