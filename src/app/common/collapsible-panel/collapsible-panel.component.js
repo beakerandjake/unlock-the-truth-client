@@ -7,7 +7,9 @@ const CollapsiblePanelComponent = {
         title: 'cpTitle',
         body: 'cpBody'
     },
-    bindings: {},
+    bindings: {
+        locked: '<cpLocked'
+    },
     template,
     controller
 };
