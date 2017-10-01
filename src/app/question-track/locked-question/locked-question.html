@@ -6,9 +6,8 @@
                     {{$ctrl.question.title || 'Locked Question'}}
                 </h4>
             </cp-title>
-            <cp-body>
-                <pre>{{$ctrl.question|json}}</pre>
-            </cp-body>
+            <!-- Nothing to transclude for the body, because you can't see any info on a locked question! -->
+            <cp-body></cp-body>
         </utt-collapsible-panel>
     </div>
 </div>
