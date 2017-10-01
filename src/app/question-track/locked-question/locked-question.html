@@ -1,6 +1,14 @@
 <div class="row">
     <div class="col-xs-12">
-        <h1>I am a locked question!</h1>
-        <pre>{{$ctrl.question|json}}</pre>
+        <utt-collapsible-panel cp-locked="true">
+            <cp-title>
+                <h4 class="panel-title">
+                    {{$ctrl.question.title || 'Locked Question'}}
+                </h4>
+            </cp-title>
+            <cp-body>
+                <pre>{{$ctrl.question|json}}</pre>
+            </cp-body>
+        </utt-collapsible-panel>
     </div>
 </div>
