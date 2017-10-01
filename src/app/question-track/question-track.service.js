@@ -1,3 +1,5 @@
+import mockQuestions from './mockTrackData.json';
+
 export default class QuestionTrackController {
     constructor($q, $timeout) {
         'ngInject';
@@ -13,8 +15,8 @@ export default class QuestionTrackController {
         const deferred = this._$q.defer();
 
         this._$timeout(() => {
-            deferred.resolve('Got a cool result!');
-        }, 10000);
+            deferred.resolve(mockQuestions);
+        }, 3000);
         
         return deferred.promise;
     }
