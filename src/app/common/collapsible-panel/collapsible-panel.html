@@ -1,0 +1,13 @@
+<div class="panel panel-default">
+    <div class="panel-heading" ng-click="$ctrl.isCollapsed = !$ctrl.isCollapsed">
+        <div class="pull-right">
+            <i class="fa" ng-class="!$ctrl.isCollapsed ? 'fa-minus-square-o' : 'fa-plus-square-o'"></i>
+        </div>
+        <div ng-transclude="title"></div>
+    </div>
+    <div uib-collapse="$ctrl.isCollapsed">
+        <div class="panel-body">
+            <div ng-transclude="body"></div>
+        </div>
+    </div>
+</div>
