@@ -5,7 +5,11 @@
     </div>
 
     <!-- Show main content -->
-    <div class="col-xs-12 text-center" ng-if="!$ctrl.loading">
-        <pre>{{$ctrl|json}}</pre>
+    <div class="col-xs-12" ng-if="!$ctrl.loading">
+        <div class="row">
+            <div class="col-xs-12" ng-repeat="question in $ctrl.model">
+                <pre>{{question|json}}</pre>
+            </div>
+        </div>
     </div>
 </div>
