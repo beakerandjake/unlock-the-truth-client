@@ -8,7 +8,8 @@ const CollapsiblePanelComponent = {
         body: 'cpBody'
     },
     bindings: {
-        locked: '<cpLocked'
+        locked: '<cpLocked', // If truthy, panel will default to collapsed and not allow expansion
+        panelNgClass: '@cpNgClass' // Passed to ng class, allows you to style the main panel with custom classes (defaults to panel-default if not provided)
     },
     template,
     controller
