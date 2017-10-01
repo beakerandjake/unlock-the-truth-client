@@ -16,7 +16,7 @@ export default class QuestionTrackController {
 
         this._$timeout(() => {
             deferred.resolve(mockQuestions);
-        }, 3000);
+        });
         
         return deferred.promise;
     }
