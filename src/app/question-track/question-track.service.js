@@ -14,7 +14,7 @@ export default class QuestionTrackController {
 
         this._$timeout(() => {
             deferred.resolve('Got a cool result!');
-        }, 1000);
+        }, 10000);
         
         return deferred.promise;
     }
