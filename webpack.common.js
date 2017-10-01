@@ -9,6 +9,7 @@ module.exports = {
         vendor: [
             'lodash',
             'angular',
+            'jquery',
             'bootstrap'
         ]
     },
@@ -28,6 +29,11 @@ module.exports = {
         }),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'runtime'
+        }),
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery',
+            'window.jQuery': 'jquery'
         })
     ],
     module: {
