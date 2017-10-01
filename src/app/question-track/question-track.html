@@ -9,14 +9,17 @@
         <div class="row">
             <!-- Show all unlcoked questions -->
             <div class="col-xs-12" ng-repeat="question in $ctrl.model.unlockedQuestions">
+                <h1>Question #: {{question.number}}</h1>
                 <utt-unlocked-question question="question"></utt-unlocked-question>
             </div>
             <!-- Show the current question -->
             <div class="col-xs-12" ng-if="$ctrl.model.currentQuestion">
+                <h1>Question #: {{$ctrl.model.currentQuestion.number}}</h1>
                 <utt-current-question question="$ctrl.model.currentQuestion"></utt-current-question>
             </div>
             <!-- Show all locked questions -->
             <div class="col-xs-12" ng-repeat="question in $ctrl.model.lockedQuestions">
+                <h1>Question #: {{question.number}}</h1>
                 <utt-locked-question question="question"></utt-locked-question>
             </div>
         </div>

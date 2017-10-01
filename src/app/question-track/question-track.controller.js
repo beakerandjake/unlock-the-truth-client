@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 class QuestionTrackController {
     constructor(questionTrackService) {
         'ngInject';
@@ -22,10 +24,12 @@ class QuestionTrackController {
         }
 
         this.loading = true;
+        this.model = {};
 
         this._questionTrackService.getQuestions()
             .then(result => {
                 this.model = result;
+                this.calculateQuestionNumbers();
             })
             .catch(() => {
                 // Todo, transition to error page.
@@ -34,6 +38,18 @@ class QuestionTrackController {
             .finally(() => {
                 this.loading = false;
             });
+    }
+
+    // Calculate what number each question is in the total track. 
+    calculateQuestionNumbers() {
+        let questionCount = 0;
+        const allQuestions = _.concat(this.model.unlockedQuestions, this.model.currentQuestion, this.model.lockedQuestions);
+
+        // Attach helper property to each question to indicate what the question number is. 
+        _.each(allQuestions, (question, index) => {
+            questionCount = index + 1;
+            question.number = questionCount;
+        });
     }
 }
 
