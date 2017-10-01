@@ -8,6 +8,11 @@
     <div class="col-xs-12" ng-if="!$ctrl.loading">
         <div class="row">
             <div class="col-xs-12" ng-repeat="question in $ctrl.model">
+                <!-- If question is locked, show the locked display -->
+                <div ng-if="!question.unlocked">
+                    <utt-locked-question question="question"></utt-locked-question>
+                </div>
+                
                 <pre>{{question|json}}</pre>
             </div>
         </div>
