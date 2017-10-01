@@ -7,11 +7,17 @@
     <!-- Show main content -->
     <div class="col-xs-12" ng-if="!$ctrl.loading">
         <div class="row">
-            <div class="col-xs-12" ng-repeat="question in $ctrl.model">
-                <!-- If question is locked, show the locked display -->
-                <div ng-if="!question.unlocked">
-                    <utt-locked-question question="question"></utt-locked-question>
-                </div>
+            <!-- Show all unlcoked questions -->
+            <div class="col-xs-12" ng-repeat="question in $ctrl.model.unlockedQuestions">
+                UNLOCKED!
+            </div>
+            <!-- Show the current question -->
+            <div class="col-xs-12" ng-if="$ctrl.model.currentQuestion">
+                CURRENT QUESTION
+            </div>
+            <!-- Show all locked questions -->
+            <div class="col-xs-12" ng-repeat="question in $ctrl.model.lockedQuestions">
+                <utt-locked-question question="question"></utt-locked-question>
             </div>
         </div>
     </div>
