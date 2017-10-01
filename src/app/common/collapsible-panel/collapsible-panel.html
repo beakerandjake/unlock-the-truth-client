@@ -1,7 +1,7 @@
 <div class="panel panel-default">
-    <div class="panel-heading" ng-click="$ctrl.isCollapsed = !$ctrl.isCollapsed">
+    <div class="panel-heading collapsible-panel-clickable" ng-click="$ctrl.isCollapsed = !$ctrl.isCollapsed">
         <div class="pull-right">
-            <i class="fa" ng-class="!$ctrl.isCollapsed ? 'fa-minus-square-o' : 'fa-plus-square-o'"></i>
+            <i class="fa" ng-class="$ctrl.isCollapsed ? 'fa-chevron-down' : 'fa-chevron-up'"></i>
         </div>
         <div ng-transclude="title"></div>
     </div>
