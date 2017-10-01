@@ -9,10 +9,11 @@
         <div class="row">
             <!-- Show all unlcoked questions -->
             <div class="col-xs-12" ng-repeat="question in $ctrl.model.unlockedQuestions">
+                <utt-unlocked-question question="question"></utt-unlocked-question>
             </div>
             <!-- Show the current question -->
             <div class="col-xs-12" ng-if="$ctrl.model.currentQuestion">
-                <utt-current-question question="question"></utt-current-question>
+                <utt-current-question question="$ctrl.model.currentQuestion"></utt-current-question>
             </div>
             <!-- Show all locked questions -->
             <div class="col-xs-12" ng-repeat="question in $ctrl.model.lockedQuestions">
