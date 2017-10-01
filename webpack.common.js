@@ -8,9 +8,7 @@ module.exports = {
         app: './src/app/app.module.js',
         vendor: [
             'lodash',
-            'angular',
-            'jquery',
-            'bootstrap'
+            'angular'
         ]
     },
     output: {
@@ -29,11 +27,6 @@ module.exports = {
         }),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'runtime'
-        }),
-        new webpack.ProvidePlugin({
-            $: 'jquery',
-            jQuery: 'jquery',
-            'window.jQuery': 'jquery'
         })
     ],
     module: {
