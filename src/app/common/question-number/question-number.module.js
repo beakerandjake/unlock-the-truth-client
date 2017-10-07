@@ -7,6 +7,6 @@ const moduleName = 'unlock-the-truth.question-number';
 
 angular
     .module(moduleName, [])
-    .component('uttQuestionNumber', questionNumberComponent)
+    .component('uttQuestionNumber', questionNumberComponent);
 
 export default moduleName;
