@@ -2,16 +2,11 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
     entry: {
-        app: './src/app/app.module.js',
-        vendor: [
-            'lodash',
-            'angular',
-            'jquery',
-            'bootstrap'
-        ]
+        app: './src/app/app.module.js'
     },
     output: {
         path: path.resolve(__dirname, 'dist')
@@ -23,17 +18,22 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './src/index.html'
         }),
+        // Ensure modules always have same Id.
         new webpack.HashedModuleIdsPlugin(),
+        // Treat anything from node_modules as vendor. 
         new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor'
+            name: 'vendor',
+            minChunks: ({
+                resource
+            }) => /node_modules/.test(resource),
         }),
+        // Extract webpack runtime. f
         new webpack.optimize.CommonsChunkPlugin({
             name: 'runtime'
         }),
-        new webpack.ProvidePlugin({
-            $: 'jquery',
-            jQuery: 'jquery',
-            'window.jQuery': 'jquery'
+        // Add bundle analysis
+        new BundleAnalyzerPlugin({
+            analyzerMode: 'static'
         })
     ],
     module: {
@@ -60,13 +60,6 @@ module.exports = {
                 }
             ]
         }, {
-            // STYLES
-            test: /\.css$/,
-            use: [
-                'style-loader',
-                'css-loader'
-            ]
-        }, {
             // IMAGES
             test: /\.(png|svg|jpg|gif)$/,
             use: [
@@ -76,15 +69,6 @@ module.exports = {
             // FONTS
             test: /\.(woff|woff2|eot|ttf|otf)$/,
             loader: 'file-loader'
-        }, {
-            // HTML
-            test: /\.(html)$/,
-            use: {
-                loader: 'html-loader',
-                options: {
-                    attrs: [':data-src']
-                }
-            }
         }]
     }
 };
