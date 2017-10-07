@@ -1,14 +1,16 @@
 import angular from 'angular';
-import collapsiblePanel from '../../common/collapsible-panel/collapsible-panel.module';
-import questionNumber from '../../common/question-number/question-number.module';
+import TextQuestion from './text-question/text-question.module';
+import CollapsiblePanel from '../../common/collapsible-panel/collapsible-panel.module';
+import QuestionNumber from '../../common/question-number/question-number.module';
 import currentQuestionComponent from './current-question.component';
 
 const moduleName = 'unlock-the-truth.current-question';
 
 angular
     .module(moduleName, [
-        collapsiblePanel,
-        questionNumber
+        CollapsiblePanel,
+        QuestionNumber,
+        TextQuestion
     ])
     .component('uttCurrentQuestion', currentQuestionComponent);
 
