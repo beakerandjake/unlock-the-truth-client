@@ -6,7 +6,7 @@ const questionNumberComponent = {
   bindings: {
       number: '<qnNumber'
   },
-  template: `<span class='question-number'>{{number}}</span>`
+  template: `<span ng-if="$ctrl.number" class="question-number">{{$ctrl.number}}</span>`
 };
 
 export default questionNumberComponent;
