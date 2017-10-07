@@ -1,6 +1,6 @@
 import mockQuestions from './mockTrackData.json';
 
-export default class QuestionTrackController {
+export default class QuestionTrackService {
     constructor($q, $timeout) {
         'ngInject';
 
