@@ -4,7 +4,9 @@ import controller from './text-question.controller';
 // Component which allows the user to answer a text type question
 
 const TextQuestionComponent = {
-  bindings: {},
+  bindings: {
+    question: '<tqQuestion'
+  },
   template,
   controller
 };
