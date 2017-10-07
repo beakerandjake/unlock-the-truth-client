@@ -3,7 +3,7 @@
         <utt-collapsible-panel cp-ng-class="panel-primary" cp-start-expanded="true">
             <cp-title>
                 <h4 class="panel-title">
-                    {{$ctrl.question.title}}
+                    <utt-question-number qn-number="{{$ctrl.question.number}}"></utt-question-number>{{$ctrl.question.title}}
                 </h4>
             </cp-title>
             <cp-body>

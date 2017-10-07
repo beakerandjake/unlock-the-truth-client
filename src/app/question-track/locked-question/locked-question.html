@@ -3,7 +3,7 @@
         <utt-collapsible-panel cp-locked="true" cp-ng-class="panel-danger">
             <cp-title>
                 <h4 class="panel-title">
-                    {{$ctrl.question.title || 'Locked Question'}}
+                    <utt-question-number qn-number="{{$ctrl.question.number}}"></utt-question-number>{{$ctrl.question.title || 'Locked Question'}}
                 </h4>
             </cp-title>
             <!-- Nothing to transclude for the body, because you can't see any info on a locked question! -->

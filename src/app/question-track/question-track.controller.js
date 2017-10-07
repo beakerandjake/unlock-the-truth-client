@@ -22,6 +22,7 @@ class QuestionTrackController {
         }
 
         this.loading = true;
+        this.model = {};
 
         this._questionTrackService.getQuestions()
             .then(result => {
