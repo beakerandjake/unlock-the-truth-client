@@ -1,0 +1,8 @@
+.question-number {
+    font-weight: bold;
+}
+
+.question-number::after {
+    font-weight: normal;
+    content: " - ";
+}
