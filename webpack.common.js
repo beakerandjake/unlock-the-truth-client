@@ -2,14 +2,11 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
     entry: {
-        app: './src/app/app.module.js',
-        vendor: [
-            'lodash',
-            'angular'
-        ]
+        app: './src/app/app.module.js'
     },
     output: {
         path: path.resolve(__dirname, 'dist')
@@ -21,12 +18,22 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './src/index.html'
         }),
+        // Ensure modules always have same Id.
         new webpack.HashedModuleIdsPlugin(),
+        // Treat anything from node_modules as vendor. 
         new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor'
+            name: 'vendor',
+            minChunks: ({
+                resource
+            }) => /node_modules/.test(resource),
         }),
+        // Extract webpack runtime. f
         new webpack.optimize.CommonsChunkPlugin({
             name: 'runtime'
+        }),
+        // Add bundle analysis
+        new BundleAnalyzerPlugin({
+            analyzerMode: 'static'
         })
     ],
     module: {
