@@ -38,6 +38,11 @@ class QuestionTrackController {
                 this.loading = false;
             });
     }
+
+    // Fired when the user answers the current question.  
+    onCurrentQuestionAnswered(answer) {
+        console.log(`Current question answered with ${answer}`);
+    }
 }
 
 export default QuestionTrackController;

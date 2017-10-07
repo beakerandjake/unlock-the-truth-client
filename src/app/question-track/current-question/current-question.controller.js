@@ -15,8 +15,13 @@ class CurrentQuestionController {
             return false;
         }
 
+        // TODO.. not sure if show busy status here yet..  
         this.submittingAnswer = true;
-        console.log(`Current question was answered with: ${answer}`);
+
+        // Raise our callback 
+        this.onAnswer({
+            answer
+        });
     }
 }
 
