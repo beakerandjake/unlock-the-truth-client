@@ -2,11 +2,17 @@
 
 class TextQuestionController {
     constructor() {
-        
+        this.answer = '';
     }
 
     $onInit() {
 
+    }
+
+    answerQuestion() {
+        console.log(`Answered: ${this.answer}`);
+
+        this.saving = true;
     }
 }
 

@@ -5,10 +5,14 @@
     </div>
     <!-- User input -->
     <div class="col-xs-12">
-        <form novalidate name="textQuestionForm">
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Enter answer..." required>
-            </div>
+        <form novalidate name="textQuestionForm" ng-submit="$ctrl.answerQuestion()">
+            <fieldset ng-disabled="$ctrl.saving">
+                <div class="form-group">
+                    <input ng-model="$ctrl.answer" ng-keyup="$event.keyCode === 13 && $ctrl.answerQuestion()" type="text" class="form-control"
+                        name="answer" placeholder="Enter answer..." required>
+                </div>
+                <button type="submit" class="btn btn-primary" ng-disabled="!$ctrl.answer" title="{{!$ctrl.answer ? 'Answer question to submit' : 'Submit answer'}}">Submit</button>
+            </fieldset>
         </form>
     </div>
 </div>
