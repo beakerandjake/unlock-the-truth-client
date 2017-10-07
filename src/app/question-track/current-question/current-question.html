@@ -11,7 +11,7 @@
                 <div ng-switch="$ctrl.question.type">
                     <!-- Text question -->
                     <div ng-switch-when="text">
-                        <utt-text-question tq-question="$ctrl.question"></utt-text-question>
+                        <utt-text-question tq-question="$ctrl.question" tq-on-submit="$ctrl.onSubmit(answer)"></utt-text-question>
                     </div>
                     <!-- Show error when unsupported question type. -->
                     <div ng-switch-default>
