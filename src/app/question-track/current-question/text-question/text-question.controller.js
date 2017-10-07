@@ -1,3 +1,5 @@
+// Controller for the text-question component
+
 class TextQuestionController {
     constructor() {
         
