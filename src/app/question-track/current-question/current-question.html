@@ -3,7 +3,10 @@
         <utt-collapsible-panel cp-ng-class="panel-primary" cp-start-expanded="true">
             <cp-title>
                 <h4 class="panel-title">
-                    <utt-question-number qn-number="{{$ctrl.question.number}}"></utt-question-number>{{$ctrl.question.title}}
+                    <utt-question-number qn-number="{{$ctrl.question.number}}"></utt-question-number>
+                    {{$ctrl.question.title}}
+                    <span ng-if="$ctrl.submittingAnswer" class="fa fa-spinner fa-spin"></span>
+                </h4>
                 </h4>
             </cp-title>
             <cp-body>
