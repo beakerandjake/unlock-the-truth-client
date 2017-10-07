@@ -4,6 +4,8 @@ import CollapsiblePanel from '../../common/collapsible-panel/collapsible-panel.m
 import QuestionNumber from '../../common/question-number/question-number.module';
 import currentQuestionComponent from './current-question.component';
 
+// Module which contains the current question component.  
+
 const moduleName = 'unlock-the-truth.current-question';
 
 angular
