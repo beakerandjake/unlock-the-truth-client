@@ -41,7 +41,23 @@ class QuestionTrackController {
 
     // Fired when the user answers the current question.  
     onCurrentQuestionAnswered(answer) {
-        console.log(`Current question answered with ${answer}`);
+        if (this.loading) {
+            return;
+        }
+
+        this.loading = true;
+
+        this._questionTrackService.answerQuestion(this.model.currentQuestion.Id, answer)
+            .then(result => {
+                console.log('Got Result:', result);
+            })
+            .catch(() => {
+                // Todo, transition to error page.
+                console.log('Error loading questions!');
+            })
+            .finally(() => {
+                this.loading = false;
+            });
     }
 }
 
