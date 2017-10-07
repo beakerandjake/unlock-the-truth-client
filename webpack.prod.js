@@ -20,5 +20,29 @@ module.exports = merge(common, {
                 'NODE_ENV': JSON.stringify('production')
             }
         })
-    ]
+    ],
+    module: {
+        rules: [{
+            // HTML (minimize in prod)
+            test: /\.(html)$/,
+            use: {
+                loader: 'html-loader',
+                options: {
+                    attrs: [':data-src'],
+                    minimize: true
+                }
+            }
+        }, {
+            // STYLES (minimize in prod)
+            test: /\.css$/,
+            use: [{
+                loader: 'style-loader'
+            }, {
+                loader: 'css-loader',
+                options: {
+                    minimize: true
+                }
+            }]
+        }]
+    }
 });

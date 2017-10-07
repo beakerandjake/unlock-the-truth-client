@@ -11,4 +11,20 @@ module.exports = merge(common, {
     devServer: {
         contentBase: './dist',
     },
+    module: {
+        rules: [{
+            // HTML
+            test: /\.(html)$/,
+            use: {
+                loader: 'html-loader',
+                options: {
+                    attrs: [':data-src']
+                }
+            }
+        }, {
+            // STYLES
+            test: /\.css$/,
+            use: ['style-loader', 'css-loader']
+        }]
+    }
 });

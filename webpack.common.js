@@ -8,7 +8,8 @@ module.exports = {
         app: './src/app/app.module.js',
         vendor: [
             'lodash',
-            'angular'        ]
+            'angular'
+        ]
     },
     output: {
         path: path.resolve(__dirname, 'dist')
@@ -52,13 +53,6 @@ module.exports = {
                 }
             ]
         }, {
-            // STYLES
-            test: /\.css$/,
-            use: [
-                'style-loader',
-                'css-loader'
-            ]
-        }, {
             // IMAGES
             test: /\.(png|svg|jpg|gif)$/,
             use: [
@@ -68,15 +62,6 @@ module.exports = {
             // FONTS
             test: /\.(woff|woff2|eot|ttf|otf)$/,
             loader: 'file-loader'
-        }, {
-            // HTML
-            test: /\.(html)$/,
-            use: {
-                loader: 'html-loader',
-                options: {
-                    attrs: [':data-src']
-                }
-            }
         }]
     }
 };
