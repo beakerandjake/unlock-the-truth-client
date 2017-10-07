@@ -9,6 +9,7 @@ class QuestionTrackController {
 
         // Properties
         this.loading = false;
+        this.error = false;
         this.model = {};
     }
 
@@ -30,9 +31,8 @@ class QuestionTrackController {
             .then(result => {
                 this.model = result;
             })
-            .catch(() => {
-                // Todo, transition to error page.
-                console.log('Error loading questions!');
+            .catch(error => {
+                this.error = error;
             })
             .finally(() => {
                 this.loading = false;
@@ -51,9 +51,8 @@ class QuestionTrackController {
             .then(result => {
                 console.log('Got Result:', result);
             })
-            .catch(() => {
-                // Todo, transition to error page.
-                console.log('Error loading questions!');
+            .catch(error => {
+                this.error = error;
             })
             .finally(() => {
                 this.loading = false;
