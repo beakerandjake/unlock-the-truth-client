@@ -33,7 +33,8 @@ module.exports = {
         }),
         // Add bundle analysis
         new BundleAnalyzerPlugin({
-            analyzerMode: 'static'
+            analyzerMode: 'static',
+            openAnalyzer: false
         })
     ],
     module: {
