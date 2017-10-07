@@ -19,7 +19,21 @@ export default class QuestionTrackService {
         this._$timeout(() => {
             deferred.resolve(mockQuestions);
         });
-        
+
+        return deferred.promise;
+    }
+
+    // Returns a promise that is resolved with the result of the api call. 
+    // Returns the result of answering the question. 
+    answerQuestion(questionId, answer) {
+        const deferred = this._$q.defer();
+
+        console.log(`You asked to answer question: ${questionId} with answer:`, answer);
+
+        this._$timeout(() => {
+            deferred.resolve('Great Job!');
+        }, 1000);
+
         return deferred.promise;
     }
 }
