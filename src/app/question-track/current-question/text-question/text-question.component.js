@@ -5,7 +5,8 @@ import controller from './text-question.controller';
 
 const TextQuestionComponent = {
   bindings: {
-    question: '<tqQuestion'
+    question: '<tqQuestion',
+    onSubmit: '&tqOnSubmit'
   },
   template,
   controller

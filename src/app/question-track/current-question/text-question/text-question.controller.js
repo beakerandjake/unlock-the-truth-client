@@ -5,14 +5,17 @@ class TextQuestionController {
         this.answer = '';
     }
 
-    $onInit() {
-
-    }
-
+    // Fired when the user clicks the submit button.
     answerQuestion() {
-        console.log(`Answered: ${this.answer}`);
+        // Sanity 
+        if (!this.answer) {
+            return;
+        }
 
-        this.saving = true;
+        // Invoke our callback.  
+        this.onSubmit({
+            answer: this.answer
+        });
     }
 }
 
