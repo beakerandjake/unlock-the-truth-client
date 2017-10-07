@@ -5,6 +5,8 @@ import UnlockedQuestion from './unlocked-question/unlocked-question.module';
 import questionTrackComponent from './question-track.component';
 import questionTrackService from './question-track.service';
 
+// Module which contains the question track.  
+
 const moduleName = 'unlock-the-truth.question-track';
 
 angular

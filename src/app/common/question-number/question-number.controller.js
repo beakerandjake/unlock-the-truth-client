@@ -2,6 +2,8 @@ import {
     parseInt
 } from 'lodash';
 
+// Controller for the question number component 
+
 class QuestionNumberController {
     constructor() {
         this.visible = false;

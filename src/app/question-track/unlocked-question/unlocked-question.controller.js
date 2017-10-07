@@ -1,3 +1,5 @@
+// Controller for the unlocked question component.  
+
 class UnlockedQuestionController {
     constructor() {
         

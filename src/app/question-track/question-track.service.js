@@ -1,5 +1,7 @@
 import mockQuestions from './mockTrackData.json';
 
+// Service which wraps API calls relating to the question track component.  
+
 export default class QuestionTrackService {
     constructor($q, $timeout) {
         'ngInject';

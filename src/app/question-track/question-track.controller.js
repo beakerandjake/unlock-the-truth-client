@@ -1,3 +1,5 @@
+// Controller for the question track component.  
+
 class QuestionTrackController {
     constructor(questionTrackService) {
         'ngInject';

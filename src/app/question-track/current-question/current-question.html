@@ -7,7 +7,17 @@
                 </h4>
             </cp-title>
             <cp-body>
-                <pre>{{$ctrl.question|json}}</pre>
+                <!-- Display appropriate body based on question type -->
+                <div ng-switch="$ctrl.question.type">
+                    <!-- Text question -->
+                    <div ng-switch-when="text">
+                        <utt-text-question tq-question="$ctrl.question" tq-on-submit="$ctrl.onSubmit(answer)"></utt-text-question>
+                    </div>
+                    <!-- Show error when unsupported question type. -->
+                    <div ng-switch-default>
+                        <h3>This question was an unexpected type. This is an error!</h3>
+                    </div>
+                </div>
             </cp-body>
         </utt-collapsible-panel>
     </div>
