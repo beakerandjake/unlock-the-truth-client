@@ -1,3 +1,5 @@
+// Controller for the collapsible panel component.  
+
 class CollapsiblePanelController {
     constructor() {}
 

@@ -2,6 +2,10 @@ import template from './collapsible-panel.html';
 import controller from './collapsible-panel.controller';
 import './collapsible-panel.css';
 
+// Component which defines a collapsible panel. Uses transclusion to simplify markup. 
+// Allows user to lock the panel so it cannot be expanded. 
+// Used by question track components to consistently display various questions.  
+
 const CollapsiblePanelComponent = {
     transclude: {
         title: 'cpTitle',
