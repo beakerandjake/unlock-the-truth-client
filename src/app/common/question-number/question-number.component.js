@@ -1,3 +1,4 @@
+import template from './question-number.html';
 import controller from './question-number.controller';
 import './question-number.css';
 
@@ -7,7 +8,7 @@ const questionNumberComponent = {
     bindings: {
         number: '@qnNumber'
     },
-    template: `<span ng-if="$ctrl.visible" class="question-number">{{$ctrl.number}}</span>`,
+    template,
     controller
 };
 
