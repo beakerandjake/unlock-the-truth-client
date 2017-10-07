@@ -38,6 +38,27 @@ class QuestionTrackController {
                 this.loading = false;
             });
     }
+
+    // Fired when the user answers the current question.  
+    onCurrentQuestionAnswered(answer) {
+        if (this.loading) {
+            return;
+        }
+
+        this.loading = true;
+
+        this._questionTrackService.answerQuestion(this.model.currentQuestion.Id, answer)
+            .then(result => {
+                console.log('Got Result:', result);
+            })
+            .catch(() => {
+                // Todo, transition to error page.
+                console.log('Error loading questions!');
+            })
+            .finally(() => {
+                this.loading = false;
+            });
+    }
 }
 
 export default QuestionTrackController;

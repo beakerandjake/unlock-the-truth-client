@@ -13,7 +13,7 @@
             </div>
             <!-- Show the current question -->
             <div class="col-xs-12" ng-if="$ctrl.model.currentQuestion">
-                <utt-current-question question="$ctrl.model.currentQuestion"></utt-current-question>
+                <utt-current-question cq-question="$ctrl.model.currentQuestion" cq-on-answered='$ctrl.onCurrentQuestionAnswered(answer)'></utt-current-question>
             </div>
             <!-- Show all locked questions -->
             <div class="col-xs-12" ng-repeat="question in $ctrl.model.lockedQuestions">
