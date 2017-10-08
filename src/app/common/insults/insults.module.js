@@ -1,5 +1,5 @@
 import angular from 'angular';
-import insultService from './insults.service';
+import insultsService from './insults.service';
 
 // Module which contains the insults service.  
 
@@ -7,6 +7,6 @@ const moduleName = 'unlock-the-truth.insults';
 
 angular
     .module(moduleName, [])
-    .service('InsultService', insultService);
+    .service('InsultsService', insultsService);
 
 export default moduleName;
