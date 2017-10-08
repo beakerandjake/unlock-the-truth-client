@@ -1,3 +1,7 @@
+import {
+    wrongAnswerEvent
+} from './question-track.constants';
+
 // Controller for the question track component.  
 
 class QuestionTrackController {
@@ -49,7 +53,7 @@ class QuestionTrackController {
         this._questionTrackService.answerQuestion(this.model.currentQuestion.Id, answer)
             .then(result => {
                 if (!result.correct) {
-                    this._$scope.broadcast('utt.wrong-answer');
+                    this._$scope.$broadcast(wrongAnswerEvent);
                 }
             })
             .catch(error => {
