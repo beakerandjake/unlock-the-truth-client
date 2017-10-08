@@ -1,10 +1,11 @@
 // Controller for the question track component.  
 
 class QuestionTrackController {
-    constructor(questionTrackService) {
+    constructor($scope, questionTrackService) {
         'ngInject';
 
         // Members
+        this._$scope = $scope;
         this._questionTrackService = questionTrackService;
 
         // Properties
@@ -45,18 +46,16 @@ class QuestionTrackController {
             return;
         }
 
-        //this.loading = true;
-
         this._questionTrackService.answerQuestion(this.model.currentQuestion.Id, answer)
             .then(result => {
-                console.log('Got Result:', result);
+                if (!result.correct) {
+                    this._$scope.broadcast('utt.wrong-answer');
+                }
             })
             .catch(error => {
                 this.error = error;
             })
-            .finally(() => {
-                //this.loading = false;
-            });
+            .finally(() => {});
     }
 }
 
