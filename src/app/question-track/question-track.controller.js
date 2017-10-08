@@ -45,7 +45,7 @@ class QuestionTrackController {
             return;
         }
 
-        this.loading = true;
+        //this.loading = true;
 
         this._questionTrackService.answerQuestion(this.model.currentQuestion.Id, answer)
             .then(result => {
@@ -55,7 +55,7 @@ class QuestionTrackController {
                 this.error = error;
             })
             .finally(() => {
-                this.loading = false;
+                //this.loading = false;
             });
     }
 }
