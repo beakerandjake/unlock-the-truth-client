@@ -8,14 +8,17 @@ class TextQuestionController {
     constructor($scope) {
         'ngInject';
 
-        // Bind to the wrong answer event so we can update our display.  
-        $scope.$on(wrongAnswerEvent, () => {
-            this.onIncorrectAnswer();
-        });
+        // Members
+        this._$scope = $scope; 
 
         // Properties 
         this.answer = '';
         this.answerIncorrect = false;
+
+        // Bind to the wrong answer event so we can update our display.  
+        $scope.$on(wrongAnswerEvent, () => {
+            this.onIncorrectAnswer();
+        });
     }
 
     // Fired when the user clicks the submit button.
@@ -33,9 +36,9 @@ class TextQuestionController {
 
     // Handle when the user answers incorrectly.
     onIncorrectAnswer() {
-        console.log(this);
-        console.log('Incorrect!');
-        this.answerIncorrect = true;
+        this.textQuestionForm.$setPristine();
+        this.textQuestionForm.$setUntouched();
+        this.textQuestionForm.answer.$setValidity('correct', false);
     }
 }
 
