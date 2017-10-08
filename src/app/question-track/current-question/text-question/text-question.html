@@ -7,15 +7,22 @@
     <!-- User input -->
     <div class="col-xs-12">
         <form novalidate autocomplete="off" name="$ctrl.textQuestionForm" ng-submit="$ctrl.answerQuestion()">
+            <!-- DIisable all fields in form when submitting answer. -->
             <fieldset ng-disabled="$ctrl.textQuestionForm.$submitted">
+                <!-- Text input -->
                 <div class="form-group" ng-class="{'has-error': $ctrl.textQuestionForm.$error.correct}">
-                    <input ng-model="$ctrl.answer" ng-keyup="$event.keyCode === 13 && $ctrl.answerQuestion()" type="text" class="form-control"
-                        name="answer" placeholder="Enter answer..." required>
-                    <span class="help-block" ng-if="$ctrl.textQuestionForm.$error.correct">Incorrect! Try again.</span>
+                    <input ng-model="$ctrl.answer" ng-keyup="$event.keyCode === 13 && $ctrl.answerQuestion()" ng-change="$ctrl.onUserInput()"
+                        type="text" class="form-control" name="answer" placeholder="Enter answer..." required>
+                    <!-- Taunt the user if they are incorrect. -->
+                    <span class="help-block am-fade-and-slide-top" ng-if="$ctrl.textQuestionForm.$error.correct">Incorrect! Try again.</span>
                 </div>
-                <button type="submit" class="btn btn-primary" ng-disabled="$ctrl.textQuestionForm.$error.required">
+                <!-- Submit buton -->
+                <button type="submit" class="btn btn-primary" ng-disabled="$ctrl.textQuestionForm.$error.required || $ctrl.textQuestionForm.$error.correct">
                     Submit Awnser
-                    <i ng-if="$ctrl.textQuestionForm.$submitted" class="fa fa-spinner fa-spin"></i>
+                    <!-- Show busy spinner when submitting form.  -->
+                    <span ng-if="$ctrl.textQuestionForm.$submitted">
+                        <i class="fa fa-spinner fa-spin"></i>
+                    </span>
                 </button>
             </fieldset>
         </form>

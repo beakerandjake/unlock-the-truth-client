@@ -9,7 +9,7 @@ class TextQuestionController {
         'ngInject';
 
         // Members
-        this._$scope = $scope; 
+        this._$scope = $scope;
 
         // Properties 
         this.answer = '';
@@ -23,8 +23,11 @@ class TextQuestionController {
 
     // Fired when the user clicks the submit button.
     answerQuestion() {
-        // Sanity 
-        if (!this.answer) {
+        // Bail if we still have incorrect answer error. 
+        // This prevents the user from holding down enter and continually
+        // Resubmitting the form. In order for them to submit again they must 
+        // Change the answer. 
+        if (!this.answer || this.textQuestionForm.$error.correct) {
             return;
         }
 
@@ -36,9 +39,23 @@ class TextQuestionController {
 
     // Handle when the user answers incorrectly.
     onIncorrectAnswer() {
+        // Reset form so it's no longer "submitted" 
         this.textQuestionForm.$setPristine();
         this.textQuestionForm.$setUntouched();
+
+        // Add an error to the answer field.  
         this.textQuestionForm.answer.$setValidity('correct', false);
+    }
+
+    // Fired when the user types in the answer box.  
+    onUserInput() {
+        // Bail if the form isn't showing the error state.  
+        if (!this.textQuestionForm.$error.correct) {
+            return;
+        }
+
+        // Clear the incorrect answer error state when they type their new answer.  
+        this.textQuestionForm.answer.$setValidity('correct', true);       
     }
 }
 
