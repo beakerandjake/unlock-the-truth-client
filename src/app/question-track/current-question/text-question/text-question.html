@@ -13,7 +13,7 @@
                 </div>
                 <button type="submit" class="btn btn-primary" ng-disabled="textQuestionForm.$invalid">
                     Submit Awnser
-                    <i class="fa fa-spinner fa-spin"></i>
+                    <i ng-if="textQuestionForm.$submitted" class="fa fa-spinner fa-spin"></i>
                 </button>
             </fieldset>
         </form>
