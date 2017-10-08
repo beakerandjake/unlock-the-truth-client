@@ -5,11 +5,12 @@ import {
 // Controller for the question track component.  
 
 class QuestionTrackController {
-    constructor($scope, questionTrackService) {
+    constructor($scope, $uibModal, questionTrackService) {
         'ngInject';
 
         // Members
         this._$scope = $scope;
+        this._$uibModal = $uibModal;
         this._questionTrackService = questionTrackService;
 
         // Properties
@@ -54,12 +55,28 @@ class QuestionTrackController {
             .then(result => {
                 if (!result.correct) {
                     this._$scope.$broadcast(wrongAnswerEvent);
+                } else {
+                    this.showCorrectAnswerComponent();
                 }
             })
             .catch(error => {
                 this.error = error;
             })
             .finally(() => {});
+    }
+
+    // Display the correct answer modal to the user.  
+    showCorrectAnswerComponent() {
+        // Open a modal which displays the correct answer component.  
+        const modalInstance = this._$uibModal.open({
+            component: 'uttCorrectAnswer',
+            keyboard: false,
+            backdrop: 'static'
+        });
+
+        modalInstance.closed.then(() => {
+            console.log('TIME TO MOVE ON!');
+        });
     }
 }
 

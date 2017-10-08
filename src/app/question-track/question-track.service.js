@@ -32,9 +32,9 @@ export default class QuestionTrackService {
 
         this._$timeout(() => {
             deferred.resolve({
-                correct: false
+                correct: true
             });
-        }, 1000);
+        });
 
         return deferred.promise;
     }
