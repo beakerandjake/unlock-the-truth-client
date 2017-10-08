@@ -1,3 +1,12 @@
-<div>
-    Hello world!
+<div class="modal-header text-center">
+    <h2 class="modal-title">CORRECT!</h2>
+</div>
+<div class="modal-body text-center">
+    <p>You finally got one right...</p>
+    <div ng-if="$ctrl.correctImagePath">
+        <img src="{{$ctrl.correctImagePath}}" class="img-responsive">
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-primary" ng-click="$ctrl.close()">Continue?</button>
 </div>
