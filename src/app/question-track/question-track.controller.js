@@ -68,10 +68,14 @@ class QuestionTrackController {
     // Display the correct answer modal to the user.  
     showCorrectAnswerComponent() {
         // Open a modal which displays the correct answer component.  
-        this._$uibModal.open({
+        const modalInstance = this._$uibModal.open({
             component: 'uttCorrectAnswer',
             keyboard: false,
             backdrop: 'static'
+        });
+
+        modalInstance.closed.then(() => {
+            console.log('TIME TO MOVE ON!');
         });
     }
 }
