@@ -31,7 +31,9 @@ export default class QuestionTrackService {
         console.log(`You asked to answer question: ${questionId} with answer:`, answer);
 
         this._$timeout(() => {
-            deferred.resolve('Great Job!');
+            deferred.resolve({
+                correct: false
+            });
         }, 1000);
 
         return deferred.promise;
