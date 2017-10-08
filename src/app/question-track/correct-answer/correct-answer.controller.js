@@ -1,12 +1,10 @@
+import correctImage from './correct.jpg';
+
 // Controller for the correct answer component 
 
 class CorrectAnswerController {
     constructor() {
-        
-    }
-
-    $onInit() {
-
+        this.correctImagePath = correctImage;
     }
 }
 
