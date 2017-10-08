@@ -16,6 +16,7 @@ class QuestionTrackController {
         this.loading = false;
         this.error = false;
         this.model = {};
+        this.correctAnswer = false;
     }
 
     $onInit() {
@@ -54,6 +55,8 @@ class QuestionTrackController {
             .then(result => {
                 if (!result.correct) {
                     this._$scope.$broadcast(wrongAnswerEvent);
+                } else {
+                    this.correctAnswer = true;
                 }
             })
             .catch(error => {
