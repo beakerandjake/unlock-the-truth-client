@@ -2,16 +2,28 @@
     <!-- Show question text. -->
     <div class="col-xs-12">
         <h4>{{$ctrl.question.body}}</h4>
+        <!-- <pre>{{$ctrl.textQuestionForm|json}}</pre> -->
     </div>
     <!-- User input -->
     <div class="col-xs-12">
-        <form novalidate autocomplete="off" name="textQuestionForm" ng-submit="$ctrl.answerQuestion()">
-            <fieldset ng-disabled="textQuestionForm.$submitted">
-                <div class="form-group">
-                    <input ng-model="$ctrl.answer" ng-keyup="$event.keyCode === 13 && $ctrl.answerQuestion()" type="text" class="form-control"
-                        name="answer" placeholder="Enter answer..." required>
+        <form novalidate autocomplete="off" name="$ctrl.textQuestionForm" ng-submit="$ctrl.answerQuestion()">
+            <!-- DIisable all fields in form when submitting answer. -->
+            <fieldset ng-disabled="$ctrl.textQuestionForm.$submitted">
+                <!-- Text input -->
+                <div class="form-group" ng-class="{'has-error': $ctrl.textQuestionForm.$error.correct}">
+                    <input ng-model="$ctrl.answer" ng-keyup="$event.keyCode === 13 && $ctrl.answerQuestion()" ng-change="$ctrl.onUserInput()"
+                        type="text" class="form-control" name="answer" placeholder="Enter answer..." required>
+                    <!-- Taunt the user if they are incorrect. -->
+                    <span class="help-block am-fade-and-slide-top" ng-if="$ctrl.textQuestionForm.$error.correct">Incorrect! Try again.</span>
                 </div>
-                <button type="submit" class="btn btn-primary" ng-disabled="textQuestionForm.$invalid">Submit Awnser</button>
+                <!-- Submit buton -->
+                <button type="submit" class="btn btn-primary" ng-disabled="$ctrl.textQuestionForm.$error.required || $ctrl.textQuestionForm.$error.correct">
+                    Submit Awnser
+                    <!-- Show busy spinner when submitting form.  -->
+                    <span ng-if="$ctrl.textQuestionForm.$submitted">
+                        <i class="fa fa-spinner fa-spin"></i>
+                    </span>
+                </button>
             </fieldset>
         </form>
     </div>
