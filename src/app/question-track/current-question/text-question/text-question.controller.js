@@ -5,11 +5,12 @@ import {
 // Controller for the text-question component
 
 class TextQuestionController {
-    constructor($scope) {
+    constructor($scope,InsultsService) {
         'ngInject';
 
         // Members
         this._$scope = $scope;
+        this._insultService = InsultsService;
 
         // Properties 
         this.answer = '';
@@ -45,6 +46,9 @@ class TextQuestionController {
 
         // Add an error to the answer field.  
         this.textQuestionForm.answer.$setValidity('correct', false);
+
+        // Rub it in. 
+        this.insult = this._insultService.getInsult();
     }
 
     // Fired when the user types in the answer box.  

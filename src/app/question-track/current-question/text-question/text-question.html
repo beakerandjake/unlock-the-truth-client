@@ -14,7 +14,9 @@
                     <input ng-model="$ctrl.answer" ng-keyup="$event.keyCode === 13 && $ctrl.answerQuestion()" ng-change="$ctrl.onUserInput()"
                         type="text" class="form-control" name="answer" placeholder="Enter answer..." required>
                     <!-- Taunt the user if they are incorrect. -->
-                    <span class="help-block am-fade-and-slide-top" ng-if="$ctrl.textQuestionForm.$error.correct">Incorrect! Try again.</span>
+                    <div class="help-block">
+                        <span class="am-fade-and-slide-top" ng-show="$ctrl.textQuestionForm.$error.correct">{{$ctrl.insult}}</span>
+                    </div>
                 </div>
                 <!-- Submit buton -->
                 <button type="submit" class="btn btn-primary" ng-disabled="$ctrl.textQuestionForm.$error.required || $ctrl.textQuestionForm.$error.correct">
