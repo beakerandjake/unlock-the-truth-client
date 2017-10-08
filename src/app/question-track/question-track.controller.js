@@ -5,11 +5,12 @@ import {
 // Controller for the question track component.  
 
 class QuestionTrackController {
-    constructor($scope, questionTrackService) {
+    constructor($scope, $uibModal, questionTrackService) {
         'ngInject';
 
         // Members
         this._$scope = $scope;
+        this._$uibModal = $uibModal;
         this._questionTrackService = questionTrackService;
 
         // Properties
@@ -66,7 +67,12 @@ class QuestionTrackController {
 
     // Display the correct answer modal to the user.  
     showCorrectAnswerComponent() {
-        console.log('You got it correct!');
+        // Open a modal which displays the correct answer component.  
+        this._$uibModal.open({
+            component: 'uttCorrectAnswer',
+            keyboard: false,
+            backdrop: 'static'
+        });
     }
 }
 
