@@ -6,7 +6,7 @@ import correctAnswerComponent from './correct-answer.component';
 const moduleName = 'unlock-the-truth.question-track.correct-answer';
 
 angular
-    .module(moduleName)
+    .module(moduleName, [])
     .component('uttCorrectAnswer', correctAnswerComponent);
 
 export default moduleName;
