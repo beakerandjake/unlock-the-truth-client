@@ -34,7 +34,7 @@ export default class QuestionTrackService {
             deferred.resolve({
                 correct: true
             });
-        }, 1000);
+        });
 
         return deferred.promise;
     }
