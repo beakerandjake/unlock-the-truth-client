@@ -16,7 +16,6 @@ class QuestionTrackController {
         this.loading = false;
         this.error = false;
         this.model = {};
-        this.correctAnswer = false;
     }
 
     $onInit() {
@@ -56,13 +55,18 @@ class QuestionTrackController {
                 if (!result.correct) {
                     this._$scope.$broadcast(wrongAnswerEvent);
                 } else {
-                    this.correctAnswer = true;
+                    this.showCorrectAnswerComponent();
                 }
             })
             .catch(error => {
                 this.error = error;
             })
             .finally(() => {});
+    }
+
+    // Display the correct answer modal to the user.  
+    showCorrectAnswerComponent() {
+        console.log('You got it correct!');
     }
 }
 

@@ -1,4 +1,5 @@
 import angular from 'angular';
+import Modal from 'angular-ui-bootstrap/src/modal';
 import ErrorDisplay from '../error-display/error-display.module';
 import LockedQuestion from './locked-question/locked-question.module';
 import CurrentQuestion from './current-question/current-question.module';
@@ -13,6 +14,7 @@ const moduleName = 'unlock-the-truth.question-track';
 
 angular
     .module(moduleName, [
+        Modal,
         ErrorDisplay,
         LockedQuestion,
         CurrentQuestion,
