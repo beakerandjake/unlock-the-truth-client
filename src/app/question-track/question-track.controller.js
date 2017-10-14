@@ -74,9 +74,18 @@ class QuestionTrackController {
             backdrop: 'static'
         });
 
-        modalInstance.closed.then(() => {
-            console.log('TIME TO MOVE ON!');
-        });
+        //When the user acknowledges the modal, move on to the next question. 
+        modalInstance.closed.then(() => this.moveOnToNextQuestion());
+    }
+
+    // When the user answers successfully, it's time to update our track so the user can answer the next question. 
+    moveOnToNextQuestion() {
+        //Get next question
+        //  Returns new current question, and previous question (as answered question_)
+        //Push previous question onto answered questions
+        //Update current question.
+        //Remove current question from next questions.
+        console.log('TIME TO MOVE ON!');
     }
 }
 
