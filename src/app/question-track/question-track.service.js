@@ -61,7 +61,7 @@ export default class QuestionTrackService {
                 nextQuestion: newQuestion,
                 previousQuestion: previousQuestion
             });
-        });
+        }, 2000);
 
         return deferred.promise;
     }
