@@ -1,5 +1,6 @@
 import {
-    wrongAnswerEvent
+    wrongAnswerEvent,
+    correctAnswerEvent
 } from './question-track.constants';
 import {
     remove
@@ -59,7 +60,7 @@ class QuestionTrackController {
                 if (!result.correct) {
                     this._$scope.$broadcast(wrongAnswerEvent);
                 } else {
-                    this.showCorrectAnswerComponent(result);
+                    this._$scope.$broadcast(correctAnswerEvent);
                 }
             })
             .catch(error => {
