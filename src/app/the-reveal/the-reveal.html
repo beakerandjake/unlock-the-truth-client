@@ -1,5 +1,9 @@
 <div class="row">
-    <div class="col-xs-12 text-center">
-        <i class="fa fa-5x fa-question-circle"></i>
+    <i class="fa fa-5x fa-question-circle"></i>
+    <div ng-if="$ctrl.model.unlocked" class="col-xs-12">
+        UNLOCKED
+    </div>
+    <div ng-if="$ctrl.model.unlocked" class="col-xs-12">
+        LOCKED!
     </div>
 </div>
