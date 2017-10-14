@@ -9,7 +9,7 @@ class TheRevealController {
 
         // Properties
         this.loading = false;
-        this.secret = null;
+        this.theTruth = null;
     }
 
     $onInit() {
@@ -26,7 +26,7 @@ class TheRevealController {
 
         this._theRevealService.unlockTheTruth()
             .then(result => {
-                this.secret = result;
+                this.theTruth = result;
             })
             .catch(error => {
                 //TODO

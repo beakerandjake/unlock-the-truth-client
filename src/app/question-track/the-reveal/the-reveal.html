@@ -4,7 +4,7 @@
         <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
     </div>
     <!-- Show content if not loading. -->
-    <div ng-if="!$ctrl.loading && !$ctrl.secret">
+    <div ng-if="!$ctrl.loading && !$ctrl.theTruth">
         <!-- Locked Display -->
         <div ng-if="!$ctrl.unlocked" class="col-xs-12">
             <utt-locked-reveal></utt-locked-reveal>
@@ -15,7 +15,7 @@
         </div>
     </div>
     <!-- SHOW THE TRUTH IF THEY UNLOCKED IT!!! -->
-    <div ng-if="!$ctrl.loading && $ctrl.secret">
+    <div ng-if="!$ctrl.loading && $ctrl.theTruth">
         YOU DID IT!
     </div>
 </div>
