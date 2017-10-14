@@ -31,25 +31,35 @@ export default class QuestionTrackService {
         console.log(`You asked to answer question: ${questionId} with answer:`, answer);
 
         this._$timeout(() => {
+            const currentQuestion = mockQuestions.currentQuestion;
+
+            // Make a dummy previous question object. 
+            const previousQuestion = {
+                id: questionId,
+                title: 'A great previous question',
+                body: 'Blah blah blah',
+                answer: 'Bob',
+                failedAttempts: 69,
+                answeredBy: 'Jim',
+                timeToAnswer: '6 hours',
+                number: currentQuestion.number
+            };
+
+            const locked = mockQuestions.lockedQuestions[0];
+
+            // Make a dummy new question object. 
+            const newQuestion = {
+                id: locked.id,
+                title: 'Sint dolor aliqua cillum voluptate culpa nostrud consectetur anim.',
+                body: 'Who is cool?',
+                type: 'text',
+                number: locked.number
+            };
+
             deferred.resolve({
                 correct: true,
-                nextQuestion: {
-                    id: '59d130dbacb56a7f0f108f6c',
-                    title: 'Sint dolor aliqua cillum voluptate culpa nostrud consectetur anim.',
-                    body: 'Take a picture of your cat',
-                    type: 'manual',
-                    number: 5
-                },
-                previousQuestion: {
-                    id: '59d130dbc7f9e91360f20d27',
-                    title: 'Dolore aliquip irure nulla tempor.',
-                    body: 'Who was the first President of the United States of America?',
-                    answer: 'Bob',
-                    failedAttempts: 69,
-                    answeredBy: 'Molina',
-                    timeToAnswer: '4 hours',
-                    number: 4
-                }
+                nextQuestion: newQuestion,
+                previousQuestion: previousQuestion
             });
         });
 
