@@ -45,16 +45,21 @@ export default class QuestionTrackService {
                 number: currentQuestion.number
             };
 
+            let newQuestion = null;
+
             const locked = mockQuestions.lockedQuestions[0];
 
-            // Make a dummy new question object. 
-            const newQuestion = {
-                id: locked.id,
-                title: 'Sint dolor aliqua cillum voluptate culpa nostrud consectetur anim.',
-                body: 'Who is cool?',
-                type: 'text',
-                number: locked.number
-            };
+            if (locked) {
+                // Make a dummy new question object. 
+                newQuestion = {
+                    id: locked.id,
+                    title: 'Sint dolor aliqua cillum voluptate culpa nostrud consectetur anim.',
+                    body: 'Who is cool?',
+                    type: 'text',
+                    number: locked.number
+                };
+            }
+
 
             deferred.resolve({
                 correct: true,
