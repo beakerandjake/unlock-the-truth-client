@@ -15,6 +15,10 @@
                     <div ng-switch-when="text">
                         <utt-text-question tq-question="$ctrl.question" tq-on-submit="$ctrl.onSubmit(answer)"></utt-text-question>
                     </div>
+                    <!-- Manual question -->
+                    <div ng-switch-when="manual">
+                        <utt-manual-question mq-question="$ctrl.question"></utt-manual-question>
+                    </div>
                     <!-- Show error when unsupported question type. -->
                     <div ng-switch-default>
                         <h3>This question was an unexpected type. This is an error!</h3>
