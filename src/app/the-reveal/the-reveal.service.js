@@ -1,6 +1,6 @@
 class TheRevealService {
     constructor($q, $timeout) {
-        "ngInject";
+        'ngInject';
 
         // Members
         this._$q = $q;
@@ -15,7 +15,7 @@ class TheRevealService {
         this._$timeout(() => {
             deferred.resolve({
                 unlocked: false
-            })
+            });
         }, 1000);
 
         return deferred.promise;
