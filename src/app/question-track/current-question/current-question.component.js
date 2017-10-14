@@ -6,7 +6,8 @@ import controller from './current-question.controller';
 const CurrentQuestionComponent = {
   bindings: {
       question: '<cqQuestion',
-      onAnswer: '&cqOnAnswered' // Callback fired when the user answers this question. 
+      onAnswer: '&cqOnAnswered', // Callback fired when the user answers this question. 
+      onContinue: '&cqOnContinue' // Callback fired when the user acknowledges the correct answer. 
   },
   template,
   controller

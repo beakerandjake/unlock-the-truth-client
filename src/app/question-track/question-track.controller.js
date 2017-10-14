@@ -1,17 +1,21 @@
 import {
-    wrongAnswerEvent
+    wrongAnswerEvent,
+    correctAnswerEvent
 } from './question-track.constants';
+import {
+    remove
+} from 'lodash';
 
 // Controller for the question track component.  
 
 class QuestionTrackController {
-    constructor($scope, $uibModal, questionTrackService) {
+    constructor($scope, questionTrackService) {
         'ngInject';
 
         // Members
         this._$scope = $scope;
-        this._$uibModal = $uibModal;
         this._questionTrackService = questionTrackService;
+        this._answerResult = null;
 
         // Properties
         this.loading = false;
@@ -50,14 +54,13 @@ class QuestionTrackController {
         if (this.loading) {
             return;
         }
-
-        this._questionTrackService.answerQuestion(this.model.currentQuestion.Id, answer)
+ 
+        this._questionTrackService.answerQuestion(this.model.currentQuestion.id, answer)
             .then(result => {
-                if (!result.correct) {
-                    this._$scope.$broadcast(wrongAnswerEvent);
-                } else {
-                    this.showCorrectAnswerComponent();
-                }
+                this._answerResult = result;
+                // Broadcast event based on if they got it right. 
+                const event = result.correct ? correctAnswerEvent : wrongAnswerEvent;
+                this._$scope.$broadcast(event);
             })
             .catch(error => {
                 this.error = error;
@@ -65,27 +68,29 @@ class QuestionTrackController {
             .finally(() => {});
     }
 
-    // Display the correct answer modal to the user.  
-    showCorrectAnswerComponent() {
-        // Open a modal which displays the correct answer component.  
-        const modalInstance = this._$uibModal.open({
-            component: 'uttCorrectAnswer',
-            keyboard: false,
-            backdrop: 'static'
-        });
-
-        //When the user acknowledges the modal, move on to the next question. 
-        modalInstance.closed.then(() => this.moveOnToNextQuestion());
-    }
-
     // When the user answers successfully, it's time to update our track so the user can answer the next question. 
     moveOnToNextQuestion() {
-        //Get next question
-        //  Returns new current question, and previous question (as answered question_)
-        //Push previous question onto answered questions
-        //Update current question.
-        //Remove current question from next questions.
-        console.log('TIME TO MOVE ON!');
+        // The user can't move on if we didn't get a correct result from the api. 
+        if(!this._answerResult || !this._answerResult.correct){
+            return;
+
+        }
+
+        // Update current question (it's okay for current question to be undefined if they answered the last question)
+        this.model.currentQuestion = this._answerResult.nextQuestion;
+        
+        if (this._answerResult.previousQuestion) {
+            //Push the previous question onto answered questions
+            this.model.unlockedQuestions.push(this._answerResult.previousQuestion);
+        }
+
+        if (this.model.currentQuestion) {
+            // Remove current question from locked questions.
+            remove(this.model.lockedQuestions, ['id', this.model.currentQuestion.id]);
+        }
+
+        // Clear answer result so we dont accidentally move on more than once.  
+        this._answerResult = null;
     }
 }
 

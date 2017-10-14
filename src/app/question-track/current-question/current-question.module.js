@@ -3,6 +3,7 @@ import TextQuestion from './text-question/text-question.module';
 import ManualQuestion from './manual-question/manual-question.module';
 import CollapsiblePanel from '../../common/collapsible-panel/collapsible-panel.module';
 import QuestionNumber from '../../common/question-number/question-number.module';
+import CorrectAnswer from './correct-answer/correct-answer.module';
 import currentQuestionComponent from './current-question.component';
 
 // Module which contains the current question component.  
@@ -14,7 +15,8 @@ angular
         CollapsiblePanel,
         QuestionNumber,
         TextQuestion,
-        ManualQuestion
+        ManualQuestion,
+        CorrectAnswer
     ])
     .component('uttCurrentQuestion', currentQuestionComponent);
 

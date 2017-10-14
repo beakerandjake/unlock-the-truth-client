@@ -31,10 +31,42 @@ export default class QuestionTrackService {
         console.log(`You asked to answer question: ${questionId} with answer:`, answer);
 
         this._$timeout(() => {
+            const currentQuestion = mockQuestions.currentQuestion;
+
+            // Make a dummy previous question object. 
+            const previousQuestion = {
+                id: questionId,
+                title: 'A great previous question',
+                body: 'Blah blah blah',
+                answer: 'Bob',
+                failedAttempts: 69,
+                answeredBy: 'Jim',
+                timeToAnswer: '6 hours',
+                number: currentQuestion.number
+            };
+
+            let newQuestion = null;
+
+            const locked = mockQuestions.lockedQuestions[0];
+
+            if (locked) {
+                // Make a dummy new question object. 
+                newQuestion = {
+                    id: locked.id,
+                    title: 'Sint dolor aliqua cillum voluptate culpa nostrud consectetur anim.',
+                    body: 'Who is cool?',
+                    type: 'text',
+                    number: locked.number
+                };
+            }
+
+
             deferred.resolve({
-                correct: true
+                correct: true,
+                nextQuestion: newQuestion,
+                previousQuestion: previousQuestion
             });
-        });
+        }, 2000);
 
         return deferred.promise;
     }
