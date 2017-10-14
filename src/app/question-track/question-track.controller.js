@@ -15,6 +15,7 @@ class QuestionTrackController {
         // Members
         this._$scope = $scope;
         this._questionTrackService = questionTrackService;
+        this._answerResult = null;
 
         // Properties
         this.loading = false;
@@ -56,6 +57,7 @@ class QuestionTrackController {
 
         this._questionTrackService.answerQuestion(this.model.currentQuestion.id, answer)
             .then(result => {
+                this._answerResult = result;
                 // Broadcast event based on if they got it right. 
                 const event = result.correct ? correctAnswerEvent : wrongAnswerEvent;
                 this._$scope.$broadcast(event);
@@ -67,13 +69,17 @@ class QuestionTrackController {
     }
 
     // When the user answers successfully, it's time to update our track so the user can answer the next question. 
-    moveOnToNextQuestion(result) {
-        //Update current question.
-        this.model.currentQuestion = result.nextQuestion;
+    moveOnToNextQuestion() {
+        if(!this._answerResult){
+            return;
 
-        if (result.previousQuestion) {
+        }
+        //Update current question.
+        this.model.currentQuestion = this._answerResult.nextQuestion;
+
+        if (this._answerResult.previousQuestion) {
             //Push previous question onto answered questions
-            this.model.unlockedQuestions.push(result.previousQuestion);
+            this.model.unlockedQuestions.push(this._answerResult.previousQuestion);
         }
 
         if (this.model.currentQuestion) {
@@ -81,7 +87,8 @@ class QuestionTrackController {
             remove(this.model.lockedQuestions, ['id', this.model.currentQuestion.id]);
         }
 
-        this.loading = false;
+        // Clear answer result so we dont accidentally move on more than once.  
+        this._answerResult = null;
     }
 }
 
