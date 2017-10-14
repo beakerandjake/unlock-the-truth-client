@@ -15,7 +15,7 @@
         </div>
     </div>
     <!-- SHOW THE TRUTH IF THEY UNLOCKED IT!!! -->
-    <div ng-if="!$ctrl.loading && $ctrl.theTruth">
-        YOU DID IT!
+    <div ng-if="!$ctrl.loading && $ctrl.theTruth" class="col-xs-12">
+        <utt-the-truth tt-truth="$ctrl.theTruth"></utt-the-truth>
     </div>
 </div>
