@@ -1,5 +1,6 @@
 import angular from 'angular';
 import unlockedRevealComponent from './unlocked-reveal.component';
+import './unlocked-reveal.css';
 
 // Module which contains the unlocked reveal component
 
