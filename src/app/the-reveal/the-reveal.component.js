@@ -1,5 +1,5 @@
 import template from './the-reveal.html';
-import controller from './the-reveal.conroller';
+import controller from './the-reveal.controller';
 
 const TheRevealComponent = {
   bindings: {},
