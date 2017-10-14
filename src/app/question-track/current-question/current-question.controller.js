@@ -8,6 +8,9 @@ class CurrentQuestionController {
     constructor($scope) {
         'ngInject';
 
+        // Properties
+        this.questionAnsweredCorrectly = false;
+
         // Bind to the correct answer event so the user can move on.
         $scope.$on(correctAnswerEvent, () => {
             this.onCorrectAnswer();
@@ -18,7 +21,7 @@ class CurrentQuestionController {
 
     // Fired when the user has answered the question correctly. 
     onCorrectAnswer() {
-        console.log('You got one correct!');
+        this.questionAnsweredCorrectly = true;
     }
 
     // Fired when one of our question type components raises their submit callback.  
