@@ -1,6 +1,9 @@
 import {
     wrongAnswerEvent
 } from './question-track.constants';
+import {
+    remove
+} from 'lodash';
 
 // Controller for the question track component.  
 
@@ -51,12 +54,12 @@ class QuestionTrackController {
             return;
         }
 
-        this._questionTrackService.answerQuestion(this.model.currentQuestion.Id, answer)
+        this._questionTrackService.answerQuestion(this.model.currentQuestion.id, answer)
             .then(result => {
                 if (!result.correct) {
                     this._$scope.$broadcast(wrongAnswerEvent);
                 } else {
-                    this.showCorrectAnswerComponent();
+                    this.showCorrectAnswerComponent(result);
                 }
             })
             .catch(error => {
@@ -66,7 +69,7 @@ class QuestionTrackController {
     }
 
     // Display the correct answer modal to the user.  
-    showCorrectAnswerComponent() {
+    showCorrectAnswerComponent(result) {
         // Open a modal which displays the correct answer component.  
         const modalInstance = this._$uibModal.open({
             component: 'uttCorrectAnswer',
@@ -75,17 +78,23 @@ class QuestionTrackController {
         });
 
         //When the user acknowledges the modal, move on to the next question. 
-        modalInstance.closed.then(() => this.moveOnToNextQuestion());
+        modalInstance.closed.then(() => this.moveOnToNextQuestion(result));
     }
 
     // When the user answers successfully, it's time to update our track so the user can answer the next question. 
-    moveOnToNextQuestion() {
-        //Get next question
-        //  Returns new current question, and previous question (as answered question_)
-        //Push previous question onto answered questions
+    moveOnToNextQuestion(result) {
         //Update current question.
-        //Remove current question from next questions.
-        console.log('TIME TO MOVE ON!');
+        this.model.currentQuestion = result.nextQuestion;
+
+        if (result.previousQuestion) {
+            //Push previous question onto answered questions
+            this.model.unlockedQuestions.push(result.previousQuestion);
+        }
+
+        if (this.model.currentQuestion) {
+            //Remove current question from locked questions.
+            remove(this.model.lockedQuestions, ['id', this.model.currentQuestion.id]);
+        }
     }
 }
 

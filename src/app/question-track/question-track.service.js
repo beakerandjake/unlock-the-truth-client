@@ -32,7 +32,24 @@ export default class QuestionTrackService {
 
         this._$timeout(() => {
             deferred.resolve({
-                correct: true
+                correct: true,
+                nextQuestion: {
+                    id: '59d130dbacb56a7f0f108f6c',
+                    title: 'Sint dolor aliqua cillum voluptate culpa nostrud consectetur anim.',
+                    body: 'Take a picture of your cat',
+                    type: 'manual',
+                    number: 5
+                },
+                previousQuestion: {
+                    id: '59d130dbc7f9e91360f20d27',
+                    title: 'Dolore aliquip irure nulla tempor.',
+                    body: 'Who was the first President of the United States of America?',
+                    answer: 'Bob',
+                    failedAttempts: 69,
+                    answeredBy: 'Molina',
+                    timeToAnswer: '4 hours',
+                    number: 4
+                }
             });
         });
 
