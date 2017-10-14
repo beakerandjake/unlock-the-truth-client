@@ -34,7 +34,8 @@ class CurrentQuestionController {
 
     // Fired when the user acknowledges the correct answer and wants to move on. 
     moveToNextQuestion() {
-        console.log('Asked to move on!');
+        // Invoke our callback.
+        this.onContinue({});
     }
 }
 
