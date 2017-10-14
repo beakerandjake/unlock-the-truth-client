@@ -9,8 +9,12 @@
                 </h4>
             </cp-title>
             <cp-body>
+                <!-- Handle case when question is waiting to be approved by an admin -->
+                <div ng-if="$ctrl.question.pendingApproval" class="am-fade">
+                    WAIT
+                </div>
                 <!-- Display appropriate body based on question type -->
-                <div ng-switch="$ctrl.question.type">
+                <div ng-if="!$ctrl.question.pendingApproval" class="am-fade" ng-switch="$ctrl.question.type">
                     <!-- Text question -->
                     <div ng-switch-when="text">
                         <utt-text-question tq-question="$ctrl.question" tq-on-submit="$ctrl.onSubmit(answer)"></utt-text-question>
