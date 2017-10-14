@@ -11,6 +11,10 @@ class TheRevealController {
     $onInit() {
 
     }
+
+    unlockTheTruth() {
+        console.log('UNLOCK THE TRUTH!');
+    }
 }
 
 export default TheRevealController;
