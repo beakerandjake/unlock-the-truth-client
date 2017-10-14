@@ -54,7 +54,7 @@ class QuestionTrackController {
         if (this.loading) {
             return;
         }
-
+ 
         this._questionTrackService.answerQuestion(this.model.currentQuestion.id, answer)
             .then(result => {
                 this._answerResult = result;
@@ -70,10 +70,12 @@ class QuestionTrackController {
 
     // When the user answers successfully, it's time to update our track so the user can answer the next question. 
     moveOnToNextQuestion() {
-        if(!this._answerResult){
+        // The user can't move on if we didn't get a correct result from the api. 
+        if(!this._answerResult || !this._answerResult.correct){
             return;
 
         }
+        
         //Update current question.
         this.model.currentQuestion = this._answerResult.nextQuestion;
 
