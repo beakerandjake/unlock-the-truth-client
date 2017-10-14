@@ -75,17 +75,17 @@ class QuestionTrackController {
             return;
 
         }
-        
-        //Update current question.
-        this.model.currentQuestion = this._answerResult.nextQuestion;
 
+        // Update current question (it's okay for current question to be undefined if they answered the last question)
+        this.model.currentQuestion = this._answerResult.nextQuestion;
+        
         if (this._answerResult.previousQuestion) {
-            //Push previous question onto answered questions
+            //Push the previous question onto answered questions
             this.model.unlockedQuestions.push(this._answerResult.previousQuestion);
         }
 
         if (this.model.currentQuestion) {
-            //Remove current question from locked questions.
+            // Remove current question from locked questions.
             remove(this.model.lockedQuestions, ['id', this.model.currentQuestion.id]);
         }
 
