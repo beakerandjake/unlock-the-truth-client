@@ -77,6 +77,8 @@ class QuestionTrackController {
             backdrop: 'static'
         });
 
+        this.loading = true;
+
         //When the user acknowledges the modal, move on to the next question. 
         modalInstance.closed.then(() => this.moveOnToNextQuestion(result));
     }
@@ -95,6 +97,8 @@ class QuestionTrackController {
             //Remove current question from locked questions.
             remove(this.model.lockedQuestions, ['id', this.model.currentQuestion.id]);
         }
+
+        this.loading = false;
     }
 }
 
