@@ -54,7 +54,7 @@ class QuestionTrackController {
         if (this.loading) {
             return;
         }
- 
+
         this._questionTrackService.answerQuestion(this.model.currentQuestion.id, answer)
             .then(result => {
                 this._answerResult = result;
@@ -71,14 +71,14 @@ class QuestionTrackController {
     // When the user answers successfully, it's time to update our track so the user can answer the next question. 
     moveOnToNextQuestion() {
         // The user can't move on if we didn't get a correct result from the api. 
-        if(!this._answerResult || !this._answerResult.correct){
+        if (!this._answerResult || !this._answerResult.correct) {
             return;
 
         }
 
         // Update current question (it's okay for current question to be undefined if they answered the last question)
         this.model.currentQuestion = this._answerResult.nextQuestion;
-        
+
         if (this._answerResult.previousQuestion) {
             //Push the previous question onto answered questions
             this.model.unlockedQuestions.push(this._answerResult.previousQuestion);
@@ -91,6 +91,16 @@ class QuestionTrackController {
 
         // Clear answer result so we dont accidentally move on more than once.  
         this._answerResult = null;
+    }
+
+    // Check whether the user has unlocked all of the questions. 
+    allQuestionsUnlocked() {
+        if(!this.model){
+            return false;
+        }
+
+        // No current question? No locked questions? Seems like we got em all. 
+        return !this.model.currentQuestion && this.model.lockedQuestions.length === 0;
     }
 }
 

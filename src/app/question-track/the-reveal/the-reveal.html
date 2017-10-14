@@ -1,0 +1,21 @@
+<div class="row">
+    <!-- Show spinner if loading truth.  -->
+    <div ng-if="$ctrl.loading" class="col-xs-12 text-center">
+        <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+    </div>
+    <!-- Show content if not loading. -->
+    <div ng-if="!$ctrl.loading && !$ctrl.theTruth">
+        <!-- Locked Display -->
+        <div ng-if="!$ctrl.unlocked" class="col-xs-12">
+            <utt-locked-reveal></utt-locked-reveal>
+        </div>
+        <!-- Unlocked Display -->
+        <div ng-if="$ctrl.unlocked" class="col-xs-12">
+            <utt-unlocked-reveal ur-on-unlock="$ctrl.unlockTheTruth()"></utt-unlocked-reveal>
+        </div>
+    </div>
+    <!-- SHOW THE TRUTH IF THEY UNLOCKED IT!!! -->
+    <div ng-if="!$ctrl.loading && $ctrl.theTruth" class="col-xs-12">
+        <utt-the-truth tt-truth="$ctrl.theTruth"></utt-the-truth>
+    </div>
+</div>
