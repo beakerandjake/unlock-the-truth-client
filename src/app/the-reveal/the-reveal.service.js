@@ -1,3 +1,5 @@
+// Service which wraps API methods relating to the reveal. 
+
 class TheRevealService {
     constructor($q, $timeout) {
         'ngInject';
