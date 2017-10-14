@@ -11,7 +11,7 @@
             <cp-body>
                 <!-- Show correct answer display if the user got the question correct! -->
                 <div ng-if="$ctrl.questionAnsweredCorrectly">
-                    Good Job!
+                    <utt-correct-answer ></utt-correct-answer>
                 </div>
                 <!-- If the user hasn't answered the question, display they appropriate body based on question type so they can answer it! -->
                 <div ng-if="!$ctrl.questionAnsweredCorrectly" ng-switch="$ctrl.question.type">
