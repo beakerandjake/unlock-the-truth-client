@@ -9,7 +9,6 @@ import MainComponent from './app.component';
 import Header from './header/header.module';
 import Footer from './footer/footer.module';
 import QuestionTrack from './question-track/question-track.module';
-import TheReveal from './the-reveal/the-reveal.module';
 
 const moduleName = 'unlock-the-truth';
 
@@ -19,8 +18,7 @@ angular
     .module(moduleName, [
         Header,
         Footer,
-        QuestionTrack,
-        TheReveal
+        QuestionTrack
     ])
     .component('unlockTheTruth', MainComponent);
 
