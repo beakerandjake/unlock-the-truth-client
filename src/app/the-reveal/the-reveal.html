@@ -1,9 +1,7 @@
 <div class="row">
-    <i class="fa fa-5x fa-question-circle"></i>
-    <div ng-if="$ctrl.model.unlocked" class="col-xs-12">
-        UNLOCKED
+    <div ng-if="!$ctrl.model.unlocked" class="col-xs-12">
+        <utt-locked-reveal lr-model="$ctrl.model"></utt-locked-reveal>
     </div>
     <div ng-if="$ctrl.model.unlocked" class="col-xs-12">
-        LOCKED!
     </div>
 </div>
