@@ -1,9 +1,10 @@
 <div class="row">
     <!-- Locked Display -->
-    <div ng-if="!$ctrl.model.unlocked" class="col-xs-12">
-        <utt-locked-reveal lr-model="$ctrl.model"></utt-locked-reveal>
+    <div ng-if="!$ctrl.unlocked" class="col-xs-12">
+        <utt-locked-reveal></utt-locked-reveal>
     </div>
     <!-- Unlocked Display -->
-    <div ng-if="$ctrl.model.unlocked" class="col-xs-12">
+    <div ng-if="$ctrl.unlocked" class="col-xs-12">
+        UNLOCKED!!
     </div>
 </div>

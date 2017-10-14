@@ -10,14 +10,12 @@ class TheRevealService {
     }
 
     // Returns a promise that is resolved with the result of the api. 
-    // Returns the final truth if it's unlocked, otherwise returns nothing..
+    // RETURNS THE FINAL TRUTH!!!
     unlockTheTruth() {
         const deferred = this._$q.defer();
 
         this._$timeout(() => {
-            deferred.resolve({
-                unlocked: false
-            });
+            deferred.resolve('Great Job');
         }, 1000);
 
         return deferred.promise;

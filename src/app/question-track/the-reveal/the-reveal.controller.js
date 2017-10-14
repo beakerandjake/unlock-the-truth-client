@@ -6,10 +6,6 @@ class TheRevealController {
 
         // Members
         this._theRevealService = theRevealService;
-
-        // Properties
-        this.loading = false;
-        this.model = null;
     }
 
     $onInit() {
