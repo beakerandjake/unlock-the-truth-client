@@ -70,7 +70,10 @@ class QuestionTrackController {
                 this._$scope.$broadcast(wrongAnswerEvent);
                 break;
             case 'needsApproval':
-                console.log('this answer needs approval');
+                // If the user submitted an answer which needs approval,
+                // Then update the current question to have this field. 
+                // We can't do anything until an admin approves the question.  
+                this.model.currentQuestion.pendingApproval = true;
                 break;
             default:
                 throw `Could not handle a response of type ${result.type}`;
