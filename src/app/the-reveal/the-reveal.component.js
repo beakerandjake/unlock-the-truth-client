@@ -4,7 +4,9 @@ import controller from './the-reveal.controller';
 // Component which displays the final truth to the user.  
 
 const TheRevealComponent = {
-  bindings: {},
+  bindings: {
+    unlocked: 'rcUnlocked'
+  },
   template,
   controller
 };

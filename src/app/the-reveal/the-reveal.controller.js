@@ -13,28 +13,7 @@ class TheRevealController {
     }
 
     $onInit() {
-        this.unlockTheTruth();
-    }
 
-    // Query the API for the truth. 
-    unlockTheTruth() {
-        if (this.loading) {
-            return;
-        }
-
-        this.loading = true;
-
-        this._theRevealService.unlockTheTruth()
-            .then(result => {
-                this.model = result;
-            })
-            .catch(error => {
-                // TODO. 
-                console.error(error);
-            })
-            .finally(() => {
-                this.loading = false;
-            });
     }
 }
 
