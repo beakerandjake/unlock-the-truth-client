@@ -5,7 +5,7 @@ import controller from './the-reveal.controller';
 
 const TheRevealComponent = {
   bindings: {
-    unlocked: 'rcUnlocked'
+    unlocked: '<trUnlocked'
   },
   template,
   controller
