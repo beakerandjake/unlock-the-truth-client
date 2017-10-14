@@ -52,17 +52,29 @@ class QuestionTrackController {
         }
 
         this._questionTrackService.answerQuestion(this.model.currentQuestion.Id, answer)
-            .then(result => {
-                if (!result.correct) {
-                    this._$scope.$broadcast(wrongAnswerEvent);
-                } else {
-                    this.showCorrectAnswerComponent();
-                }
-            })
+            .then(result => this.handleAnswerResultType(result))
             .catch(error => {
                 this.error = error;
             })
             .finally(() => {});
+    }
+
+    // Fired when we get the result of the answer.
+    // Do something based on the results type.  
+    handleAnswerResultType(result) {
+        switch (result.type) {
+            case 'correct':
+                this.showCorrectAnswerComponent();
+                break;
+            case 'incorrect':
+                this._$scope.$broadcast(wrongAnswerEvent);
+                break;
+            case 'needsApproval':
+                console.log('this answer needs approval');
+                break;
+            default:
+                throw `Could not handle a response of type ${result.type}`;
+        }
     }
 
     // Display the correct answer modal to the user.  
