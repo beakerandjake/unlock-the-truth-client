@@ -10,8 +10,8 @@
             </cp-title>
             <cp-body>
                 <!-- Handle case when question is waiting to be approved by an admin -->
-                <div ng-if="$ctrl.question.pendingApproval" class="am-fade">
-                    WAIT
+                <div ng-if="$ctrl.question.pendingApproval">
+                    <utt-pending-approval></utt-pending-approval>
                 </div>
                 <!-- Display appropriate body based on question type -->
                 <div ng-if="!$ctrl.question.pendingApproval" class="am-fade" ng-switch="$ctrl.question.type">
