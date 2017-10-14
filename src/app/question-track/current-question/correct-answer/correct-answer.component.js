@@ -5,7 +5,7 @@ import controller from './correct-answer.controller';
 
 const CorrectAnswerComponent = {
   bindings: {
-    close: '&' // Callback we invoke to close the modal
+    close: '&caOnClose' // Callback we invoke when the user wants to move on. 
   },
   template,
   controller

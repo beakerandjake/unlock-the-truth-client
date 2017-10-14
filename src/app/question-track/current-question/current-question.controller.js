@@ -19,17 +19,22 @@ class CurrentQuestionController {
 
     //Watch for changes on question, reset..
 
-    // Fired when the user has answered the question correctly. 
-    onCorrectAnswer() {
-        this.questionAnsweredCorrectly = true;
-    }
-
     // Fired when one of our question type components raises their submit callback.  
     onSubmit(answer) {
         // Raise our callback 
         this.onAnswer({
             answer
         });
+    }
+
+    // Fired when the user has answered the question correctly. 
+    onCorrectAnswer() {
+        this.questionAnsweredCorrectly = true;
+    }
+
+    // Fired when the user acknowledges the correct answer and wants to move on. 
+    moveToNextQuestion() {
+        console.log('Asked to move on!');
     }
 }
 
