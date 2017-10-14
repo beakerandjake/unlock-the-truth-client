@@ -1,10 +1,17 @@
-import correctImage from './correct.jpg';
+import {
+    random
+} from 'lodash';
 
 // Controller for the correct answer component 
 
 class CorrectAnswerController {
     constructor() {
-        this.correctImagePath = correctImage;
+        this.correctImagePath = this.getRandomImage();
+    }
+
+    // Return a random image from our correct images folder. 
+    getRandomImage() {
+        return require(`./images/correct_${random(1,5)}.gif`);
     }
 
     continue () {
