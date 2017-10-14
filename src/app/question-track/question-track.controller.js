@@ -9,12 +9,11 @@ import {
 // Controller for the question track component.  
 
 class QuestionTrackController {
-    constructor($scope, $uibModal, questionTrackService) {
+    constructor($scope, questionTrackService) {
         'ngInject';
 
         // Members
         this._$scope = $scope;
-        this._$uibModal = $uibModal;
         this._questionTrackService = questionTrackService;
 
         // Properties
@@ -57,31 +56,14 @@ class QuestionTrackController {
 
         this._questionTrackService.answerQuestion(this.model.currentQuestion.id, answer)
             .then(result => {
-                if (!result.correct) {
-                    this._$scope.$broadcast(wrongAnswerEvent);
-                } else {
-                    this._$scope.$broadcast(correctAnswerEvent);
-                }
+                // Broadcast event based on if they got it right. 
+                const event = result.correct ? correctAnswerEvent : wrongAnswerEvent;
+                this._$scope.$broadcast(event);
             })
             .catch(error => {
                 this.error = error;
             })
             .finally(() => {});
-    }
-
-    // Display the correct answer modal to the user.  
-    showCorrectAnswerComponent(result) {
-        // Open a modal which displays the correct answer component.  
-        const modalInstance = this._$uibModal.open({
-            component: 'uttCorrectAnswer',
-            keyboard: false,
-            backdrop: 'static'
-        });
-
-        this.loading = true;
-
-        //When the user acknowledges the modal, move on to the next question. 
-        modalInstance.closed.then(() => this.moveOnToNextQuestion(result));
     }
 
     // When the user answers successfully, it's time to update our track so the user can answer the next question. 
