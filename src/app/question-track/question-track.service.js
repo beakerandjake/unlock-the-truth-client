@@ -32,7 +32,7 @@ export default class QuestionTrackService {
 
         this._$timeout(() => {
             deferred.resolve({
-                correct: true
+                type: 'needsApproval',
             });
         });
 
