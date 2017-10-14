@@ -6,14 +6,35 @@ class TheRevealController {
 
         // Members
         this._theRevealService = theRevealService;
+
+        // Properties
+        this.loading = false;
+        this.secret = null;
     }
 
     $onInit() {
 
     }
 
+    // Query the api to get the TRUTH! 
     unlockTheTruth() {
-        console.log('UNLOCK THE TRUTH!');
+        if (this.loading) {
+            return;
+        }
+
+        this.loading = true;
+
+        this._theRevealService.unlockTheTruth()
+            .then(result => {
+                this.secret = result;
+            })
+            .catch(error => {
+                //TODO
+                console.error(error);
+            })
+            .finally(() => {
+                this.loading = false;
+            });
     }
 }
 
