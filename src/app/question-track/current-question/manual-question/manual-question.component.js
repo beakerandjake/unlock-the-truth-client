@@ -7,7 +7,7 @@ import template from './manual-question.html';
 
 const ManualQuestionController = {
     bindings: {
-        question: '<mqQuestions'
+        question: '<mqQuestion'
     },
     template
 };
