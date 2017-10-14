@@ -6,6 +6,11 @@ class CorrectAnswerController {
     constructor() {
         this.correctImagePath = correctImage;
     }
+
+    continue () {
+        this.askedToContinue = true;
+        this.close({});
+    }
 }
 
 export default CorrectAnswerController;

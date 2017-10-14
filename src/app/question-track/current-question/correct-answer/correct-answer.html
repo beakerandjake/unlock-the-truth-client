@@ -8,6 +8,12 @@
     </div>
     <div class="col-xs-12">
         <hr>
-        <button type="button" class="btn btn-primary pull-right" ng-click="$ctrl.close()">Next!</button>
+        <button type="button" class="btn btn-primary pull-right" ng-click="$ctrl.continue()">
+            Continue
+            <!-- Show busy spinner when submitting form.  -->
+            <span ng-if="$ctrl.askedToContinue">
+                <i class="fa fa-spinner fa-spin"></i>
+            </span>
+        </button>
     </div>
 </div>
