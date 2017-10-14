@@ -17,6 +17,18 @@ class CurrentQuestionController {
         });
     }
 
+    // Fired when our one way bindings change.  
+    // This generally only happens when the user has advanced to a new question. 
+    $onChanges(changesObject) {
+        // Only care about when question changes.  
+        if (!changesObject.question || changesObject.question.isFirstChange()) {
+            return;
+        }
+
+        // Reset our state when we get a new question so the user can answer. 
+        this.questionAnsweredCorrectly = false;
+    }
+
     //Watch for changes on question, reset..
 
     // Fired when one of our question type components raises their submit callback.  
