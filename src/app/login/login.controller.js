@@ -1,6 +1,6 @@
 class LoginController {
     constructor() {
-        
+        console.log('hello');
     }
 
     $onInit() {
