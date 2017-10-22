@@ -1,10 +1,17 @@
 class HeaderController {
-    constructor() {
+    constructor($uibModal) {
+        'ngInject';
 
+        // Members 
+        this._$uibModal = $uibModal;
     }
 
+    // Display the login component. 
     login() {
-        console.log('asked to login');
+        this._$uibModal.open({
+            component: 'uttLogin',
+            keyboard: false
+        });
     }
 }
 
