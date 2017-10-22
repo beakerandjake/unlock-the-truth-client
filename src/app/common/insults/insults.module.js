@@ -7,6 +7,6 @@ const moduleName = 'unlock-the-truth.insults';
 
 angular
     .module(moduleName, [])
-    .service('InsultsService', insultsService);
+    .service('uttInsultsService', insultsService);
 
 export default moduleName;

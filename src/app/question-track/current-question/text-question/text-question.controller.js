@@ -5,12 +5,12 @@ import {
 // Controller for the text-question component
 
 class TextQuestionController {
-    constructor($scope,InsultsService) {
+    constructor($scope, uttInsultsService) {
         'ngInject';
 
         // Members
         this._$scope = $scope;
-        this._insultService = InsultsService;
+        this._insultService = uttInsultsService;
 
         // Properties 
         this.answer = '';
