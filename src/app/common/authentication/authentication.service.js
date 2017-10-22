@@ -1,5 +1,5 @@
 import {
-   tokenKey 
+    tokenKey
 } from './authentication.constants';
 
 // Service which handles authentication.  
@@ -31,6 +31,11 @@ class AuthenticationService {
     // Store the token from the API in the users local storage. 
     _storeToken(token) {
         this._localStorageService.set(tokenKey, token);
+    }
+
+    // Returns true if the user is logged into the application. 
+    userLoggedIn() {
+        return !!this._localStorageService.get(tokenKey);
     }
 }
 
