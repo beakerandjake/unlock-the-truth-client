@@ -1,14 +1,17 @@
-
+import {
+   tokenKey 
+} from './authentication.constants';
 
 // Service which handles authentication.  
 
 class AuthenticationService {
-    constructor($q, $timeout) {
+    constructor($q, $timeout, localStorageService) {
         'ngInject';
 
         // Members
         this._$q = $q;
         this._$timeout = $timeout;
+        this._localStorageService = localStorageService;
     }
 
     // Attempt to log into the API.  
@@ -18,7 +21,8 @@ class AuthenticationService {
         const deferred = this._$q.defer();
 
         this._$timeout(() => {
-            deferred.reject('The username or password was incorrect.');
+            this._storeToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ');
+            deferred.resolve({});
         }, 1000);
 
         return deferred.promise;
@@ -26,7 +30,7 @@ class AuthenticationService {
 
     // Store the token from the API in the users local storage. 
     _storeToken(token) {
-        console.log('asked to store token', token);
+        this._localStorageService.set(tokenKey, token);
     }
 }
 

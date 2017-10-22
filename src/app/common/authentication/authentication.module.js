@@ -10,6 +10,11 @@ angular
     .module(moduleName, [
         LocalStorage
     ])
-    .service('uttAuthenticationService', authenticationService);
+    .service('uttAuthenticationService', authenticationService)
+    // Configure the local storage module.  
+    .config(localStorageServiceProvider => {
+        'ngInject';
+        localStorageServiceProvider.setPrefix('utt');
+    });
 
 export default moduleName;
