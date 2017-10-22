@@ -1,11 +1,11 @@
 // Controller for the reveal component.  
 
 class TheRevealController {
-    constructor(theRevealService) {
+    constructor(uttTheRevealService) {
         'ngInject';
 
         // Members
-        this._theRevealService = theRevealService;
+        this._theRevealService = uttTheRevealService;
 
         // Properties
         this.loading = false;
