@@ -3,8 +3,8 @@ class LoginController {
         console.log('hello');
     }
 
-    $onInit() {
-
+    login() {
+        console.log('asked to login!');
     }
 }
 
