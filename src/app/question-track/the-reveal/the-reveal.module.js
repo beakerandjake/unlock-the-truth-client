@@ -15,7 +15,7 @@ angular
         UnlockedReveal,
         TheTruth
     ])
-    .service('theRevealService', theRevealService)
+    .service('uttTheRevealService', theRevealService)
     .component('uttTheReveal', theRevealComponent);
 
 export default moduleName;
