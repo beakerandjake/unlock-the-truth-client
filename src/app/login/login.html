@@ -1,12 +1,22 @@
 <div class="modal-header">
-    <button type="button" class="close" ng-click="$ctrl.close()">
+    <button type="button" class="close" ng-click="$ctrl.close()" ng-disabled="$ctrl.loginForm.$submitted">
         <span>&times;</span>
     </button>
     <h3 class="modal-title text-center" id="modal-title">Sign in to Unlock the Truth</h3>
 </div>
 <div class="modal-body">
-    <form name="loginForm" class="login-form" ng-submit="$ctrl.login()">
-        <fieldset ng-disabled="loginForm.$submitted">
+    <!-- Login Error -->
+    <div class="row">
+        <div class="col-xs-12">
+        </div>
+    </div>
+    <form name="$ctrl.loginForm" class="login-form" ng-submit="$ctrl.login()">
+        <!-- Error message if login fails.  -->
+        <div ng-if="$ctrl.error" class="am-fade">
+            <div uib-alert class="alert-danger">Username or Password was incorrect.</div>
+        </div>
+        <!-- Main form fields -->
+        <fieldset ng-disabled="$ctrl.loginForm.$submitted">
             <!-- Username -->
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="username" ng-model="$ctrl.username" required>
@@ -16,10 +26,10 @@
                 <input type="password" class="form-control" placeholder="password" ng-model="$ctrl.password" required>
             </div>
             <!-- Close button. -->
-            <button class="btn btn-lg btn-primary btn-block" type="submit" ng-disabled="loginForm.$invalid">
+            <button class="btn btn-lg btn-primary btn-block" type="submit" ng-disabled="$ctrl.loginForm.$invalid">
                 Sign in
                 <!-- Show busy spinner when submitting form.  -->
-                <span ng-if="loginForm.$submitted">
+                <span ng-if="$ctrl.loginForm.$submitted">
                     <i class="fa fa-spinner fa-spin"></i>
                 </span>
             </button>
