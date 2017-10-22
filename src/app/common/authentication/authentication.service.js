@@ -2,6 +2,8 @@
 
 class AuthenticationService {
     constructor($q, $timeout) {
+        'ngInject';
+
         // Members
         this._$q = $q;
         this._$timeout = $timeout;
