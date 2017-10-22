@@ -16,10 +16,7 @@ class AuthenticationService {
         const deferred = this._$q.defer();
         
         this._$timeout(() => {
-            deferred.resolve({
-                token:'asdf',
-                username:'jennic'
-            });
+            deferred.reject('The username or password was incorrect.');
         }, 1000);
 
         return deferred.promise;
