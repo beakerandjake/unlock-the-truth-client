@@ -6,12 +6,23 @@ class LoginController {
 
         // Members
         this._authenticationService = uttAuthenticationService;
-        console.log('hello');
     }
 
     // Fired when the user submits the login form.  
     login() {
-        console.log('asked to login!');
+        // Bail if form submitted. 
+        this.error = null;
+
+        this._authenticationService.login(this.username, this.password)
+            .then(() => {
+                this.close({});
+            })
+            .catch(error => {
+                this.error = error;
+                // Reset form so it's no longer "submitted" 
+                this.loginForm.$setPristine();
+                this.loginForm.$setUntouched();
+            });
     }
 }
 
