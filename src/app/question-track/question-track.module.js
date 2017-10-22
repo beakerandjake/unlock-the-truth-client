@@ -20,6 +20,6 @@ angular
         TheReveal
     ])
     .component('uttQuestionTrack', questionTrackComponent)
-    .service('questionTrackService', questionTrackService);
+    .service('uttQuestionTrackService', questionTrackService);
 
 export default moduleName;

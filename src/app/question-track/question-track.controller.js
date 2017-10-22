@@ -9,12 +9,12 @@ import {
 // Controller for the question track component.  
 
 class QuestionTrackController {
-    constructor($scope, questionTrackService) {
+    constructor($scope, uttQuestionTrackService) {
         'ngInject';
 
         // Members
         this._$scope = $scope;
-        this._questionTrackService = questionTrackService;
+        this._questionTrackService = uttQuestionTrackService;
         this._answerResult = null;
 
         // Properties
