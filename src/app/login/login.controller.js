@@ -1,3 +1,5 @@
+// Controller for the login component 
+
 class LoginController {
     constructor(uttAuthenticationService) {
         'ngInject';
