@@ -10,7 +10,8 @@ class HeaderController {
     login() {
         this._$uibModal.open({
             component: 'uttLogin',
-            keyboard: false
+            keyboard: false,
+            backdrop: 'static'
         });
     }
 }
