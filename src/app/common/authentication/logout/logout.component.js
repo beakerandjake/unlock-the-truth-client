@@ -4,7 +4,9 @@ import controller from './logout.controller';
 // Component which allows the user to logout. 
 
 const LogoutComponent = {
-  bindings: {},
+  bindings: {
+    close: '&'
+  },
   template,
   controller
 };
