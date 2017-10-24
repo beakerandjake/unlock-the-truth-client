@@ -33,6 +33,24 @@ class AuthenticationService {
         this._localStorageService.set(tokenKey, token);
     }
 
+    // Returns a promise that is resolved with the result of the API call. 
+    // Logs the user out of the current session. 
+    logout() {
+        const deferred = this._$q.defer();
+
+        this._$timeout(() => {
+            this._clearToken();
+            deferred.resolve({});
+        }, 1000);
+
+        return deferred.promise;
+    }
+
+    // Clear the token from local storage. 
+    _clearToken() {
+        this._localStorageService.remove(tokenKey);
+    }
+
     // Returns true if the user is logged into the application. 
     userLoggedIn() {
         return !!this._localStorageService.get(tokenKey);
