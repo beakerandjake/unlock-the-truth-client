@@ -1,5 +1,5 @@
 <div class="modal-header">
-    <button type="button" class="close" ng-click="$ctrl.close()">
+    <button type="button" class="close" ng-disabled="$ctrl.busy" ng-click="$ctrl.close()">
         <span>&times;</span>
     </button>
     <h3 class="modal-title text-center" id="modal-title">Confirm Logout</h3>
@@ -8,6 +8,12 @@
     <h4>Are you sure you want to logout? You will not be able to answer any questions.</h4>
 </div>
 <div class="modal-footer">
-    <button type="button" class="btn btn-default" ng-click="$ctrl.close()">Cancel</button>
-    <button type="button" class="btn btn-primary" ng-click="$ctrl.logout()">Logout</button>
+    <button type="button" class="btn btn-default" ng-disabled="$ctrl.busy" ng-click="$ctrl.close()">Cancel</button>
+    <button type="button" class="btn btn-primary" ng-disabled="$ctrl.busy" ng-click="$ctrl.logout()">
+        Logout
+        <!-- Show busy spinner when submitting form.  -->
+        <span ng-if="$ctrl.busy">
+            <i class="fa fa-spinner fa-spin"></i>
+        </span>
+    </button>
 </div>
