@@ -32,7 +32,12 @@ class HeaderController {
             return;
         }
 
-        console.log('asked to logout');
+        // Display the logout component. 
+        this._$uibModal.open({
+            component: 'uttLogout',
+            keyboard: false,
+            backdrop: 'static'
+        });
     }
 
 
