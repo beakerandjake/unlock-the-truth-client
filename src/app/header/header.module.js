@@ -1,6 +1,6 @@
 import angular from 'angular';
 import UibModal from 'angular-ui-bootstrap/src/modal';
-import Login from '../login/login.module';
+import Login from '../common/authentication/login/login.module';
 import component from './header.component';
 
 // Module which contains the header component. 
