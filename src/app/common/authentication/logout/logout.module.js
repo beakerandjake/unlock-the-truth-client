@@ -1,5 +1,5 @@
 import angular from 'angular';
-import Authentication from '../authentication.module';
+import Authentication from 'common/authentication/authentication.module';
 import logoutComponent from './logout.component';
 
 // Module which contains the logout component. 
