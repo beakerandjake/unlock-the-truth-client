@@ -5,8 +5,11 @@ import {
 // Controller for the current question component.  
 
 class CurrentQuestionController {
-    constructor($scope) {
+    constructor($scope, uttAuthenticationService) {
         'ngInject';
+
+        // Members
+        this._authenticationService = uttAuthenticationService;
 
         // Properties
         this.questionAnsweredCorrectly = false;
@@ -48,6 +51,11 @@ class CurrentQuestionController {
     moveToNextQuestion() {
         // Invoke our callback.
         this.onContinue({});
+    }
+
+    // Checks if the user is allowed to answer the current question. 
+    userCanAnswerQuestion() {
+        return this._authenticationService.userLoggedIn();
     }
 }
 
