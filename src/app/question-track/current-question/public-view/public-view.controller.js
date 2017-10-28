@@ -28,8 +28,7 @@ class PublicViewController {
     // Be sure to cancel our interval when we get destroyed. 
     $onDestroy() {
         if (this._updateInterval) {
-            console.log('unsub');
-            this.$interval.cancel(this._updateInterval);
+            this._$interval.cancel(this._updateInterval);
         }
     }
 }
