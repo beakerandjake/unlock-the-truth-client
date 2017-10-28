@@ -11,7 +11,7 @@
             <cp-body>
                 <!-- Display If the user isn't logged in -->
                 <div ng-if="!$ctrl.userCanAnswerQuestion()">
-                    <utt-current-question-public-view></utt-current-question-public-view>
+                    <utt-current-question-public-view pv-question="$ctrl.question"></utt-current-question-public-view>
                 </div>
                 <!-- Let the user answer the question if they are logged in.  -->
                 <div ng-if="$ctrl.userCanAnswerQuestion()">
