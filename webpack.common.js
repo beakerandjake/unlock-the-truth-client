@@ -71,5 +71,12 @@ module.exports = {
             test: /\.(woff|woff2|eot|ttf|otf)$/,
             loader: 'file-loader'
         }]
+    },
+    resolve: {
+        // Allow components in this app to resolve other components without needing relative paths. 
+        modules: [
+            path.resolve(__dirname, 'src', 'app'),
+            'node_modules'
+        ]
     }
 };
