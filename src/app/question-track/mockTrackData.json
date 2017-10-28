@@ -6,7 +6,8 @@
       "answer": "irure",
       "failedAttempts": 40,
       "answeredBy": "Hardin",
-      "timeToAnswer": "2 hours",
+      "timeUnlocked": "Thu Oct 26 2017 02:18:11 GMT-0700 (MST)",
+      "timeAnswered": "Sat Oct 28 2017 08:01:43 GMT-0700 (MST)",
       "number": 1
     },
     {
@@ -16,7 +17,8 @@
       "answer": "nisi",
       "failedAttempts": 75,
       "answeredBy": "Woodard",
-      "timeToAnswer": "2 hours",
+      "timeUnlocked": "Thu Oct 26 2017 02:18:11 GMT-0700 (MST)",
+      "timeAnswered": "Sat Oct 28 2017 08:01:43 GMT-0700 (MST)",
       "number": 2
     },
     {
@@ -26,7 +28,8 @@
       "answer": "mollit",
       "failedAttempts": 69,
       "answeredBy": "Molina",
-      "timeToAnswer": "4 hours",
+      "timeUnlocked": "Thu Oct 26 2017 02:18:11 GMT-0700 (MST)",
+      "timeAnswered": "Sat Oct 28 2017 08:01:43 GMT-0700 (MST)",
       "number": 3
     }
   ],
