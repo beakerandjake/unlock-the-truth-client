@@ -35,7 +35,8 @@
     "title": "Dolore aliquip irure nulla tempor.",
     "body": "Who was the first President of the United States of America?",
     "type": "text",
-    "number": 4
+    "number": 4,
+    "timeUnlocked": "2017-10-26T20:00:15-07:00"
   },
   "lockedQuestions": [{
       "id": "59d130dbacb56a7f0f108f6c",

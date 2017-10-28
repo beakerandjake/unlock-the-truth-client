@@ -9,23 +9,30 @@
                 </h4>
             </cp-title>
             <cp-body>
-                <!-- Show correct answer display if the user got the question correct! -->
-                <div ng-if="$ctrl.questionAnsweredCorrectly" class="am-flip-x">
-                    <utt-correct-answer ca-on-close="$ctrl.moveToNextQuestion()"></utt-correct-answer>
+                <!-- Display If the user isn't logged in -->
+                <div ng-if="!$ctrl.userCanAnswerQuestion()">
+                    <utt-current-question-public-view pv-question="$ctrl.question"></utt-current-question-public-view>
                 </div>
-                <!-- If the user hasn't answered the question, display they appropriate body based on question type so they can answer it! -->
-                <div ng-if="!$ctrl.questionAnsweredCorrectly" ng-switch="$ctrl.question.type" class="am-fade">
-                    <!-- Text question -->
-                    <div ng-switch-when="text">
-                        <utt-text-question tq-question="$ctrl.question" tq-on-submit="$ctrl.onSubmit(answer)"></utt-text-question>
+                <!-- Let the user answer the question if they are logged in.  -->
+                <div ng-if="$ctrl.userCanAnswerQuestion()">
+                    <!-- Show correct answer display if the user got the question correct! -->
+                    <div ng-if="$ctrl.questionAnsweredCorrectly" class="am-flip-x">
+                        <utt-correct-answer ca-on-close="$ctrl.moveToNextQuestion()"></utt-correct-answer>
                     </div>
-                    <!-- Manual question -->
-                    <div ng-switch-when="manual">
-                        <utt-manual-question mq-question="$ctrl.question"></utt-manual-question>
-                    </div>
-                    <!-- Show error when unsupported question type. -->
-                    <div ng-switch-default>
-                        <h3>This question was an unexpected type. This is an error!</h3>
+                    <!-- If the user hasn't answered the question, display they appropriate body based on question type so they can answer it! -->
+                    <div ng-if="!$ctrl.questionAnsweredCorrectly" ng-switch="$ctrl.question.type" class="am-fade">
+                        <!-- Text question -->
+                        <div ng-switch-when="text">
+                            <utt-text-question tq-question="$ctrl.question" tq-on-submit="$ctrl.onSubmit(answer)"></utt-text-question>
+                        </div>
+                        <!-- Manual question -->
+                        <div ng-switch-when="manual">
+                            <utt-manual-question mq-question="$ctrl.question"></utt-manual-question>
+                        </div>
+                        <!-- Show error when unsupported question type. -->
+                        <div ng-switch-default>
+                            <h3>This question was an unexpected type. This is an error!</h3>
+                        </div>
                     </div>
                 </div>
             </cp-body>
