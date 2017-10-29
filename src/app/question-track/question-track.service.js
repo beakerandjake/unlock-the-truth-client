@@ -1,18 +1,17 @@
-import mockQuestions from './mockTrackData.json';
 import {
-   apiRoutes 
+    apiRoutes
 } from './question-track.constants';
 
 // Service which wraps API calls relating to the question track component.  
 
 export default class QuestionTrackService {
-    constructor($q, $resource, $timeout) {
+    constructor($q, $resource) {
         'ngInject';
 
         // Members
         this._$q = $q;
         this._getQuestionsEndpoint = $resource(API_ADDRESS + apiRoutes.getQuestions);
-        this._$timeout = $timeout;
+        this._answerQuestionEndpoint = $resource(API_ADDRESS + apiRoutes.answerQuestion);
     }
 
     // Returns a promise that is resolved with the result of the api call. 
@@ -41,45 +40,25 @@ export default class QuestionTrackService {
     answerQuestion(questionId, answer) {
         const deferred = this._$q.defer();
 
-        console.log(`You asked to answer question: ${questionId} with answer:`, answer);
+        const params = {
+            questionId: questionId
+        };
+        const body = {
+            answer: answer
+        };
 
-        this._$timeout(() => {
-            const currentQuestion = mockQuestions.currentQuestion;
+        // Post the answer to the endpoint. 
+        var query = this._answerQuestionEndpoint.save(params, body).$promise;
 
-            // Make a dummy previous question object. 
-            const previousQuestion = {
-                id: questionId,
-                title: 'A great previous question',
-                body: 'Blah blah blah',
-                answer: 'Bob',
-                failedAttempts: 69,
-                answeredBy: 'Jim',
-                timeToAnswer: '6 hours',
-                number: currentQuestion.number
-            };
-
-            let newQuestion = null;
-
-            const locked = mockQuestions.lockedQuestions[0];
-
-            if (locked) {
-                // Make a dummy new question object. 
-                newQuestion = {
-                    id: locked.id,
-                    title: 'Sint dolor aliqua cillum voluptate culpa nostrud consectetur anim.',
-                    body: 'Who is cool?',
-                    type: 'text',
-                    number: locked.number
-                };
-            }
-
-
-            deferred.resolve({
-                correct: true,
-                nextQuestion: newQuestion,
-                previousQuestion: previousQuestion
+        // Handle result
+        query
+            .then(result => {
+                deferred.resolve(result);
+            })
+            .catch(error => {
+                console.error(error);
+                deferred.reject('Failed to submit answer!');
             });
-        }, 2000);
 
         return deferred.promise;
     }
