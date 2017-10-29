@@ -1,15 +1,19 @@
 import mockQuestions from './mockTrackData.json';
+import {
+   apiRoutes 
+} from './question-track.constants';
 
 // Service which wraps API calls relating to the question track component.  
 
 export default class QuestionTrackService {
-    constructor($q, $timeout) {
+    constructor($q, $resource, $timeout) {
         'ngInject';
-
+        console.log($resource);
         console.log(API_ADDRESS);
 
         // Members
         this._$q = $q;
+        this._getQuestionsEndpoint = $resource(API_ADDRESS + apiRoutes.getQuestions);
         this._$timeout = $timeout;
     }
 
