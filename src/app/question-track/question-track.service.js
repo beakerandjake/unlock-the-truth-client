@@ -8,8 +8,6 @@ import {
 export default class QuestionTrackService {
     constructor($q, $resource, $timeout) {
         'ngInject';
-        console.log($resource);
-        console.log(API_ADDRESS);
 
         // Members
         this._$q = $q;
@@ -22,9 +20,17 @@ export default class QuestionTrackService {
     getQuestions() {
         const deferred = this._$q.defer();
 
-        this._$timeout(() => {
-            deferred.resolve(mockQuestions);
-        });
+        // Query API. 
+        var query = this._getQuestionsEndpoint.query({}).$promise;
+
+        // Handle result
+        query
+            .then(result => {
+                deferred.resolve(result);
+            })
+            .catch(() => {
+                deferred.reject('Failed to get questions!');
+            });
 
         return deferred.promise;
     }
