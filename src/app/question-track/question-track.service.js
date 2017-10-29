@@ -21,14 +21,15 @@ export default class QuestionTrackService {
         const deferred = this._$q.defer();
 
         // Query API. 
-        var query = this._getQuestionsEndpoint.query({}).$promise;
+        var query = this._getQuestionsEndpoint.get({}).$promise;
 
         // Handle result
         query
             .then(result => {
                 deferred.resolve(result);
             })
-            .catch(() => {
+            .catch(error => {
+                console.error(error);
                 deferred.reject('Failed to get questions!');
             });
 
