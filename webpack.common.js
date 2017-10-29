@@ -35,6 +35,11 @@ module.exports = {
         new BundleAnalyzerPlugin({
             analyzerMode: 'static',
             openAnalyzer: false
+        }),
+        // Set environment variables
+        new webpack.DefinePlugin({
+            // TODO configure to pull from env variable? 
+            API_ADDRESS: JSON.stringify('http://localhost:3000')
         })
     ],
     module: {

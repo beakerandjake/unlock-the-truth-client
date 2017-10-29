@@ -6,6 +6,8 @@ export default class QuestionTrackService {
     constructor($q, $timeout) {
         'ngInject';
 
+        console.log(API_ADDRESS);
+
         // Members
         this._$q = $q;
         this._$timeout = $timeout;
