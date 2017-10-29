@@ -55,6 +55,11 @@ class AuthenticationService {
     userLoggedIn() {
         return !!this._localStorageService.get(tokenKey);
     }
+
+    // Returns the auth token, if exists null otherwise. 
+    getToken() {
+        return this._localStorageService.get(tokenKey) || null;
+    }
 }
 
 export default AuthenticationService;
