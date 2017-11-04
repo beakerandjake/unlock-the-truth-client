@@ -1,8 +1,14 @@
+import * as constants from './create-question.constants';
+import {
+    cloneDeep
+} from 'lodash';
 // Controller for the create question component. 
 
 class CreateQuestionController {
     constructor(uttCreateQuestionService) {
         'ngInject';
+
+        console.log(constants);
 
         // Members
         this._createQuestionService = uttCreateQuestionService;
@@ -10,6 +16,11 @@ class CreateQuestionController {
         // Properties
         this.model = null;
         this.result = null;
+        this.questionTypes = constants.questionTypes;
+    }
+
+    $onInit() {
+        this.resetModel();
     }
 
     // Fired when the user clicks the create question button. 
@@ -23,6 +34,10 @@ class CreateQuestionController {
             .catch(error => {
                 this.result = error;
             });
+    }
+
+    resetModel() {
+        this.model = cloneDeep(constants.defaultModel);
     }
 }
 

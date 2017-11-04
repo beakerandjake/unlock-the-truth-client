@@ -1,4 +1,3 @@
-.create-question-form {
-    margin-top: 30px;
-    margin-bottom: 30px;
+.create-question-form textarea {
+    resize: vertical
 }
