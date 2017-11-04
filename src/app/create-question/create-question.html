@@ -1,3 +1,13 @@
-<div>
-    Hello world!
-</div>
+<ng-form name="$ctrl.createQuestionForm" ng-submit="$ctrl.createQuestion()">
+    <fieldset ng-disabled="$ctrl.textQuestionForm.$submitted">
+        
+
+        <button class="btn btn-primary" ng-click="$ctrl.createQuestionForm.submit()">
+            Submit
+            <!-- Show busy spinner when submitting form.  -->
+            <span ng-if="$ctrl.createQuestionForm.$submitted">
+                <i class="fa fa-spinner fa-spin"></i>
+            </span>
+        </button>
+    </fieldset>
+</ng-form>
