@@ -3,6 +3,7 @@ import UibModal from 'angular-ui-bootstrap/src/modal';
 import Login from 'common/authentication/login/login.module';
 import Logout from 'common/authentication/logout/logout.module';
 import Authentication from 'common/authentication/authentication.module';
+import CreateQuestion from 'create-question/create-question.module';
 import component from './header.component';
 
 // Module which contains the header component. 
@@ -14,7 +15,8 @@ angular
         UibModal,
         Login,
         Logout,
-        Authentication
+        Authentication,
+        CreateQuestion
     ])
     .component('uttHeader', component);
 
