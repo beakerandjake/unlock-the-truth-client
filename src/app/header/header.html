@@ -11,12 +11,5 @@
         </p>
         <a class="btn btn-primary" ng-if="!$ctrl.userLoggedIn()" ng-click="$ctrl.login()">Login</a>
         <a class="btn btn-primary" ng-if="$ctrl.userLoggedIn()" ng-click="$ctrl.logout()">Logout</a>
-
-        <!-- Debug component remove for prod. -->
-        <div class="row">
-            <div class="col-xs-12">
-                <utt-create-question></utt-create-question>
-            </div>
-        </div>
     </div>
 </div>
