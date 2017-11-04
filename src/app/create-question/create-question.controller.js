@@ -33,6 +33,12 @@ class CreateQuestionController {
             })
             .catch(error => {
                 this.result = error;
+            })
+            .finally(() => {
+                // Reset form so it's no longer "submitted" 
+                this.createQuestionForm.$setPristine();
+                this.createQuestionForm.$setUntouched();
+                this.resetModel();
             });
     }
 
