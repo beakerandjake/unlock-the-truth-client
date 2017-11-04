@@ -20,8 +20,8 @@
                             <label>Question Type</label>
                             <select class="form-control" ng-model="$ctrl.model.type" ng-options="type for type in $ctrl.questionTypes" required></select>
                         </div>
-                        <!-- answer (for text questions) -->
-                        <div class="form-group" ng-if="$ctrl.model.type === 'text'">
+                        <!-- answer -->
+                        <div class="form-group">
                             <label>Answer</label>
                             <input type="text" class="form-control" ng-model="$ctrl.model.answer" required>
                         </div>
