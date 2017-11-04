@@ -1,10 +1,10 @@
 <div class="row create-question-form">
     <div class="col-xs-12">
-        <ng-form  name="$ctrl.createQuestionForm" ng-submit="$ctrl.createQuestion()">
-            <fieldset ng-disabled="$ctrl.textQuestionForm.$submitted">
-                
+        <form name="$ctrl.createQuestionForm" novalidate autocomplete="off" ng-submit="$ctrl.createQuestion()">
+            <fieldset ng-disabled="$ctrl.createQuestionForm.$submitted">
 
-                <button class="btn btn-primary" ng-click="$ctrl.createQuestionForm.submit()">
+
+                <button class="btn btn-primary" type="submit">
                     Submit
                     <!-- Show busy spinner when submitting form.  -->
                     <span ng-if="$ctrl.createQuestionForm.$submitted">
@@ -12,6 +12,6 @@
                     </span>
                 </button>
             </fieldset>
-        </ng-form>
+        </form>
     </div>
 </div>
