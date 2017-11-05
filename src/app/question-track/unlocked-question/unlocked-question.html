@@ -8,22 +8,42 @@
             </cp-title>
             <cp-body>
                 <div>
-                    Question: {{$ctrl.question.body}}
+                    <h4>
+                        Question:
+                    </h4>
+                    <div>
+                        {{$ctrl.question.body}}
+                    </div>
                 </div>
                 <div>
-                    Answer: {{$ctrl.question.answer}}
-                </div>
-                <div>
+                    <h4>
+                        Answer:
+                    </h4>
                     <div>
-                        Finally Anwered By: {{$ctrl.question.answeredBy}}
-                    </div>
-                    <div>
-                        Number of attempts: {{$ctrl.question.failedAttempts}}
-                    </div>
-                    <div>
-                        It took: {{$ctrl.timeTaken($ctrl.question)}} hours to complete.
+                        {{$ctrl.question.answer}}
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-xs-4">
+                        <h5>Finally Anwered By: </h5>
+                        <div>
+                            {{$ctrl.question.answeredBy}}
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <h5>Number of attempts: </h5>
+                        <div>
+                            {{$ctrl.question.failedAttempts}}
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <h5>Time to complete:</h5>
+                         <div>
+                             {{$ctrl.timeTaken($ctrl.question)}} hours to complete.
+                         </div>
+                    </div>
+                </div>
+
             </cp-body>
         </utt-collapsible-panel>
     </div>
