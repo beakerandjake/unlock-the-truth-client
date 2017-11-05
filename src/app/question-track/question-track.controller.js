@@ -56,7 +56,7 @@ class QuestionTrackController {
             return;
         }
 
-        this._questionTrackService.answerQuestion(this.model.currentQuestion.id, answer)
+        this._questionTrackService.answerQuestion(this.model.currentQuestion._id, answer)
             .then(result => {
                 this._answerResult = result;
                 // Broadcast event based on if they got it right. 
@@ -87,7 +87,7 @@ class QuestionTrackController {
 
         if (this.model.currentQuestion) {
             // Remove current question from locked questions.
-            remove(this.model.lockedQuestions, ['id', this.model.currentQuestion.id]);
+            remove(this.model.lockedQuestions, ['_id', this.model.currentQuestion._id]);
         }
 
         // Clear answer result so we dont accidentally move on more than once.  
