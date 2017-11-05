@@ -7,7 +7,43 @@
                 </h4>
             </cp-title>
             <cp-body>
-                <pre>{{$ctrl.question|json}}</pre>
+                <div>
+                    <h4>
+                        Question:
+                    </h4>
+                    <div>
+                        {{$ctrl.question.body}}
+                    </div>
+                </div>
+                <div>
+                    <h4>
+                        Answer:
+                    </h4>
+                    <div>
+                        {{$ctrl.question.answer}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4">
+                        <h5>Finally Anwered By: </h5>
+                        <div>
+                            {{$ctrl.question.answeredBy}}
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <h5>Number of attempts: </h5>
+                        <div>
+                            {{$ctrl.question.failedAttempts}}
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <h5>Time to complete:</h5>
+                         <div>
+                             {{$ctrl.timeTaken($ctrl.question)}}
+                         </div>
+                    </div>
+                </div>
+
             </cp-body>
         </utt-collapsible-panel>
     </div>
