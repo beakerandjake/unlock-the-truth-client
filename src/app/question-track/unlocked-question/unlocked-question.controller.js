@@ -3,8 +3,12 @@ import moment from 'moment';
 
 class UnlockedQuestionController {
     timeTaken(question) {
-        let { timeUnlocked, timeAnswered } = question;
-        return moment(timeAnswered).diff(moment(timeUnlocked), 'hours');
+        const { timeUnlocked, timeAnswered } = question;
+        const timeDifference = moment(timeAnswered).diff(
+            moment(timeUnlocked),
+            'hours'
+        );
+        return moment.duration(timeDifference, 'hours').humanize();
     }
 }
 
