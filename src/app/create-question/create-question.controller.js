@@ -2,13 +2,12 @@ import * as constants from './create-question.constants';
 import {
     cloneDeep
 } from 'lodash';
+
 // Controller for the create question component. 
 
 class CreateQuestionController {
     constructor(uttCreateQuestionService) {
         'ngInject';
-
-        console.log(constants);
 
         // Members
         this._createQuestionService = uttCreateQuestionService;
