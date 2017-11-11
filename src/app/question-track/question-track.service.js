@@ -2,7 +2,8 @@ import {
     apiRoutes
 } from './question-track.constants';
 import {
-    get
+    get,
+    isEmpty
 } from 'lodash';
 
 // Service which wraps API calls relating to the question track component.  
@@ -27,6 +28,7 @@ export default class QuestionTrackService {
 
         // Handle result
         query
+            .then(validateResult)
             .then(result => {
                 deferred.resolve(result);
             })
@@ -36,6 +38,23 @@ export default class QuestionTrackService {
             });
 
         return deferred.promise;
+        
+
+        function validateResult(result) {
+            if (!result) {
+                throw 'Null result';
+            }
+
+            if (isEmpty(result.currentQuestion) && isEmpty(result.unlockedQuestions) && isEmpty(result.lockedQuestions)) {
+                throw {
+                    data:{
+                        message: 'There are no questions!'
+                    }
+                };
+            }
+
+            return result;
+        }
     }
 
     // Returns a promise that is resolved with the result of the api call. 
