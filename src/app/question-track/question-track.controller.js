@@ -67,7 +67,9 @@ class QuestionTrackController {
                 this._$scope.$broadcast(event);
             })
             .catch(error => {
-                this.error = error;
+                this._$state.go('error', {
+                    error: error
+                });
             })
             .finally(() => {});
     }
