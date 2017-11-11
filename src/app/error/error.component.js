@@ -1,5 +1,5 @@
-import template from './error-display.html';
-import controller from './error-display.controller';
+import template from './error.html';
+import controller from './error.controller';
 
 // Component which informs the user that something went wrong.  
 

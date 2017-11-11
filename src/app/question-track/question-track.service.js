@@ -1,6 +1,9 @@
 import {
     apiRoutes
 } from './question-track.constants';
+import {
+    get
+} from 'lodash';
 
 // Service which wraps API calls relating to the question track component.  
 
@@ -28,8 +31,8 @@ export default class QuestionTrackService {
                 deferred.resolve(result);
             })
             .catch(error => {
-                console.error(error);
-                deferred.reject('Failed to get questions!');
+                const message = get(error, 'data.message') || 'Failed to load questions';
+                deferred.reject(message);
             });
 
         return deferred.promise;
