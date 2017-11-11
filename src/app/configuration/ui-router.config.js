@@ -10,11 +10,11 @@ angular
         UiRouter
     ])
 
-    // Configure HTML 5 Mode, remove the # from our urls. 
-    .config($locationProvider => {
-        'ngInject';
-        $locationProvider.html5Mode(true);
-    })
+    // // Configure HTML 5 Mode, remove the # from our urls. 
+    // .config($locationProvider => {
+    //     'ngInject';
+    //     $locationProvider.html5Mode(true);
+    // })
 
     // Always fallback to default route if not found. 
     .config($urlRouterProvider => {
