@@ -1,4 +1,5 @@
 import angular from 'angular';
+import UiRouter from '@uirouter/angularjs';
 
 // Global styles
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -17,6 +18,7 @@ const moduleName = 'unlock-the-truth';
 
 angular
     .module(moduleName, [
+        UiRouter,
         Header,
         Footer,
         QuestionTrack,
