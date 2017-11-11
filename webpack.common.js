@@ -44,7 +44,8 @@ module.exports = {
         // Provide jquery to fullpage
         new webpack.ProvidePlugin({
             $: "jquery",
-            jQuery: "jquery"
+            jQuery: "jquery",
+            'window.jQuery': 'jquery'
         }),
         // Know issue with momentjs. Importing moment.js also imports all locale files
         // This blows up the bundle size for something we don't need. Use the fix described here:
