@@ -19,7 +19,11 @@ angular
         // Register the home state, and add the home component to it. 
         $stateProvider.state('error', {
             url: '/error',
-            component: 'uttErrorDisplay'
+            component: 'uttErrorDisplay',
+            params: {
+                // allow this state to be transitioned to with an error param. 
+                error: null
+            }
         });
     });
 
