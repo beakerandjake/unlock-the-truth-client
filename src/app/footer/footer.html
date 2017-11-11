@@ -1,5 +1,6 @@
 <div class="container">
     <footer class="footer">
-        <a ui-sref="login">login</a>
+        <a ng-if="!$ctrl.userLoggedIn()" ng-click="$ctrl.login()">login</a>
+        <a ng-if="$ctrl.userLoggedIn()" ng-click="$ctrl.logout()">logout</a>
     </footer>
 </div>

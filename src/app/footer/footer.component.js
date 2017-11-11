@@ -1,10 +1,12 @@
 import template from './footer.html';
+import controller from './footer.controller.js';
 
 // Component which displays the footer portion of the website.  
 
-const footerComponent = {
+const FooterComponent = {
   bindings: {},
-  template
+  template,
+  controller
 };
 
-export default footerComponent;
+export default FooterComponent;
