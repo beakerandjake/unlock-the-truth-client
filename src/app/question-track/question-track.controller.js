@@ -106,14 +106,6 @@ class QuestionTrackController {
         // No current question? No locked questions? Seems like we got em all. 
         return !this.model.currentQuestion && this.model.lockedQuestions.length === 0;
     }
-
-    testErrorState() {
-        this._$state.go('error', {
-            error: {
-                message: 'BAD BAD BAD'
-            }
-        });
-    }
 }
 
 export default QuestionTrackController;
