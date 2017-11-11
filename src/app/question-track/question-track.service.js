@@ -56,8 +56,8 @@ export default class QuestionTrackService {
                 deferred.resolve(result);
             })
             .catch(error => {
-                console.error(error);
-                deferred.reject('Failed to submit answer!');
+                const message = get(error, 'data.message') || 'Failed to answer question';
+                deferred.reject(message);
             });
 
         return deferred.promise;
