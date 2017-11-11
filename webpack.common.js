@@ -40,7 +40,11 @@ module.exports = {
         new webpack.DefinePlugin({
             // TODO configure to pull from env variable? 
             API_ADDRESS: JSON.stringify('http://localhost:3000')
-        })
+        }),
+        // Know issue with momentjs. Importing moment.js also imports all locale files
+        // This blows up the bundle size for something we don't need. Use the fix described here:
+        // https://webpack.js.org/plugins/ignore-plugin/#ignore-moment-locales 
+        new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
     ],
     module: {
         rules: [{
