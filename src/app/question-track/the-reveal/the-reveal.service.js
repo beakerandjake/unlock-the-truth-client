@@ -1,12 +1,14 @@
+import * as constants from './the-reveal.constants';
+
 // Service which wraps API methods relating to the reveal. 
 
 class TheRevealService {
-    constructor($q, $timeout) {
+    constructor($q, $resource) {
         'ngInject';
 
         // Members
         this._$q = $q;
-        this._$timeout = $timeout;
+        this._theTruthEndpoint = $resource(API_ADDRESS + constants.theTruthApiRoute);
     }
 
     // Returns a promise that is resolved with the result of the api. 
@@ -14,9 +16,15 @@ class TheRevealService {
     unlockTheTruth() {
         const deferred = this._$q.defer();
 
-        this._$timeout(() => {
-            deferred.resolve('Great Job');
-        }, 1000);
+        const query = this._theTruthEndpoint.get().$promise;
+
+        query
+            .then(result => {
+                deferred.resolve(result);
+            })
+            .catch(() => {
+                deferred.reject('Failed to unlock the truth. This is an error, please try again.');
+            });
 
         return deferred.promise;
     }
