@@ -10,6 +10,17 @@ const moduleName = 'unlock-the-truth.error-display';
 
 angular
     .module(moduleName, [])
-    .component('uttErrorDisplay', errorDisplayComponent);
+    .component('uttErrorDisplay', errorDisplayComponent)
+
+    // Configure the routing for this module. 
+    .config($stateProvider => {
+        'ngInject';
+
+        // Register the home state, and add the home component to it. 
+        $stateProvider.state('error', {
+            url: '/error',
+            component: 'uttErrorDisplay'
+        });
+    });
 
 export default moduleName;
