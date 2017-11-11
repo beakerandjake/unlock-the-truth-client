@@ -1,9 +1,13 @@
 import angular from 'angular';
 import UiRouter from '@uirouter/angularjs';
 
+// Non angular imports
+import 'fullpage.js';
+
 // Global styles
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
+import 'fullpage.js/dist/jquery.fullpage.min.css';
 
 // utt components
 import UiRouterConfig from './configuration/ui-router.config';
