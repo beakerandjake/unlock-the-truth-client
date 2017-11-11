@@ -1,4 +1,7 @@
 import * as constants from './the-reveal.constants';
+import {
+    get
+} from 'lodash';
 
 // Service which wraps API methods relating to the reveal. 
 
@@ -22,8 +25,9 @@ class TheRevealService {
             .then(result => {
                 deferred.resolve(result);
             })
-            .catch(() => {
-                deferred.reject('Failed to unlock the truth. This is an error, please try again.');
+            .catch(error => {
+                const message = get(error, 'data.message') || 'Failed to unlock the truth';
+                deferred.reject(message);
             });
 
         return deferred.promise;
