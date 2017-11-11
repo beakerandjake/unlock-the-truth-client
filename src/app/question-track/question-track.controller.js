@@ -56,7 +56,7 @@ class QuestionTrackController {
             return;
         }
 
-        this._questionTrackService.answerQuestion(this.model.currentQuestion.id, answer)
+        this._questionTrackService.answerCurrentQuestion(answer)
             .then(result => {
                 this._answerResult = result;
                 // Broadcast event based on if they got it right. 
