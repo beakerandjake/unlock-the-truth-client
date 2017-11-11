@@ -37,18 +37,15 @@ export default class QuestionTrackService {
 
     // Returns a promise that is resolved with the result of the api call. 
     // Returns the result of answering the question. 
-    answerQuestion(questionId, answer) {
+    answerCurrentQuestion(answer) {
         const deferred = this._$q.defer();
 
-        const params = {
-            questionId: questionId
-        };
         const body = {
             answer: answer
         };
 
         // Post the answer to the endpoint. 
-        var query = this._answerQuestionEndpoint.save(params, body).$promise;
+        var query = this._answerQuestionEndpoint.save({}, body).$promise;
 
         // Handle result
         query
