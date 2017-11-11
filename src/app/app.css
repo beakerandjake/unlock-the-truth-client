@@ -1,3 +1,4 @@
-h1 {
-    color: red;
+/* Make all links have pointer */
+a:hover {
+    cursor: pointer;
 }

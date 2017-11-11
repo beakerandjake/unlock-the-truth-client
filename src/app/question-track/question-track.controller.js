@@ -10,11 +10,12 @@ import {
 // Controller for the question track component.  
 
 class QuestionTrackController {
-    constructor($scope, uttQuestionTrackService) {
+    constructor($scope, $state, uttQuestionTrackService) {
         'ngInject';
 
         // Members
         this._$scope = $scope;
+        this._$state = $state;
         this._questionTrackService = uttQuestionTrackService;
         this._answerResult = null;
 
@@ -43,7 +44,9 @@ class QuestionTrackController {
                 this.model = result;
             })
             .catch(error => {
-                this.error = error;
+                this._$state.go('error', {
+                    error: error
+                });
             })
             .finally(() => {
                 this.loading = false;
@@ -64,7 +67,9 @@ class QuestionTrackController {
                 this._$scope.$broadcast(event);
             })
             .catch(error => {
-                this.error = error;
+                this._$state.go('error', {
+                    error: error
+                });
             })
             .finally(() => {});
     }
@@ -96,7 +101,7 @@ class QuestionTrackController {
 
     // Check whether the user has unlocked all of the questions. 
     allQuestionsUnlocked() {
-        if(!this.model){
+        if (!this.model) {
             return false;
         }
 

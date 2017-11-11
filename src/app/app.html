@@ -6,10 +6,11 @@
 
 <!-- Main content of the page -->
 <div class="container">
-    <!-- REMOVE DURING PROD -->
-    <utt-create-question></utt-create-question>
-    <!-- Display all questions to the user -->
-    <utt-question-track></utt-question-track>
-    <!-- Display the sites footer -->
-    <utt-footer></utt-footer>
+    <a ui-sref="question-track">question-track</a>
+    <a ui-sref="debug">debug</a>
+    <a ui-sref="error">error</a>
+    <ui-view></ui-view>
 </div>
+
+<!-- Display the sites footer -->
+<utt-footer></utt-footer>

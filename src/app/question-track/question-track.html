@@ -4,11 +4,6 @@
         <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
     </div>
 
-    <!-- Show error display if something went wrong -->
-    <div class="col-xs-12" ng-if="$ctrl.error">
-        <utt-error-display ed-error="$ctrl.error"></utt-error-display>
-    </div>
-
     <!-- Show main content -->
     <div class="col-xs-12" ng-if="!$ctrl.loading && !$ctrl.error">
         <!-- Main question track. -->
