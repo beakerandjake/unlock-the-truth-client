@@ -1,42 +1,44 @@
-<div class="row">
-    <div class="col-xs-12">
-        <div class="panel panel-primary">
-            <div class="panel-heading">Debug Create Question</div>
-            <div class="panel-body">
-                <form class="create-question-form" name="$ctrl.createQuestionForm" novalidate autocomplete="off" ng-submit="$ctrl.createQuestion()">
-                    <fieldset ng-disabled="$ctrl.createQuestionForm.$submitted">
-                        <!-- title -->
-                        <div class="form-group">
-                            <label>Title</label>
-                            <input type="text" class="form-control" ng-model="$ctrl.model.title" required>
-                        </div>
-                        <!-- body -->
-                        <div class="form-group">
-                            <label>Body</label>
-                            <textarea type="text" class="form-control" ng-model="$ctrl.model.body" required></textarea>
-                        </div>
-                        <!-- type -->
-                        <div class="form-group">
-                            <label>Question Type</label>
-                            <select class="form-control" ng-model="$ctrl.model.type" ng-options="type for type in $ctrl.questionTypes" required></select>
-                        </div>
-                        <!-- answer -->
-                        <div class="form-group">
-                            <label>Answer</label>
-                            <input type="text" class="form-control" ng-model="$ctrl.model.answer" required>
-                        </div>
-                        <!-- Submit button -->
-                        <button class="btn btn-primary" type="submit" ng-disabled="$ctrl.createQuestionForm.$invalid">
-                            Submit
-                            <!-- Show busy spinner when submitting form.  -->
-                            <span ng-if="$ctrl.createQuestionForm.$submitted">
-                                <i class="fa fa-spinner fa-spin"></i>
-                            </span>
-                        </button>
-                    </fieldset>
-                </form>
-                <h4>API RESULT</h4>
-                <pre>{{$ctrl.result|json}}</pre>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Debug Create Question</div>
+                <div class="panel-body">
+                    <form class="create-question-form" name="$ctrl.createQuestionForm" novalidate autocomplete="off" ng-submit="$ctrl.createQuestion()">
+                        <fieldset ng-disabled="$ctrl.createQuestionForm.$submitted">
+                            <!-- title -->
+                            <div class="form-group">
+                                <label>Title</label>
+                                <input type="text" class="form-control" ng-model="$ctrl.model.title" required>
+                            </div>
+                            <!-- body -->
+                            <div class="form-group">
+                                <label>Body</label>
+                                <textarea type="text" class="form-control" ng-model="$ctrl.model.body" required></textarea>
+                            </div>
+                            <!-- type -->
+                            <div class="form-group">
+                                <label>Question Type</label>
+                                <select class="form-control" ng-model="$ctrl.model.type" ng-options="type for type in $ctrl.questionTypes" required></select>
+                            </div>
+                            <!-- answer -->
+                            <div class="form-group">
+                                <label>Answer</label>
+                                <input type="text" class="form-control" ng-model="$ctrl.model.answer" required>
+                            </div>
+                            <!-- Submit button -->
+                            <button class="btn btn-primary" type="submit" ng-disabled="$ctrl.createQuestionForm.$invalid">
+                                Submit
+                                <!-- Show busy spinner when submitting form.  -->
+                                <span ng-if="$ctrl.createQuestionForm.$submitted">
+                                    <i class="fa fa-spinner fa-spin"></i>
+                                </span>
+                            </button>
+                        </fieldset>
+                    </form>
+                    <h4>API RESULT</h4>
+                    <pre>{{$ctrl.result|json}}</pre>
+                </div>
             </div>
         </div>
     </div>
