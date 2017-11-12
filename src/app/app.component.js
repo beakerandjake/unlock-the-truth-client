@@ -1,8 +1,12 @@
 import template from './app.html';
+import controller from './app.controller';
 import './app.css';
 
-const appComponent = {
-    template
+// Main component for the application. 
+
+const AppComponent = {
+    template,
+    controller
 };
 
-export default appComponent;
+export default AppComponent;

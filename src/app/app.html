@@ -7,13 +7,13 @@
 <!-- Main content of the page -->
 <div class="container">
     <!-- Question Track -->
-    <div ng-if="!$ctrl.error">
+    <div ng-if="!$ctrl.getError()">
         <utt-question-track></utt-question-track>
         <!-- TODO: DEBUG remove from prod -->
         <utt-create-question></utt-create-question>
     </div>
     <!-- Error Display -->
-    <div ng-if="$ctrl.error">
+    <div ng-if="$ctrl.getError()">
         <utt-error></utt-error>
     </div>
 </div>

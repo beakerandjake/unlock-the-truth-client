@@ -6,12 +6,12 @@ class ErrorService {
     }
 
     // Returns the error object 
-    get error() {
+    getError() {
         return this.error;
     }
 
     // Set the error object. 
-    set error(error) {
+    setError(error) {
         this.error = error;
     }
 }

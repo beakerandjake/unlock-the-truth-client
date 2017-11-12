@@ -10,7 +10,7 @@ class AppController {
 
     // Returns the current error object (if any)
     getError() {
-        return this._errorService.error;
+        return this._errorService.getError();
     }
 }
 
