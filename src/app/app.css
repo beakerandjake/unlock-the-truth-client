@@ -35,18 +35,6 @@ html {
     min-height: 100%;
 }
 
-/* Turn something blue! */
-.utt-baby-blue {
-    color: #89CFF0;
-    /* text-shadow: 3px 2px 14px rgba(244, 194, 194, 1); */
-}
-
-/* Turn something pink */
-.utt-baby-pink {
-    color: #F4C2C2;
-    /* text-shadow: 3px 2px 14px rgba(137, 207, 240, 1); */
-}
-
 /* Fade in / out animations */
 
 .utt-fade-in,
