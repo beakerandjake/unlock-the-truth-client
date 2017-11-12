@@ -1,5 +1,10 @@
-<div id="utt-question-track" class="container">
-    <div class="row utt-question-track">
+<div id="utt-question-track" class="container utt-question-track">
+    <div class="row text-center">
+        <div class="col-xs-12">
+            <h3 class="page-header">each question must be completed before <a ng-click="$ctrl.scrollToReveal()">the truth</a> can be unlocked.</h3>
+        </div>
+    </div>
+    <div class="row ">
         <!-- Show spinner when loading questions -->
         <div class="col-xs-12 text-center" ng-if="$ctrl.loading">
             <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
