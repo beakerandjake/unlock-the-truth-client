@@ -8,6 +8,7 @@ import 'font-awesome/css/font-awesome.min.css';
 
 // utt components
 import UiRouterConfig from './configuration/ui-router.config';
+import NgScrollConfig from './configuration/ng-scroll.config';
 import MainComponent from './app.component';
 import Header from './header/header.module';
 import Footer from './footer/footer.module';
@@ -22,8 +23,9 @@ const moduleName = 'unlock-the-truth';
 angular
     .module(moduleName, [
         NgScroll,
-        UiRouterConfig,
+        NgScrollConfig,
         UiRouter,
+        UiRouterConfig,
         Header,
         Footer,
         ErrorDisplay,
