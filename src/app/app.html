@@ -6,11 +6,16 @@
 
 <!-- Main content of the page -->
 <div class="container">
-    <utt-question-track></utt-question-track>
-    
-    <utt-error></utt-error>
-    <!-- TODO: DEBUG remove from prod -->
-    <utt-create-question></utt-create-question>
+    <!-- Question Track -->
+    <div ng-if="!$ctrl.error">
+        <utt-question-track></utt-question-track>
+        <!-- TODO: DEBUG remove from prod -->
+        <utt-create-question></utt-create-question>
+    </div>
+    <!-- Error Display -->
+    <div ng-if="$ctrl.error">
+        <utt-error></utt-error>
+    </div>
 </div>
 
 <!-- Display the sites footer -->
