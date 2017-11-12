@@ -1,16 +1,24 @@
-.error-title {
+.utt-error {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+    min-height: 100%;
+}
+
+.utt-error-title {
     font-size: 63px;
 }
 
-.error-image {
-    animation: error-shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+.utt-error-image {
+    animation: utt-error-shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
     animation-iteration-count: infinite;
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
     perspective: 1000px;
 }
 
-@keyframes error-shake {
+@keyframes utt-error-shake {
     10%,
     90% {
         transform: translate3d(-1px, 0, 0);

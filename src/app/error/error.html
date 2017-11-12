@@ -1,11 +1,11 @@
-<div class="row">
-    <div class="col-xs-12 text-center error-message">
-        <h1 class="error-title">Uh Oh...</h1>
+<div id="utt-error" class="utt-error">
+    <div class="container">
+        <h1 class="utt-error-title">Uh oh</h1>
         <h2>Something went wrong</h2>
         <p class="text-muted">{{$ctrl.error}}</p>
-        <h2><a class="btn btn-primary" href="/">Try again</a></h2>
-    </div>
-    <div class="col-xs-12 text-center">
-        <img src="{{$ctrl.pathToErrorImage}}" class="error-image">
+        <h2>
+            <a class="btn btn-primary" href="/">Try again</a>
+        </h2>
+        <img src="{{$ctrl.pathToErrorImage}}" class="utt-error-image">
     </div>
 </div>
