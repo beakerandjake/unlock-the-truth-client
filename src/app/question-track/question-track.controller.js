@@ -94,16 +94,6 @@ class QuestionTrackController {
         // Clear answer result so we dont accidentally move on more than once.  
         this._answerResult = null;
     }
-
-    // Check whether the user has unlocked all of the questions. 
-    allQuestionsUnlocked() {
-        if (!this.model) {
-            return false;
-        }
-
-        // No current question? No locked questions? Seems like we got em all. 
-        return !this.model.currentQuestion && this.model.lockedQuestions.length === 0;
-    }
 }
 
 export default QuestionTrackController;
