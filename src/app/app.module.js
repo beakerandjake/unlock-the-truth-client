@@ -1,5 +1,6 @@
 import angular from 'angular';
 import UiRouter from '@uirouter/angularjs';
+import NgScroll from 'angular-scroll';
 
 // Global styles
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -20,6 +21,7 @@ const moduleName = 'unlock-the-truth';
 
 angular
     .module(moduleName, [
+        NgScroll,
         UiRouterConfig,
         UiRouter,
         Header,
