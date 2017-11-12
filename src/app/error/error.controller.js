@@ -8,8 +8,7 @@ class ErrorDisplayController {
     }
 
     $onInit() {
-        // Grab error that can be injected into our state.
-        this.error = this.$transition$.params().error;
+
     }
 }
 
