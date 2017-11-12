@@ -1,9 +1,5 @@
 .utt-error {
-    display: flex;
-    align-items: center;
     text-align: center;
-    min-height: 100vh;
-    min-height: 100%;
 }
 
 .utt-error-title {

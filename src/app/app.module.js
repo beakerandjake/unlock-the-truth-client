@@ -13,6 +13,7 @@ import Footer from './footer/footer.module';
 import Error from './error/error.module';
 import CreateQuestion from './create-question/create-question.module';
 import QuestionTrack from './question-track/question-track.module';
+import TheReveal from './the-reveal/the-reveal.module';
 
 const moduleName = 'unlock-the-truth';
 
@@ -26,6 +27,7 @@ angular
         Footer,
         Error,
         QuestionTrack,
+        TheReveal,
         CreateQuestion
     ])
     .component('unlockTheTruth', MainComponent);
