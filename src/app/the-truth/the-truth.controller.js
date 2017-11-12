@@ -15,15 +15,20 @@ class TheTruthController {
 
     // Update the background for a nice surprise. 
     updateBackgroundImage() {
-        if(!backgroundImagePath){
+        if (!backgroundImagePath) {
             return;
         }
 
-        const bodyElement = angular.element(this._$document[0].body);
-        bodyElement.css('background', 'black');
-        bodyElement.css('background-image', `url(${backgroundImagePath})`);
-        bodyElement.css('background-attachment', `fixed`);
-        bodyElement.css('background-size', `cover`);
+        angular
+            .element(this._$document[0].body)
+            .css({
+                'background': 'black',
+                'background-image': `url(${backgroundImagePath})`,
+                'background-attachment': 'fixed',
+                'background-repeat': 'no-repeat',
+                'background-size': 'cover',
+                'background-position': 'center'
+            });
     }
 }
 
