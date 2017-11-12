@@ -1,10 +1,14 @@
 class HeaderController {
-    constructor() {
-        
+    constructor(uttScrollHelper) {
+        'ngInject';
+
+        // Members
+        this._scrollHelper = uttScrollHelper;
     }
 
-    $onInit() {
-
+    // Scroll the user to the question track. 
+    scrollToQuestions() {
+        this._scrollHelper.scrollToElement('utt-question-track');
     }
 }
 
