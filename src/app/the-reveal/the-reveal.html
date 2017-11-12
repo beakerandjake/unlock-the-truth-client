@@ -1,12 +1,18 @@
-<div id="utt-the-reveal" class="utt-full-viewport utt-the-reveal">
+<div id="utt-the-reveal" class="utt-full-viewport">
     <div class="container text-center">
         <div class="row">
             <div class="col-xs-12">
-                <button class="btn btn-primary" ng-click="$ctrl.unlockTheTruth()">Click to unlock the truth</button>
+                <h3>
+                    click to unlock the truth
+                </h3>
+                <i ng-click="$ctrl.unlockTheTruth()" class="fa fa-question-circle-o utt-the-reveal-button hvr-buzz"></i>
             </div>
             <div class="col-xs-12">
-                <pre>{{$ctrl|json}}</pre>
+                <p class="fadein fadeout" ng-show="$ctrl.model && !$ctrl.model.unlocked">
+                    {{$ctrl.model.message}}
+                </p>
             </div>
         </div>
     </div>
+</div>
 </div>

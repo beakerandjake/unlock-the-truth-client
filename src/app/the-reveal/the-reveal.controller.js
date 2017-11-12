@@ -10,7 +10,7 @@ class TheRevealController {
 
         // Properties
         this.loading = false;
-        this.theTruth = null;
+        this.model = null;
     }
 
     $onInit() {
@@ -24,10 +24,11 @@ class TheRevealController {
         }
 
         this.loading = true;
+        this.model = null;
 
         this._theRevealService.unlockTheTruth()
             .then(result => {
-                this.theTruth = result;
+                this.model = result;
             })
             .catch(error => {
                 this._errorService.setError(error);
