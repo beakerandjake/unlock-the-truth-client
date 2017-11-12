@@ -1,5 +1,6 @@
 import angular from 'angular';
 import NgResource from 'angular-resource';
+import Error from 'error/error.module';
 import LockedQuestion from './locked-question/locked-question.module';
 import CurrentQuestion from './current-question/current-question.module';
 import UnlockedQuestion from './unlocked-question/unlocked-question.module';
@@ -13,6 +14,7 @@ const moduleName = 'unlock-the-truth.question-track';
 
 angular
     .module(moduleName, [
+        Error,
         NgResource,
         LockedQuestion,
         CurrentQuestion,

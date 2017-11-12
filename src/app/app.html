@@ -4,14 +4,15 @@
 <!-- Display the header to the site -->
 <utt-header></utt-header>
 
-<!-- Main content of the page -->
-<div class="container">
+<!-- Main content of the page (don't show if error) -->
+<div ng-if="!$ctrl.getError()" class="container">
     <utt-question-track></utt-question-track>
-    
-    <utt-error></utt-error>
     <!-- TODO: DEBUG remove from prod -->
     <utt-create-question></utt-create-question>
 </div>
+
+<!-- Error Display (shown only if something exploded) -->
+<utt-error ng-if="$ctrl.getError()" ue-error="$ctrl.getError()"></utt-error>
 
 <!-- Display the sites footer -->
 <utt-footer></utt-footer>

@@ -10,12 +10,13 @@ import {
 // Controller for the question track component.  
 
 class QuestionTrackController {
-    constructor($scope, uttQuestionTrackService) {
+    constructor($scope, uttErrorService, uttQuestionTrackService) {
         'ngInject';
 
         // Members
         this._$scope = $scope;
         this._questionTrackService = uttQuestionTrackService;
+        this._errorService = uttErrorService;
         this._answerResult = null;
 
         // Properties
@@ -43,8 +44,7 @@ class QuestionTrackController {
                 this.model = result;
             })
             .catch(error => {
-                //TODO
-                console.error(error);
+                this._errorService.setError(error);
             })
             .finally(() => {
                 this.loading = false;
@@ -65,8 +65,7 @@ class QuestionTrackController {
                 this._$scope.$broadcast(event);
             })
             .catch(error => {
-                //TODO
-                console.error(error);
+                this._errorService.setError(error);
             })
             .finally(() => {});
     }
