@@ -23,7 +23,7 @@ class ScrollHelperService {
             return;
         }
 
-        this._document.scrollToElementAnimated(desired);
+        this._document.scrollToElementAnimated(desired, 0, 1500);
     }
 
     // Grab the element by id and wrap in angular element.  
