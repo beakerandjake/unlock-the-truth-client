@@ -1,14 +1,16 @@
 /* Make all links have pointer */
-
 a:hover {
     cursor: pointer;
 }
+
 
 body {
     position: relative;
     width: 100%;
     height: 100%;
     margin: 0;
+    font-family: helvetica, sans-serif;
+
     /* Set background gradient. */
     background: rgb(255, 182, 193);
     background: -moz-linear-gradient(-45deg, rgba(255, 182, 193, 1) 0%, rgba(125, 185, 232, 1) 100%);
@@ -26,10 +28,31 @@ html {
 
 
 /* Allow items to take up 100% of viewport */
-
 .utt-full-viewport {
     display: flex;
     align-items: center;
     min-height: 100vh;
     min-height: 100%;
+}
+
+/* Fade in / out animations */
+
+.utt-fade-in,
+.utt-fade-out {
+    -webkit-transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s;
+    -moz-transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s;
+    -o-transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s;
+    transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s;
+}
+
+.utt-fade-in.ng-hide-remove,
+.utt-fade-out.ng-hide-add.ng-hide-add-active {
+    opacity: 0;
+    display: block !important;
+}
+
+.utt-fade-out.ng-hide-add,
+.utt-fade-in.ng-hide-remove.ng-hide-remove-active {
+    opacity: 1;
+    display: block !important;
 }

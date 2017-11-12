@@ -1,0 +1,59 @@
+/* Animation in opacity and scale */
+
+@keyframes FadeAndGrow {
+    0% {
+        opacity: 0;
+        transform: scale(.1);
+    }
+    85% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* Make each line of the truths message have special look */
+
+.utt-the-truth h1 {
+    animation: FadeAndGrow 1s ease-in;
+    animation-fill-mode: both;
+    font-weight: normal;
+    letter-spacing: 1pt;
+    word-spacing: 2pt;
+    line-height: 1;
+    text-transform: lowercase;
+}
+
+
+/* Bigger text on larger devices.  */
+
+@media screen and (min-width: 768px) {
+    .utt-the-truth h1 {
+        font-size: 88px;
+    }
+}
+
+
+/* style/delay each line (expect there's 4 lines from api) */
+
+.utt-the-truth h1:nth-child(1) {
+    color: #89CFF0;
+}
+
+.utt-the-truth h1:nth-child(2) {
+    color: #F4C2C2;
+    animation-delay: 2s;
+}
+
+.utt-the-truth h1:nth-child(3) {
+    color: #89CFF0;
+    animation-delay: 4s;
+}
+
+.utt-the-truth h1:nth-child(4) {
+    color: #F4C2C2;
+    animation-delay: 6s;
+}

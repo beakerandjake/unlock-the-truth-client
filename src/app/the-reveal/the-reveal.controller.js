@@ -5,7 +5,7 @@ class TheRevealController {
         'ngInject';
 
         // Members
-        this._errorService =  uttErrorService;
+        this._errorService = uttErrorService;
         this._theRevealService = uttTheRevealService;
 
         // Properties
@@ -29,6 +29,13 @@ class TheRevealController {
         this._theRevealService.unlockTheTruth()
             .then(result => {
                 this.model = result;
+
+                // Check if the user unlocked the truth. 
+                if (this.model.unlocked && this.model.theTruth) {
+                    this.onUnlocked({
+                        theTruth: this.model.theTruth
+                    });
+                }
             })
             .catch(error => {
                 this._errorService.setError(error);

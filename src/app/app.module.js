@@ -15,6 +15,7 @@ import Error from './error/error.module';
 import CreateQuestion from './create-question/create-question.module';
 import QuestionTrack from './question-track/question-track.module';
 import TheReveal from './the-reveal/the-reveal.module';
+import TheTruth from './the-truth/the-truth.module';
 
 const moduleName = 'unlock-the-truth';
 
@@ -29,6 +30,7 @@ angular
         Error,
         QuestionTrack,
         TheReveal,
+        TheTruth,
         CreateQuestion
     ])
     .component('unlockTheTruth', MainComponent);

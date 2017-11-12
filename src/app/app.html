@@ -1,20 +1,25 @@
-<!-- Navbar which allows the user to login.  -->
-<utt-navbar></utt-navbar>
+<!-- Show main site when user hasn't unlocked the truth.  -->
+<span ng-if="!$ctrl.theTruth">
+    <!-- Display the header to the site -->
+    <utt-header></utt-header>
 
-<!-- Display the header to the site -->
-<utt-header></utt-header>
+    <!-- Quesiton Track -->
+    <utt-question-track ng-if="!$ctrl.getError()"></utt-question-track>
 
-<!-- Quesiton Track -->
-<utt-question-track ng-if="!$ctrl.getError()"></utt-question-track>
+    <!-- The Reveal-->
+    <utt-the-reveal ng-if="!$ctrl.getError()" tr-unlocked="$ctrl.onUnlocked(theTruth)"></utt-the-reveal>
 
-<!-- The Reveal! -->
-<utt-the-reveal ng-if="!$ctrl.getError()"></utt-the-reveal>
+    <!-- TODO: DEBUG remove from prod -->
+    <utt-create-question ng-if="!$ctrl.getError()"></utt-create-question>
 
-<!-- TODO: DEBUG remove from prod -->
-<utt-create-question ng-if="!$ctrl.getError()"></utt-create-question>
+    <!-- Error Display (shown only if something exploded) -->
+    <utt-error ng-if="$ctrl.getError()" ue-error="$ctrl.getError()"></utt-error>
 
-<!-- Error Display (shown only if something exploded) -->
-<utt-error ng-if="$ctrl.getError()" ue-error="$ctrl.getError()"></utt-error>
+    <!-- Display the sites footer -->
+    <utt-footer></utt-footer>
+</span>
 
-<!-- Display the sites footer -->
-<utt-footer></utt-footer>
+<!-- Show when user unlocked the truth.-->
+<span ng-if="$ctrl.theTruth">
+    <utt-the-truth tt-truth="$ctrl.theTruth"></utt-the-truth>
+</span>
