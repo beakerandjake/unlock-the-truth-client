@@ -1,11 +1,10 @@
 // Controller for the reveal component.  
 
 class TheRevealController {
-    constructor($state, uttTheRevealService) {
+    constructor(uttTheRevealService) {
         'ngInject';
 
         // Members
-        this._$state = $state;
         this._theRevealService = uttTheRevealService;
 
         // Properties
@@ -30,9 +29,8 @@ class TheRevealController {
                 this.theTruth = result;
             })
             .catch(error => {
-                this._$state.go('error', {
-                    error: error
-                });
+                //TODO
+                console.error(error);
             })
             .finally(() => {
                 this.loading = false;

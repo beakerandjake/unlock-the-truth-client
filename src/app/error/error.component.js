@@ -5,7 +5,7 @@ import controller from './error.controller';
 
 const ErrorDisplayComponent = {
     bindings: {
-        $transition$: '<'
+        error: '<edError'
     },
     template,
     controller

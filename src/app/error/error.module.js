@@ -10,21 +10,6 @@ const moduleName = 'unlock-the-truth.error';
 
 angular
     .module(moduleName, [])
-    .component('uttError', errorComponent)
+    .component('uttError', errorComponent);
 
-    // Configure the routing for this module. 
-    .config($stateProvider => {
-        'ngInject';
-
-        // Register the home state, and add the home component to it. 
-        $stateProvider.state('error', {
-            url: '/error',
-            component: 'uttError',
-            params: {
-                // allow this state to be transitioned to with an error param. 
-                error: null
-            }
-        });
-    });
-
-export default moduleName;
+    export default moduleName;
