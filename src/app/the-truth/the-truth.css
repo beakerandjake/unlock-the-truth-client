@@ -17,9 +17,6 @@
 
 /* Make each line of the truths message have special look */
 
-
-/* Expect each line is a h1 */
-
 .utt-the-truth h1 {
     animation: FadeAndGrow 1s ease-in;
     animation-fill-mode: both;
@@ -29,14 +26,6 @@
     line-height: 1;
     text-transform: lowercase;
 }
-
-
-/* Add a background around each line so it's more readable.  */
-
-/* .utt-the-truth h1 span {
-    background: rgb(0, 0, 0);
-    background: rgba(0, 0, 0, 0.7);
-} */
 
 
 /* Bigger text on larger devices.  */
