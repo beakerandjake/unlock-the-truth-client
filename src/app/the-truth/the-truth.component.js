@@ -6,7 +6,7 @@ import './the-truth.css';
 
 const TheTruthComponent = {
   bindings: {
-      theTruth: '<ttTruth'
+      model: '<ttTruth'
   },
   template,
   controller
