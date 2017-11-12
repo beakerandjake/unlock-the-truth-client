@@ -6,11 +6,19 @@ class AppController {
 
         // Members
         this._errorService = uttErrorService;
+
+        // Properties
+        this.theTruth = null;
     }
 
     // Returns the current error object (if any)
     getError() {
         return this._errorService.getError();
+    }
+
+    // Callback that is invoked when the user unlocks the truth. 
+    onUnlocked(theTruth) {
+        this.theTruth = theTruth;
     }
 }
 

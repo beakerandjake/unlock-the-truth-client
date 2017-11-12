@@ -6,7 +6,7 @@ import './the-reveal.css';
 
 const TheRevealComponent = {
   bindings: {
-    unlocked: '<trUnlocked'
+    onUnlocked: '&trUnlocked' // callback we invoke when the truth has been unlocked
   },
   template,
   controller

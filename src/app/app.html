@@ -1,17 +1,25 @@
-<!-- Display the header to the site -->
-<utt-header></utt-header>
+<!-- Show main site when user hasn't unlocked the truth.  -->
+<span ng-if="!$ctrl.theTruth">
+    <!-- Display the header to the site -->
+    <utt-header></utt-header>
 
-<!-- Quesiton Track -->
-<utt-question-track ng-if="!$ctrl.getError()"></utt-question-track>
+    <!-- Quesiton Track -->
+    <utt-question-track ng-if="!$ctrl.getError()"></utt-question-track>
 
-<!-- The Reveal! -->
-<utt-the-reveal ng-if="!$ctrl.getError()"></utt-the-reveal>
+    <!-- The Reveal-->
+    <utt-the-reveal ng-if="!$ctrl.getError()" tr-unlocked="$ctrl.onUnlocked(theTruth)"></utt-the-reveal>
 
-<!-- TODO: DEBUG remove from prod -->
-<utt-create-question ng-if="!$ctrl.getError()"></utt-create-question>
+    <!-- TODO: DEBUG remove from prod -->
+    <utt-create-question ng-if="!$ctrl.getError()"></utt-create-question>
 
-<!-- Error Display (shown only if something exploded) -->
-<utt-error ng-if="$ctrl.getError()" ue-error="$ctrl.getError()"></utt-error>
+    <!-- Error Display (shown only if something exploded) -->
+    <utt-error ng-if="$ctrl.getError()" ue-error="$ctrl.getError()"></utt-error>
 
-<!-- Display the sites footer -->
-<utt-footer></utt-footer>
+    <!-- Display the sites footer -->
+    <utt-footer></utt-footer>
+</span>
+
+<!-- Show when user unlocked the truth.-->
+<span ng-if="$ctrl.theTruth">
+    <h1>WOW!</h1>
+</span>
