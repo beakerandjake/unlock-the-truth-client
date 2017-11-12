@@ -4,7 +4,9 @@ import controller from './the-truth.controller';
 // THE TRUTH THE TRUTH THE TRUTH!
 
 const TheTruthComponent = {
-  bindings: {},
+  bindings: {
+      theTruth: '<ttTruth'
+  },
   template,
   controller
 };

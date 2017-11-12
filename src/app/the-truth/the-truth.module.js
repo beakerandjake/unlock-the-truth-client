@@ -5,6 +5,6 @@ const moduleName = 'unlock-the-truth.the-truth';
 
 angular
     .module(moduleName, [])
-    .component(theTruthComponent);
+    .component('uttTheTruth', theTruthComponent);
 
 export default moduleName;
