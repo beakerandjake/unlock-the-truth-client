@@ -1,8 +1,8 @@
 /* Make all links have pointer */
+
 a:hover {
     cursor: pointer;
 }
-
 
 body {
     position: relative;
@@ -10,7 +10,6 @@ body {
     height: 100%;
     margin: 0;
     font-family: helvetica, sans-serif;
-
     /* Set background gradient. */
     background: rgb(255, 182, 193);
     background: -moz-linear-gradient(-45deg, rgba(255, 182, 193, 1) 0%, rgba(125, 185, 232, 1) 100%);
@@ -28,12 +27,14 @@ html {
 
 
 /* Allow items to take up 100% of viewport */
+
 .utt-full-viewport {
     display: flex;
     align-items: center;
     min-height: 100vh;
     min-height: 100%;
 }
+
 
 /* Fade in / out animations */
 
@@ -55,4 +56,9 @@ html {
 .utt-fade-in.ng-hide-remove.ng-hide-remove-active {
     opacity: 1;
     display: block !important;
+}
+
+/* Let elements have a cursor pointer */
+.utt-clickable {
+    cursor: pointer;
 }
