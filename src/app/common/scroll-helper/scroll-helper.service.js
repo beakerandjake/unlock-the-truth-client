@@ -9,6 +9,7 @@ class ScrollHelperService {
         this._document = $document;
     }
 
+    // Tries to animate scroll to specified element, if not found scrolls to error, if error not found, does nothing. 
     scrollToElement(id) {
         if (!id) {
             return;
@@ -18,15 +19,11 @@ class ScrollHelperService {
         const desired = this.getAngularElement(id) || this.getAngularElement('utt-error');
 
         if (!desired) {
-            this._document.scrollTopAnimated(0, 1000);
+            console.error('could not find element to scroll to!');
             return;
         }
 
-        console.log('got desired element!');
-
-        // element
-        // error
-        // top
+        this._document.scrollToElementAnimated(desired);
     }
 
     // Grab the element by id and wrap in angular element.  
