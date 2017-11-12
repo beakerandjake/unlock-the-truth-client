@@ -1,0 +1,22 @@
+.utt-the-truth h1{
+    font-weight: normal;
+    letter-spacing: 1pt;
+    word-spacing: 2pt;
+    line-height: 1;
+    text-transform: lowercase;
+}
+
+.utt-the-truth h1 span {
+    background: rgb(0, 0, 0);
+    /* fallback color */
+    background: rgba(0, 0, 0, 0.7);
+}
+
+
+/* Make text bigger */
+
+@media screen and (min-width: 768px) {
+    .utt-the-truth h1 {
+        font-size: 88px;
+    }
+}
