@@ -9,6 +9,7 @@ angular
     ])
     .value('duScrollEasing', function (t) {
         return (--t) * t * t + 1;
-    });
+    })
+    .value('duScrollCancelOnEvents', false);
 
 export default moduleName;
