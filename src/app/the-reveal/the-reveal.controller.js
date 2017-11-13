@@ -1,12 +1,13 @@
 // Controller for the reveal component.  
 
 class TheRevealController {
-    constructor(uttErrorService, uttTheRevealService) {
+    constructor(uttErrorService, uttTheRevealService, uttScrollHelper) {
         'ngInject';
 
         // Members
         this._errorService = uttErrorService;
         this._theRevealService = uttTheRevealService;
+        this._scrollHelper = uttScrollHelper;
 
         // Properties
         this.loading = false;
@@ -43,6 +44,11 @@ class TheRevealController {
             .finally(() => {
                 this.loading = false;
             });
+    }
+
+    // Return the user to the questions. 
+    scrollToQuestions() {
+        this._scrollHelper.scrollToElement('utt-question-track');
     }
 }
 
