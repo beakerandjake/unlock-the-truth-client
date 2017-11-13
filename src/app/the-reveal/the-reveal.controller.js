@@ -1,14 +1,17 @@
 // Controller for the reveal component.  
 
 class TheRevealController {
-    constructor(uttErrorService, uttTheRevealService) {
+    constructor($timeout, uttErrorService, uttTheRevealService, uttScrollHelper) {
         'ngInject';
 
         // Members
+        this._$timeout = $timeout;
         this._errorService = uttErrorService;
         this._theRevealService = uttTheRevealService;
+        this._scrollHelper = uttScrollHelper;
 
         // Properties
+        this.clearMessageTimeout = null;
         this.loading = false;
         this.model = null;
     }
@@ -25,6 +28,8 @@ class TheRevealController {
 
         this.loading = true;
         this.model = null;
+        // Cancel the last running timeout (if any) 
+        this._$timeout.cancel(this.clearMessageTimeout);
 
         this._theRevealService.unlockTheTruth()
             .then(result => {
@@ -35,6 +40,8 @@ class TheRevealController {
                     this.onUnlocked({
                         theTruth: this.model.theTruth
                     });
+                } else {
+                    this.waitToClearMessage();
                 }
             })
             .catch(error => {
@@ -43,6 +50,23 @@ class TheRevealController {
             .finally(() => {
                 this.loading = false;
             });
+    }
+
+    // Return the user to the questions. 
+    scrollToQuestions() {
+        this._scrollHelper.scrollToElement('utt-question-track');
+    }
+
+    // Hide the 'failed' message after a short time so the user doesnt get confused.
+    waitToClearMessage() {
+        this.clearMessageTimeout = this._$timeout(() => {
+            this.model = null;
+        }, 2500);
+    }
+
+    // Be sure to cancel potentially running callback when we get killed. 
+    $onDestroy() {
+        this._$timeout.cancel(this.clearMessageTimeout);
     }
 }
 

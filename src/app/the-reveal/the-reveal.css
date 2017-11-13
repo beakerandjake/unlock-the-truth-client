@@ -1,6 +1,15 @@
 .utt-the-reveal-button {
-    font-size: 20em;
+    font-size: 10em;
     cursor: pointer;
+}
+
+
+/* Bigger text on larger devices.  */
+
+@media screen and (min-width: 768px) {
+    .utt-the-reveal-button {
+        font-size: 20em;
+    }
 }
 
 
@@ -34,11 +43,6 @@
     -webkit-transform: perspective(1px) translateZ(0);
     transform: perspective(1px) translateZ(0);
     box-shadow: 0 0 1px transparent;
-}
-
-.hvr-buzz:hover,
-.hvr-buzz:focus,
-.hvr-buzz:active {
     -webkit-animation-name: hvr-buzz;
     animation-name: hvr-buzz;
     -webkit-animation-duration: 0.15s;

@@ -10,13 +10,14 @@ import {
 // Controller for the question track component.  
 
 class QuestionTrackController {
-    constructor($scope, uttErrorService, uttQuestionTrackService) {
+    constructor($scope, uttErrorService, uttQuestionTrackService, uttScrollHelper) {
         'ngInject';
 
         // Members
         this._$scope = $scope;
         this._questionTrackService = uttQuestionTrackService;
         this._errorService = uttErrorService;
+        this._scrollHelper = uttScrollHelper;
         this._answerResult = null;
 
         // Properties
@@ -89,10 +90,18 @@ class QuestionTrackController {
         if (this.model.currentQuestion) {
             // Remove current question from locked questions.
             remove(this.model.lockedQuestions, ['_id', this.model.currentQuestion._id]);
+        } else {
+            // No current question?? the user must be done!
+            this.scrollToReveal();
         }
 
         // Clear answer result so we dont accidentally move on more than once.  
         this._answerResult = null;
+    }
+
+    // Scroll the user to the reveal element
+    scrollToReveal() {
+        this._scrollHelper.scrollToElement('utt-the-reveal');
     }
 }
 

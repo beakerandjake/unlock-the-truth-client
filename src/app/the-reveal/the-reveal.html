@@ -4,7 +4,7 @@
             <!-- Button to unlock the truth -->
             <div class="col-xs-12">
                 <h3>
-                    click to unlock the truth
+                    click to unlock the truth, or <a ng-click="$ctrl.scrollToQuestions()">return to questions</a>
                 </h3>
                 <i ng-click="$ctrl.unlockTheTruth()" class="fa fa-question-circle-o utt-the-reveal-button hvr-buzz"></i>
             </div>
@@ -19,5 +19,4 @@
             <pre>{{$ctrl.model|json}}</pre>
         </div>
     </div>
-</div>
 </div>
