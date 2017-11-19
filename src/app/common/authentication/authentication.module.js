@@ -1,4 +1,5 @@
 import angular from 'angular';
+import NgJwt from 'angular-jwt';
 import TokenInterceptor from './interceptor/token-interceptor.module';
 import LocalStorage from 'angular-local-storage';
 import authenticationService from './authentication.service';
@@ -10,6 +11,7 @@ const moduleName = 'unlock-the-truth.authentication';
 
 angular
     .module(moduleName, [
+        NgJwt,
         TokenInterceptor,
         LocalStorage
     ])
