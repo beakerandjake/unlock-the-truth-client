@@ -20,8 +20,18 @@ function tokenInterceptor($q, uttAuthenticationTokenService) {
         return defer.promise;
     }
 
+    // Fired whenever we get an error.
+    function responseError(response) {
+        // Clear our token if we get unauthorized
+        if (response.status === 401) {
+            uttAuthenticationTokenService.clearToken();
+        }
+        return $q.reject(response);
+    }
+
     return {
-        request: request
+        request: request,
+        responseError: responseError
     };
 }
 
