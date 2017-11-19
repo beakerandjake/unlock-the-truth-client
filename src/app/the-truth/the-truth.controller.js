@@ -1,5 +1,6 @@
 import angular from 'angular';
 import backgroundImagePath from './the-truth.gif';
+import audioPath from './the-truth.mp3';
 
 class TheTruthController {
     constructor($document) {
@@ -7,10 +8,12 @@ class TheTruthController {
 
         // Members
         this._$document = $document;
+        
     }
 
     $onInit() {
         this.updateBackgroundImage();
+        this.playAudio();
     }
 
     // Update the background for a nice surprise. 
@@ -29,6 +32,13 @@ class TheTruthController {
                 'background-size': 'cover',
                 'background-position': 'center'
             });
+    }
+
+    // SPIN THEM RIGHT ROUND
+    playAudio() {
+        const sound = new Audio(audioPath);
+        sound.loop = true;
+        sound.play();
     }
 }
 
