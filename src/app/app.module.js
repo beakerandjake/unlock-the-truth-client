@@ -7,7 +7,6 @@ import 'font-awesome/css/font-awesome.min.css';
 import 'angular-motion';
 
 // configuration
-import HttpConfig from './configuration/http.config';
 import NgScrollConfig from './configuration/ng-scroll.config';
 
 // utt components
@@ -29,7 +28,6 @@ angular
         // 3rd party
         NgScroll,
         // Config
-        HttpConfig,
         NgScrollConfig,
         // UTT components
         Header,
