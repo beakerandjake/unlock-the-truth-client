@@ -11,10 +11,15 @@
                                 <label>Title</label>
                                 <input type="text" class="form-control" ng-model="$ctrl.model.title" required>
                             </div>
-                            <!-- body -->
+                            <!-- current body -->
                             <div class="form-group">
-                                <label>Body</label>
-                                <textarea type="text" class="form-control" ng-model="$ctrl.model.body" required></textarea>
+                                <label>Current Question Body</label>
+                                <textarea type="text" class="form-control" ng-model="$ctrl.model.currentBody" required></textarea>
+                            </div>
+                            <!-- unlocked body -->
+                            <div class="form-group">
+                                <label>Unlocked Question Body</label>
+                                <textarea type="text" class="form-control" ng-model="$ctrl.model.unlockedBody" required></textarea>
                             </div>
                             <!-- type -->
                             <div class="form-group">
