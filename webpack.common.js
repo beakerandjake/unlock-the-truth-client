@@ -10,7 +10,7 @@ function getApiAddress() {
         return 'https://unlock-the-truth-api.herokuapp.com/api';
     }
 
-    return 'http://localhost:3000';
+    return 'http://localhost:3000/api';
 }
 
 module.exports = {
