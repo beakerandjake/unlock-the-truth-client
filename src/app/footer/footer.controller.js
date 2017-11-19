@@ -1,12 +1,12 @@
 // Controller for the footer component. 
 
 class FooterController {
-    constructor($uibModal, uttAuthenticationService, uttScrollHelper) {
+    constructor($uibModal, uttAuthenticationTokenService, uttScrollHelper) {
         'ngInject';
 
         // Members 
         this._$uibModal = $uibModal;
-        this._authenticationService = uttAuthenticationService;
+        this._authenticationService = uttAuthenticationTokenService;
         this._scrollHelper = uttScrollHelper;
         this._modalInstance = null;
     }

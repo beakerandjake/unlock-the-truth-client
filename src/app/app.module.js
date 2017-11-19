@@ -6,8 +6,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
 import 'angular-motion';
 
-// utt components
+// configuration
 import NgScrollConfig from './configuration/ng-scroll.config';
+
+// utt components
 import MainComponent from './app.component';
 import Header from './header/header.module';
 import Footer from './footer/footer.module';
@@ -23,8 +25,11 @@ const moduleName = 'unlock-the-truth';
 
 angular
     .module(moduleName, [
+        // 3rd party
         NgScroll,
+        // Config
         NgScrollConfig,
+        // UTT components
         Header,
         Footer,
         Error,

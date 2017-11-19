@@ -5,11 +5,11 @@ import {
 // Controller for the current question component.  
 
 class CurrentQuestionController {
-    constructor($scope, uttAuthenticationService) {
+    constructor($scope, uttAuthenticationTokenService) {
         'ngInject';
 
         // Members
-        this._authenticationService = uttAuthenticationService;
+        this._authenticationService = uttAuthenticationTokenService;
 
         // Properties
         this.questionAnsweredCorrectly = false;

@@ -2,17 +2,17 @@
 // This sits in the request / response pipeline 
 // Attaches our Auth token to each $http request
 
-function tokenInterceptor($q, uttAuthenticationService) {
+function tokenInterceptor($q, uttAuthenticationTokenService) {
     'ngInject';
 
     //Fired before any $http request is sent away to the API.
     function request(config) {
         const defer = $q.defer();
 
-        const token = uttAuthenticationService.getToken();
+        const token = uttAuthenticationTokenService.getToken();
 
         if (token) {
-            config.headers.Authorization = token;
+            config.headers.Authorization = 'Bearer ' + token;
         }
 
         defer.resolve(config);
@@ -20,8 +20,18 @@ function tokenInterceptor($q, uttAuthenticationService) {
         return defer.promise;
     }
 
+    // Fired whenever we get an error.
+    function responseError(response) {
+        // Clear our token if we get unauthorized
+        if (response.status === 401) {
+            uttAuthenticationTokenService.clearToken();
+        }
+        return $q.reject(response);
+    }
+
     return {
-        request: request
+        request: request,
+        responseError: responseError
     };
 }
 
