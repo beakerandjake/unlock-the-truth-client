@@ -1,64 +1,49 @@
 import {
-    tokenKey
+    loginRoute
 } from './authentication.constants';
 
 // Service which handles authentication.  
 
 class AuthenticationService {
-    constructor($q, $timeout, localStorageService) {
+    constructor($q, $resource, uttAuthenticationTokenService) {
         'ngInject';
 
         // Members
         this._$q = $q;
-        this._$timeout = $timeout;
-        this._localStorageService = localStorageService;
+        this._loginEndpoint = $resource(API_ADDRESS + loginRoute);
+        this._tokenService = uttAuthenticationTokenService;
     }
 
     // Attempt to log into the API.  
     login(username, password) {
-        console.log('USER', username, 'PASSWORD', password);
-
         const deferred = this._$q.defer();
 
-        this._$timeout(() => {
-            this._storeToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ');
-            deferred.resolve({});
-        }, 1000);
+        // Query API. 
+        const query = this._loginEndpoint.save({}, {
+            username: username,
+            password: password
+        }).$promise;
+
+        // Handle result.
+        query
+            .then(result => {
+                this._tokenService.storeToken(result.token);
+                deferred.resolve(true);
+            })
+            .catch(() => {
+                deferred.reject('Username or password was incorrect');
+            });
 
         return deferred.promise;
-    }
-
-    // Store the token from the API in the users local storage. 
-    _storeToken(token) {
-        this._localStorageService.set(tokenKey, token);
     }
 
     // Returns a promise that is resolved with the result of the API call. 
     // Logs the user out of the current session. 
     logout() {
         const deferred = this._$q.defer();
-
-        this._$timeout(() => {
-            this._clearToken();
-            deferred.resolve({});
-        }, 1000);
-
+        this._tokenService.clearToken();
+        deferred.resolve({});
         return deferred.promise;
-    }
-
-    // Clear the token from local storage. 
-    _clearToken() {
-        this._localStorageService.remove(tokenKey);
-    }
-
-    // Returns true if the user is logged into the application. 
-    userLoggedIn() {
-        return !!this._localStorageService.get(tokenKey);
-    }
-
-    // Returns the auth token, if exists null otherwise. 
-    getToken() {
-        return this._localStorageService.get(tokenKey) || null;
     }
 }
 
