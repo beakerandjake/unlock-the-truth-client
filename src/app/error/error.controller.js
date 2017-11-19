@@ -1,4 +1,4 @@
-import img from './error.jpg';
+import img from './error.gif';
 
 // Controller for the error display component. 
 
