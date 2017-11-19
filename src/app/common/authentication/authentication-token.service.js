@@ -3,12 +3,11 @@ import {
 } from './authentication.constants';
 
 class AuthenticationTokenService {
-    constructor(localStorageService, jwtHelper) {
+    constructor(localStorageService) {
         'ngInject';
 
         // Members
         this._localStorageService = localStorageService;
-        this._jwtHelper = jwtHelper;
     }
 
     // Store the token from the API in the users local storage. 
