@@ -10,8 +10,7 @@
     "lint-fix": "eslint 'src/**/*.js' --fix",
     "lint": "eslint 'src/**/*.js' || exit 0",
     "start:dev": "webpack-dev-server --open --config webpack.dev.js",
-    "start": "node server.js",
-    "heroku-postbuild": "webpack -p --config ./webpack.prod.js --progress"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
