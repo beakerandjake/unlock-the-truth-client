@@ -1,3 +1,6 @@
+<!-- TODO: DEBUG remove from prod -->
+<utt-create-question></utt-create-question>
+
 <!-- Show main site when user hasn't unlocked the truth.  -->
 <span ng-if="!$ctrl.theTruth">
     <!-- Display the header to the site -->
@@ -8,9 +11,6 @@
 
     <!-- The Reveal-->
     <utt-the-reveal ng-if="!$ctrl.getError()" tr-unlocked="$ctrl.onUnlocked(theTruth)"></utt-the-reveal>
-
-    <!-- TODO: DEBUG remove from prod -->
-    <!-- <utt-create-question ng-if="!$ctrl.getError()"></utt-create-question> -->
 
     <!-- Error Display (shown only if something exploded) -->
     <utt-error ng-if="$ctrl.getError()" ue-error="$ctrl.getError()"></utt-error>
