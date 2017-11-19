@@ -28,15 +28,7 @@ class AuthenticationTokenService {
 
     // Returns the auth token, if exists null otherwise. 
     getToken() {
-        const tokenInStorage = this._localStorageService.get(tokenKey);
-
-        // If the token has expired, clear it so they have to log back in. 
-        if(this._jwtHelper.isTokenExpired(tokenInStorage)){
-            this.clearToken();
-            return null;
-        }
-
-        return tokenInStorage;
+        return this._localStorageService.get(tokenKey);
     }
 }
 
