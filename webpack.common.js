@@ -39,7 +39,7 @@ module.exports = {
         // Set environment variables
         new webpack.DefinePlugin({
             // TODO configure to pull from env variable? 
-            API_ADDRESS: JSON.stringify('http://localhost:3000')
+            API_ADDRESS: JSON.stringify('http://localhost:3000/api')
         }),
         // Know issue with momentjs. Importing moment.js also imports all locale files
         // This blows up the bundle size for something we don't need. Use the fix described here:
