@@ -6,7 +6,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 
 // Simple config to get correct api address based on env 
 function getApiAddress() {
-    if(process.env.NODE_ENV === 'production'){
+    if (process.env.NODE_ENV === 'production') {
         return 'https://unlock-the-truth-api.herokuapp.com/api';
     }
 
@@ -56,38 +56,45 @@ module.exports = {
     ],
     module: {
         rules: [{
-            // LINTING
-            enforce: "pre",
-            test: /\.js$/,
-            exclude: /node_modules/,
-            loader: "eslint-loader",
-        }, {
-            // BABEL JS
-            test: /\.js$/,
-            exclude: /node_modules/,
-            use: [{
-                    // Auto annotate angular components
-                    loader: 'ng-annotate-loader',
-                    options: {
-                        singleQuotes: true
+                // LINTING
+                enforce: "pre",
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: "eslint-loader",
+            }, {
+                // BABEL JS
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: [{
+                        // Auto annotate angular components
+                        loader: 'ng-annotate-loader',
+                        options: {
+                            singleQuotes: true
+                        }
+                    },
+                    {
+                        // Transpile to es5
+                        loader: 'babel-loader'
                     }
-                },
-                {
-                    // Transpile to es5
-                    loader: 'babel-loader'
-                }
-            ]
-        }, {
-            // IMAGES
-            test: /\.(png|svg|jpg|gif)$/,
-            use: [
-                'file-loader'
-            ]
-        }, {
-            // FONTS
-            test: /\.(woff|woff2|eot|ttf|otf)$/,
-            loader: 'file-loader'
-        }]
+                ]
+            }, {
+                // IMAGES
+                test: /\.(png|svg|jpg|gif)$/,
+                use: [
+                    'file-loader'
+                ]
+            }, {
+                // FONTS
+                test: /\.(woff|woff2|eot|ttf|otf)$/,
+                loader: 'file-loader'
+            },
+            {
+                // AUDIO 
+                test: /\.mp3$/,
+                exclude: /node_modules/,
+                loader: 'file-loader'
+            }
+        ]
     },
     resolve: {
         // Allow components in this app to resolve other components without needing relative paths. 
