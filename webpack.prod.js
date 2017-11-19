@@ -17,9 +17,7 @@ module.exports = merge(common, {
         }),
         // Use DefinePlugin to define env as production for our dependencies. 
         new webpack.DefinePlugin({
-            'process.env': {
-                'NODE_ENV': JSON.stringify('production')
-            }
+            'process.env.NODE_ENV': JSON.stringify('production')
         }),
         new ExtractTextPlugin({
             filename: '[name].[chunkHash].css'

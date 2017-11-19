@@ -4,6 +4,15 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
+// Simple config to get correct api address based on env 
+function getApiAddress() {
+    if(process.env.NODE_ENV === 'production'){
+        return 'https://unlock-the-truth-api.herokuapp.com/api';
+    }
+
+    return 'http://localhost:3000';
+}
+
 module.exports = {
     entry: {
         app: './src/app/app.module.js'
@@ -38,8 +47,7 @@ module.exports = {
         }),
         // Set environment variables
         new webpack.DefinePlugin({
-            // TODO configure to pull from env variable? 
-            API_ADDRESS: JSON.stringify('http://localhost:3000')
+            API_ADDRESS: JSON.stringify(getApiAddress())
         }),
         // Know issue with momentjs. Importing moment.js also imports all locale files
         // This blows up the bundle size for something we don't need. Use the fix described here:

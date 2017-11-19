@@ -9,7 +9,9 @@
     "build-dev": "webpack --config webpack.dev.js",
     "lint-fix": "eslint 'src/**/*.js' --fix",
     "lint": "eslint 'src/**/*.js' || exit 0",
-    "start": "webpack-dev-server --open --config webpack.dev.js"
+    "start:dev": "webpack-dev-server --open --config webpack.dev.js",
+    "start": "node server.js",
+    "heroku-postbuild": "webpack -p --config ./webpack.prod.js --progress"
   },
   "repository": {
     "type": "git",
@@ -52,7 +54,10 @@
     "angular-scroll": "^1.0.2",
     "angular-ui-bootstrap": "^2.5.0",
     "bootstrap": "^3.3.7",
+    "compression": "^1.7.1",
+    "express": "^4.16.2",
     "font-awesome": "^4.7.0",
+    "helmet": "^3.9.0",
     "lodash": "^4.17.4",
     "moment": "^2.19.1"
   }

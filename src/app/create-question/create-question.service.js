@@ -6,7 +6,7 @@ class CreateQuestionService {
 
         // Members
         this._$q = $q;
-        this._createQuestionEndpoint = $resource('http://localhost:3000/questions/');
+        this._createQuestionEndpoint = $resource(API_ADDRESS + '/questions/');
     }
 
     // Returns a promise that is resolved with the result of the api. 
