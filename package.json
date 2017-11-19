@@ -52,6 +52,7 @@
     "angular-scroll": "^1.0.2",
     "angular-ui-bootstrap": "^2.5.0",
     "bootstrap": "^3.3.7",
+    "express": "^4.16.2",
     "font-awesome": "^4.7.0",
     "lodash": "^4.17.4",
     "moment": "^2.19.1"
