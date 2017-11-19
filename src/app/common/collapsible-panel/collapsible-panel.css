@@ -4,6 +4,34 @@
     cursor: pointer;
 }
 
+.panel-primary > .panel-heading {
+    background-color: rgba(125, 185, 232, 1);
+    border-color: rgba(125, 185, 232, 1);
+    color: #333;
+}
+
+.btn-primary {
+    background-color: rgba(125, 185, 232, 1);
+    border-color: rgba(125, 185, 232, 1);
+}
+
+.btn-primary:hover {
+    background-color: rgba(125, 185, 232, 1);
+    border-color: rgba(125, 185, 232, 1);
+}
+
+.panel-success > .panel-heading {
+    background-color: #aae8a1;
+    border-color: #aae8a1;
+    color: #333;
+}
+
+.panel-danger > .panel-heading {
+    background-color: rgba(255, 182, 193, 1);
+    border-color: rgba(255, 182, 193, 1);
+    color: #333;
+}
+
 .transparent-background {
     background: rgba(255, 255, 255, 0.35);
     border: none;
