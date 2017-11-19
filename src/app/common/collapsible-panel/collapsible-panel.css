@@ -1,9 +1,14 @@
 /* Allow panel to be clickable */
 
 .collapsible-panel-clickable {
-    cursor: pointer
+    cursor: pointer;
 }
 
+.transparent-background {
+    background: rgba(255, 255, 255, 0.35);
+    border: none;
+    border-radius: 3px;
+}
 
 /* Dont allow user to highlight text in the panel heading */
 
