@@ -12,7 +12,7 @@
                         Question:
                     </h4>
                     <div>
-                        {{$ctrl.question.body}}
+                        <utt-question-body qb-body="$ctrl.question.unlockedBody"></utt-question-body>
                     </div>
                 </div>
                 <div>
@@ -38,9 +38,9 @@
                     </div>
                     <div class="col-xs-4">
                         <h5>Time to complete:</h5>
-                         <div>
-                             {{$ctrl.timeTaken($ctrl.question)}}
-                         </div>
+                        <div>
+                            {{$ctrl.timeTaken($ctrl.question)}}
+                        </div>
                     </div>
                 </div>
 

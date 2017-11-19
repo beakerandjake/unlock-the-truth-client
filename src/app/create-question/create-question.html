@@ -11,10 +11,15 @@
                                 <label>Title</label>
                                 <input type="text" class="form-control" ng-model="$ctrl.model.title" required>
                             </div>
-                            <!-- body -->
+                            <!-- current body -->
                             <div class="form-group">
-                                <label>Body</label>
-                                <textarea type="text" class="form-control" ng-model="$ctrl.model.body" required></textarea>
+                                <label>Current Question Body</label>
+                                <textarea type="text" class="form-control" ng-model="$ctrl.model.currentBody" required></textarea>
+                            </div>
+                            <!-- unlocked body -->
+                            <div class="form-group">
+                                <label>Unlocked Question Body</label>
+                                <textarea type="text" class="form-control" ng-model="$ctrl.model.unlockedBody" required></textarea>
                             </div>
                             <!-- type -->
                             <div class="form-group">
@@ -40,6 +45,20 @@
                     <pre>{{$ctrl.result|json}}</pre>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <h1>CURRENT QUESTION PREVIEW</h1>
+            <utt-current-question cq-question="$ctrl.getCurrentQuestionModel()"></utt-current-question>
+        </div>
+        <div class="col-xs-12">
+            <h1>UNLOCKED QUESTION PREVIEW</h1>
+            <utt-unlocked-question question="$ctrl.getUnlockedQuestionModel()"></utt-unlocked-question>
+        </div>
+        <div class="col-xs-12">
+            <h1>LOCKED QUESTION PREVIEW</h1>
+            <utt-locked-question question="$ctrl.getLockedQuestionModel()"></utt-locked-question>
         </div>
     </div>
 </div>
