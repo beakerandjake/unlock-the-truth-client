@@ -3,11 +3,12 @@ import {
 } from './authentication.constants';
 
 class AuthenticationTokenService {
-    constructor(localStorageService) {
+    constructor(localStorageService, jwtHelper) {
         'ngInject';
 
         // Members
         this._localStorageService = localStorageService;
+        this._jwtHelper = jwtHelper;
     }
 
     // Store the token from the API in the users local storage. 
@@ -22,12 +23,20 @@ class AuthenticationTokenService {
 
     // Returns true if the user is logged into the application. 
     userLoggedIn() {
-        return !!this._localStorageService.get(tokenKey);
+        return !!this.getToken();
     }
 
     // Returns the auth token, if exists null otherwise. 
     getToken() {
-        return this._localStorageService.get(tokenKey) || null;
+        const tokenInStorage = this._localStorageService.get(tokenKey);
+
+        // If the token has expired, clear it so they have to log back in. 
+        if(this._jwtHelper.isTokenExpired(tokenInStorage)){
+            this.clearToken();
+            return null;
+        }
+
+        return tokenInStorage;
     }
 }
 
