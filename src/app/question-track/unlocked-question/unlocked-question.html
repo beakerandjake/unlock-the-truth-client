@@ -7,35 +7,28 @@
                 </h4>
             </cp-title>
             <cp-body>
-                <div>
-                    <h4>
-                        Question:
-                    </h4>
-                    <div>
-                        <utt-question-body qb-body="$ctrl.question.unlockedBody"></utt-question-body>
-                    </div>
-                </div>
                 <div ng-if="$ctrl.type === 'text'">
-                    <h4>
-                        Answer:
-                    </h4>
                     <div>
-                        {{$ctrl.question.answer}}
+                        <h4>
+                            Question:
+                        </h4>
+                        <div>
+                            <utt-question-body qb-body="$ctrl.question.unlockedBody"></utt-question-body>
+                        </div>
                     </div>
+                    <div>
+                        <h4>
+                            Answer:
+                        </h4>
+                        <div>
+                            {{$ctrl.question.answer}}
+                        </div>
+                    </div>
+                    <hr style="border-top: 1px solid #3f3f3f" />
                 </div>
-                <hr style="border-top: 1px solid #3f3f3f" />
                 <div class="row" style="display: flex;justify-content: space-around;">
-                    <div>
-                        <h5>Number of attempts: </h5>
-                        <div>
-                            {{$ctrl.question.failedAttempts}}
-                        </div>
-                    </div>
-                    <div>
-                        <h5>Time to complete:</h5>
-                        <div>
-                            {{$ctrl.timeTaken($ctrl.question)}}
-                        </div>
+                    <div style="font-weight: 100">
+                        {{$ctrl.completionText($ctrl.question)}}
                     </div>
                 </div>
 
