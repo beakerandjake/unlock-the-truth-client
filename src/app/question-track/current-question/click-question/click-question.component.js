@@ -12,4 +12,4 @@ const ClickQuestionController = {
     controller
 };
 
-export default ComponentName;
+export default ClickQuestionController;

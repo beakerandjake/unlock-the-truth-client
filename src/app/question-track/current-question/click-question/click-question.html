@@ -1,5 +1,10 @@
 <div class="row">
     <div class="col-xs-12">
         <pre>{{$ctrl|json}}</pre>
+        <h4>You gotta click the button {{$ctrl.requiredClicks - $ctrl.currentNumberOfClicks}} more times...</h4> 
+        <hr>
+    </div>
+    <div class="col-xs-12">
+        <button class="btn btn-primary" ng-click="$ctrl.incrementClickCount()">Click me!</button>
     </div>
 </div>
