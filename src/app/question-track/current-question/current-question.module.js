@@ -1,6 +1,7 @@
 import angular from 'angular';
 import TextQuestion from './text-question/text-question.module';
 import ManualQuestion from './manual-question/manual-question.module';
+import ClickQuestion from './click-question/click-question.module';
 import CollapsiblePanel from '../../common/collapsible-panel/collapsible-panel.module';
 import QuestionNumber from '../../common/question-number/question-number.module';
 import CorrectAnswer from './correct-answer/correct-answer.module';
@@ -18,6 +19,7 @@ angular
         QuestionNumber,
         TextQuestion,
         ManualQuestion,
+        ClickQuestion, 
         CorrectAnswer,
         Authentication,
         PublicView

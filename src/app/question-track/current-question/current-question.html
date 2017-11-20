@@ -29,6 +29,10 @@
                         <div ng-switch-when="manual">
                             <utt-manual-question mq-question="$ctrl.question"></utt-manual-question>
                         </div>
+                        <!-- Click question -->
+                        <div ng-switch-when="click">
+                            <utt-click-question cq-question="$ctrl.question" cq-on-submit="$ctrl.onSubmit(answer)"></utt-click-question>
+                        </div>
                         <!-- Show error when unsupported question type. -->
                         <div ng-switch-default>
                             <h3>This question was an unexpected type. This is an error!</h3>
