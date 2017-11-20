@@ -3,7 +3,6 @@
 }
 
 .utt-header h1 {
-    text-shadow: 3px 2px 14px rgba(255, 110, 110, 1);
     font-weight: normal;
     color: #000000;
     letter-spacing: 1pt;
@@ -12,7 +11,6 @@
     line-height: 1;
     text-transform: lowercase;
 }
-
 
 /* Bigger text on larger devices.  */
 
