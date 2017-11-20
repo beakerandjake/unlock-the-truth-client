@@ -3,6 +3,7 @@ import {
     toString,
     random
 } from 'lodash';
+import * as constants from './click-question.constants';
 
 // Controller for the click question component. 
 
@@ -39,7 +40,7 @@ class ClickQuestionController {
         this.currentNumberOfClicks += 1;
 
         // Roll the dice on whether or not to move the button
-        if (random(0, 1, true) > .5) {
+        if (random(0, 1, true) > constants.stayPutChance) {
             this.moveButton();
         }
 
@@ -51,7 +52,7 @@ class ClickQuestionController {
 
     // Move the button to a random location to keep the user on their toes.
     moveButton() {
-        console.log('move the button!');
+
     }
 
     // Raise our answer callback. 
