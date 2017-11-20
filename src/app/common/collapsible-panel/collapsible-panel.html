@@ -1,10 +1,20 @@
-<div class="panel" ng-class="$ctrl.panelNgClass ? $ctrl.panelNgClass : 'panel-default'">
-    <div class="panel-heading collapsible-panel-heading" ng-class="{'collapsible-panel-clickable': !$ctrl.locked}" ng-click="$ctrl.toggle()">
+<div
+    class="panel transparent-background"
+    ng-class="$ctrl.panelNgClass ? $ctrl.panelNgClass : 'panel-default'">
+    <div
+        class="panel-heading collapsible-panel-heading"
+        ng-class="{'collapsible-panel-clickable': !$ctrl.locked}"
+        ng-click="$ctrl.toggle()">
         <div class="pull-right">
             <!-- Show chevron to indicate state if not locked -->
-            <i class="fa" ng-class="$ctrl.isCollapsed ? 'fa-chevron-down' : 'fa-chevron-up'" ng-if="!$ctrl.locked"></i>
+            <i
+                class="fa"
+                ng-class="$ctrl.isCollapsed ? 'fa-chevron-down' : 'fa-chevron-up'"
+                ng-if="!$ctrl.locked"></i>
             <!-- Show lock when locked.  -->
-            <i class="fa fa-lock" ng-if="$ctrl.locked"></i>
+            <i
+                class="fa fa-lock"
+                ng-if="$ctrl.locked"></i>
         </div>
         <!-- Transclusion slot for title -->
         <div ng-transclude="title"></div>
