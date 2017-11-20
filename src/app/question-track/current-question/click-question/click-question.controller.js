@@ -14,8 +14,13 @@ class ClickQuestionController {
     }
 
     $onInit() {
+        this.reset();
+    }
+
+    reset() {
         // Expect that 'click' questions body is the required number of clicks to complete. 
         this.requiredClicks = toInteger(this.question.currentBody);
+        this.currentNumberOfClicks = 0;
 
         // Sanity
         if (this.requiredClicks < 1) {
@@ -53,7 +58,8 @@ class ClickQuestionController {
     submitAnswer() {
         this.onSubmit({
             // Expect the answer to be equal to the required clicks
-            answer: toString(this.requiredClicks)
+            // answer: toString(this.requiredClicks)
+            answer: toString(this.question.currentBody)
         });
     }
 }
