@@ -1,7 +1,8 @@
 // Available question types. 
 export const questionTypes = [
     'text',
-    'manual'
+    'manual',
+    'click'
 ];
 
 // Default model for creating a question. 
