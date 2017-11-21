@@ -1,5 +1,6 @@
 import template from './unlocked-question.html';
 import controller from './unlocked-question.controller';
+import './unlocked-question.css';
 
 // Component which displays a previously unlocked question. 
 

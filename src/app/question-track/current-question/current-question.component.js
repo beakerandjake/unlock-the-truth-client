@@ -1,5 +1,6 @@
 import template from './current-question.html';
 import controller from './current-question.controller';
+import './current-question.css';
 
 // Component which displays and allows the user to answer the current question.  
 

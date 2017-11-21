@@ -1,13 +1,14 @@
 <div class="row">
     <div class="col-xs-12">
-        <utt-collapsible-panel cp-locked="true" cp-ng-class="panel-danger">
-            <cp-title>
+        <div class="panel transparent-background panel-danger">
+            <div class="panel-heading utt-panel-heading">
+                <div class="pull-right">
+                    <i class="fa fa-lock" aria-hidden="true"></i>
+                </div>
                 <h4 class="panel-title">
                     <utt-question-number qn-number="{{$ctrl.question.number}}"></utt-question-number>{{$ctrl.question.title || 'Locked Question'}}
                 </h4>
-            </cp-title>
-            <!-- Nothing to transclude for the body, because you can't see any info on a locked question! -->
-            <cp-body></cp-body>
-        </utt-collapsible-panel>
+            </div>
+        </div>
     </div>
 </div>

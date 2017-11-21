@@ -1,0 +1,6 @@
+.panel-success>.panel-heading {
+    background-color: #c6d8af;
+    border-color: #c6d8af;
+    box-shadow: 0px 2px 10px -3px #3f3f3f;
+    color: #333;
+}
