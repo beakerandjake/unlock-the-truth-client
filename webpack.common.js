@@ -25,7 +25,8 @@ module.exports = {
         new CleanWebpackPlugin(['dist']),
         // Generate the html file with the latest script tags. 
         new HtmlWebpackPlugin({
-            template: './src/index.html'
+            template: './src/index.html',
+            favicon: './src/favicon.ico'
         }),
         // Ensure modules always have same Id.
         new webpack.HashedModuleIdsPlugin(),
