@@ -1,6 +1,9 @@
 import {
     loginRoute
 } from './authentication.constants';
+import {
+    get
+} from 'lodash';
 
 // Service which handles authentication.  
 
@@ -30,8 +33,8 @@ class AuthenticationService {
                 this._tokenService.storeToken(result.token);
                 deferred.resolve(true);
             })
-            .catch(() => {
-                deferred.reject('Username or password was incorrect');
+            .catch(error => {
+                deferred.reject(get(error, 'data.message', 'Username or password was incorrect'));
             });
 
         return deferred.promise;
