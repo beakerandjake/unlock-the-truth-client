@@ -3,6 +3,8 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
 
 // Simple config to get correct api address based on env 
 function getApiAddress() {
@@ -25,7 +27,8 @@ module.exports = {
         new CleanWebpackPlugin(['dist']),
         // Generate the html file with the latest script tags. 
         new HtmlWebpackPlugin({
-            template: './src/index.html'
+            template: './src/index.html',
+            favicon: './src/favicon.ico'
         }),
         // Ensure modules always have same Id.
         new webpack.HashedModuleIdsPlugin(),
@@ -52,7 +55,11 @@ module.exports = {
         // Know issue with momentjs. Importing moment.js also imports all locale files
         // This blows up the bundle size for something we don't need. Use the fix described here:
         // https://webpack.js.org/plugins/ignore-plugin/#ignore-moment-locales 
-        new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
+        new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+        // Copy static files to build
+        new CopyWebpackPlugin([{
+            from: './src/images'
+        }])
     ],
     module: {
         rules: [{
