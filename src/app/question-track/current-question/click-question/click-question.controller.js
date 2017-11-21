@@ -50,7 +50,6 @@ class ClickQuestionController {
 
     // Move the button to a random location to keep the user on their toes.
     moveButton() {
-        console.log('ima movin');
         let parentContainer = document.getElementById('click-question-container');
         let parentBoundingRectangle = parentContainer.getBoundingClientRect();
 
