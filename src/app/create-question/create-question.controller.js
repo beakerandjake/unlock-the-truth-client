@@ -74,6 +74,8 @@ class CreateQuestionController {
         this.projections.unlocked.title = this.model.title;
         this.projections.unlocked.unlockedBody = this.model.unlockedBody;
         this.projections.unlocked.answer = this.model.answer;
+        this.projections.unlocked.type = this.model.type;
+        
 
         return this.projections.unlocked;
     }
