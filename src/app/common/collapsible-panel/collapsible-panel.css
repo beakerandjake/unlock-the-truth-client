@@ -44,7 +44,7 @@
 
 /* Dont allow user to highlight text in the panel heading */
 
-.collapsible-panel-heading {
+.utt-panel-heading {
     -webkit-touch-callout: none;
     /* iOS Safari */
     -webkit-user-select: none;
