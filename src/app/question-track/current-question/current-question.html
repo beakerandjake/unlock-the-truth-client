@@ -1,14 +1,13 @@
 <div class="row">
     <div class="col-xs-12">
-        <utt-collapsible-panel cp-ng-class="panel-primary" cp-start-expanded="true">
-            <cp-title>
+        <div class="panel transparent-background panel-primary">
+            <div class="panel-heading utt-panel-heading">
                 <h4 class="panel-title">
                     <utt-question-number qn-number="{{$ctrl.question.number}}"></utt-question-number>
-                    {{$ctrl.question.title}}
+                    {{$ctrl.question.title || 'Current Question'}}
                 </h4>
-                </h4>
-            </cp-title>
-            <cp-body>
+            </div>
+            <div class="panel-body">
                 <!-- Display If the user isn't logged in -->
                 <div ng-if="!$ctrl.userCanAnswerQuestion()">
                     <utt-current-question-public-view pv-question="$ctrl.question"></utt-current-question-public-view>
@@ -39,7 +38,7 @@
                         </div>
                     </div>
                 </div>
-            </cp-body>
-        </utt-collapsible-panel>
+            </div>
+        </div>
     </div>
 </div>
