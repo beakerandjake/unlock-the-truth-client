@@ -1,45 +1,49 @@
-<div class="panel panel-success transparent-background">
-    <div class="panel-heading utt-panel-heading">
-        <div class="pull-right">
-            <i class="fa fa-check" aria-hidden="true"></i>
-        </div>
-        <h4 class="panel-title">
-            <utt-question-number qn-number="{{$ctrl.question.number}}"></utt-question-number>{{$ctrl.question.title}}
-        </h4>
-    </div>
-    <div class="panel-body">
-        <!-- Display text questions with special format.  -->
-        <div ng-if="$ctrl.question.type === 'text'" class="text-center">
-            <div>
-                <h4>
-                    <strong>
-                        Question:
-                    </strong>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="panel panel-success transparent-background">
+            <div class="panel-heading utt-panel-heading">
+                <div class="pull-right">
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                </div>
+                <h4 class="panel-title">
+                    <utt-question-number qn-number="{{$ctrl.question.number}}"></utt-question-number>{{$ctrl.question.title || 'Unlocked Question'}}
                 </h4>
-                <div>
+            </div>
+            <div class="panel-body">
+                <!-- Display text questions with special format.  -->
+                <div ng-if="$ctrl.question.type === 'text'" class="text-center">
+                    <div>
+                        <h4>
+                            <strong>
+                                Question:
+                            </strong>
+                        </h4>
+                        <div>
+                            <utt-question-body qb-body="$ctrl.question.unlockedBody"></utt-question-body>
+                        </div>
+                    </div>
+                    <div>
+                        <h4>
+                            <strong>
+                                Answer:
+                            </strong>
+                        </h4>
+                        <div>
+                            {{$ctrl.question.answer}}
+                        </div>
+                    </div>
+                </div>
+                <!-- Non text questions define their own body.  -->
+                <div ng-if="$ctrl.question.type !== 'text'">
                     <utt-question-body qb-body="$ctrl.question.unlockedBody"></utt-question-body>
                 </div>
-            </div>
-            <div>
-                <h4>
-                    <strong>
-                        Answer:
-                    </strong>
-                </h4>
-                <div>
-                    {{$ctrl.question.answer}}
+                <!-- Statistics -->
+                <hr style="border-top: 1px solid #3f3f3f" />
+                <div class="row text-center">
+                    <div class="col-xs-12 text-muted" style="font-weight: 100">
+                        {{$ctrl.completionText($ctrl.question)}}
+                    </div>
                 </div>
-            </div>
-        </div>
-        <!-- Non text questions define their own body.  -->
-        <div ng-if="$ctrl.question.type !== 'text'">
-            <utt-question-body qb-body="$ctrl.question.unlockedBody"></utt-question-body>
-        </div>
-        <!-- Statistics -->
-        <hr style="border-top: 1px solid #3f3f3f" />
-        <div class="row text-center">
-            <div class="col-xs-12 text-muted" style="font-weight: 100">
-                {{$ctrl.completionText($ctrl.question)}}
             </div>
         </div>
     </div>
