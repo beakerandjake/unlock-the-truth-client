@@ -1,17 +1,14 @@
-import {
-    toInteger,
-    toString,
-    random
-} from 'lodash';
+import { toInteger, toString, random, floor } from 'lodash';
 import * as constants from './click-question.constants';
 
-// Controller for the click question component. 
+// Controller for the click question component.
 
 class ClickQuestionController {
     constructor() {
         // Properties
         this.requiredClicks = 0;
         this.currentNumberOfClicks = 0;
+        this.buttonStyle = { position: 'relative', top: '0px', left: '0px' };
     }
 
     $onInit() {
@@ -19,9 +16,10 @@ class ClickQuestionController {
     }
 
     reset() {
-        // Expect that 'click' questions body is the required number of clicks to complete. 
+        // Expect that 'click' questions body is the required number of clicks to complete.
         this.requiredClicks = toInteger(this.question.currentBody);
         this.currentNumberOfClicks = 0;
+        this.buttonStyle = { position: 'relative', top: '0px', left: '0px' };
 
         // Sanity
         if (this.requiredClicks < 1) {
@@ -29,9 +27,9 @@ class ClickQuestionController {
         }
     }
 
-    // Fired when the user clicks the button. 
+    // Fired when the user clicks the button.
     incrementClickCount() {
-        // Bail if already answered question. 
+        // Bail if already answered question.
         if (this.currentNumberOfClicks >= this.requiredClicks) {
             return;
         }
@@ -44,7 +42,7 @@ class ClickQuestionController {
             this.moveButton();
         }
 
-        // Check if the user clicked enough times. 
+        // Check if the user clicked enough times.
         if (this.currentNumberOfClicks >= this.requiredClicks) {
             this.submitAnswer();
         }
@@ -52,15 +50,35 @@ class ClickQuestionController {
 
     // Move the button to a random location to keep the user on their toes.
     moveButton() {
+        console.log('ima movin');
+        let parentContainer = document.getElementById('click-question-container');
+        let parentBoundingRectangle = parentContainer.getBoundingClientRect();
 
+        let heightRangeMax = parentBoundingRectangle.height;
+        let widthRangeMax = parentBoundingRectangle.width;
+
+        let clickQuestionButton = document.getElementById('click-question-button');
+        let buttonBoundingRectangle = clickQuestionButton.getBoundingClientRect();
+
+        let buttonOffsetY = buttonBoundingRectangle.height;
+        let buttonOffsetX = buttonBoundingRectangle.width;
+
+        let newY = random(0, heightRangeMax - buttonOffsetY);
+        let newX = random(0, widthRangeMax - buttonOffsetX);
+
+        this.buttonStyle = {
+            position: 'relative',
+            top: `${toString(floor(newY))}px`,
+            left: `${toString(floor(newX))}px`,
+        };
     }
 
-    // Raise our answer callback. 
+    // Raise our answer callback.
     submitAnswer() {
         this.onSubmit({
             // Expect the answer to be equal to the required clicks
             // answer: toString(this.requiredClicks)
-            answer: toString(this.question.currentBody)
+            answer: toString(this.question.currentBody),
         });
     }
 }
