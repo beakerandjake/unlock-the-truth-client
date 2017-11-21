@@ -8,7 +8,7 @@
     <form name="$ctrl.loginForm" class="login-form" ng-submit="$ctrl.login()">
         <!-- Error message if login fails.  -->
         <div ng-if="$ctrl.error" class="am-fade">
-            <div uib-alert class="alert-danger">Username or Password was incorrect.</div>
+            <div uib-alert class="alert-danger">{{$ctrl.error}}</div>
         </div>
         <!-- Main form fields -->
         <fieldset ng-disabled="$ctrl.loginForm.$submitted">
