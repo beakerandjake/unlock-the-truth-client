@@ -13,7 +13,9 @@ app.use(helmet());
 app.use(compression());
 
 // Serving static files 
-app.use(express.static(public_dir));
+app.use(express.static(public_dir, {
+    maxAge: '364d'
+}));
 
 // Redirect anything not found back to the homepage. 
 app.get('*', function (req, res) {
