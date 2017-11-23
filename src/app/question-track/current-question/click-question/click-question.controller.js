@@ -1,4 +1,9 @@
-import { toInteger, toString, random, floor } from 'lodash';
+import {
+    toInteger,
+    toString,
+    random,
+    floor
+} from 'lodash';
 import * as constants from './click-question.constants';
 
 // Controller for the click question component.
@@ -8,7 +13,11 @@ class ClickQuestionController {
         // Properties
         this.requiredClicks = 0;
         this.currentNumberOfClicks = 0;
-        this.buttonStyle = { position: 'relative', top: '0px', left: '0px' };
+        this.buttonStyle = {
+            position: 'relative',
+            top: '0px',
+            left: '0px'
+        };
     }
 
     $onInit() {
@@ -19,7 +28,11 @@ class ClickQuestionController {
         // Expect that 'click' questions body is the required number of clicks to complete.
         this.requiredClicks = toInteger(this.question.currentBody);
         this.currentNumberOfClicks = 0;
-        this.buttonStyle = { position: 'relative', top: '0px', left: '0px' };
+        this.buttonStyle = {
+            position: 'relative',
+            top: '0px',
+            left: '0px'
+        };
 
         // Sanity
         if (this.requiredClicks < 1) {
@@ -51,12 +64,22 @@ class ClickQuestionController {
     // Move the button to a random location to keep the user on their toes.
     moveButton() {
         let parentContainer = document.getElementById('click-question-container');
+
+        if (!parentContainer) {
+            return;
+        }
+
         let parentBoundingRectangle = parentContainer.getBoundingClientRect();
 
         let heightRangeMax = parentBoundingRectangle.height;
         let widthRangeMax = parentBoundingRectangle.width;
 
         let clickQuestionButton = document.getElementById('click-question-button');
+
+        if (!clickQuestionButton) {
+            return;
+        }
+
         let buttonBoundingRectangle = clickQuestionButton.getBoundingClientRect();
 
         let buttonOffsetY = buttonBoundingRectangle.height;
